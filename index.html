@@ -341,26 +341,35 @@
   }
 }
 
-    @media (max-width: 640px) {
-  /* Make each step container a flex row */
-  .steps .grid > div {
+   /* Mobile: stack each step, header row flex, desc below */
+@media (max-width: 640px) {
+  .steps .grid {
+    display: block;
+  }
+  .step {
+    margin-bottom: 2rem;
+  }
+  .step-header {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 1rem;
-    margin-bottom: 1.5rem; /* space between steps */
   }
-
-  /* Number bubble stays its size but loses bottom margin */
   .step-circle {
-    margin: 0;
-    flex-shrink: 0;
+    margin: 0; /* remove any desktop bottom margin */
   }
-
-  /* Keep title + desc stacked vertically */
-  .step-title, .step-desc {
-    text-align: left;
+  .step-title {
+    margin: 0; /* remove desktop bottom margin */
+    font-size: 1rem; /* adjust if needed */
+  }
+  .step-desc {
+    margin-top: 0.5rem;
+    margin-left: calc(3rem + 1rem); 
+    /* indent to align under the title, 
+       where 3rem is circle width, 1rem is gap */
+    font-size: 0.9rem;
   }
 }
+
 
 
   </style>
@@ -384,39 +393,38 @@
     </div>
   </section>
 
-  <!-- STEPS -->
   <section class="steps">
-    <div class="container">
-      <h2>Your $1,400 in 3 Quick Moves</h2>
-      <div class="grid">
-        <div>
+  <div class="container">
+    <h2>3 Simple Moves to Get Your Stimulus</h2>
+    <div class="grid">
+      
+      <div class="step">
+        <div class="step-header">
           <div class="step-circle">1</div>
           <h3 class="step-title">Tap the button below</h3>
-          <p class="step-desc">Jump right into the application</p>
         </div>
-        <div>
-          <div class="step-circle">2</div>
-          <h3 class="step-title">Hit "Continue"</h3>
-          <p class="step-desc">You'll be redirected to the Assistance page</p>
-        </div>
-        <div>
-          <div class="step-circle">3</div>
-          <h3 class="step-title">Enter correct details and submit</h3>
-          <p class="step-desc">Provide accurate info so your $1,400 deposit arrives hassle-free</p>
-        </div>
+        <p class="step-desc">Jump right into the application</p>
       </div>
-      <!-- MID-PAGE CTA -->
-  <div class="mid-cta">
-    <a
-  href="https://rewarrdsgiant.com/aff_c?offer_id=1421&aff_id=134431"
-  class="btn-primary"
->
-  👉 Yes, Show Me If I Qualify
-</a>
-
-  </div>
+      
+      <div class="step">
+        <div class="step-header">
+          <div class="step-circle">2</div>
+          <h3 class="step-title">Hit “Continue”</h3>
+        </div>
+        <p class="step-desc">You’ll be redirected to the Assistance page</p>
+      </div>
+      
+      <div class="step">
+        <div class="step-header">
+          <div class="step-circle">3</div>
+          <h3 class="step-title">Enter correct details & submit</h3>
+        </div>
+        <p class="step-desc">Provide accurate info so your $1,400 arrives hassle-free</p>
+      </div>
+      
     </div>
-  </section>
+  </div>
+</section>
 
  
   
