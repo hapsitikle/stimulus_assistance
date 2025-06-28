@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Bridge Page</title>
+  <title>Stimulus Assistance Bridge</title>
   <style>
-    /* Fonts */
+    /* ────────── FONTS & ROOT ────────── */
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap');
 
     :root {
@@ -15,59 +15,52 @@
       --white: #ffffff;
       --gray-300: #d1d5db;
       --gray-900: #111827;
-      --green-100: #d1fae5;
-      --green-700: #047857;
-      --transition: 0.25s ease-in-out;
+      --transition: .25s ease-in-out;
     }
-
-    *, *::before, *::after { box-sizing: border-box; }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      margin: 0;
       font-family: 'Open Sans', sans-serif;
       color: var(--gray-900);
       background: var(--white);
       line-height: 1.5;
     }
-    h1, h2, h3 { font-family: 'Montserrat', sans-serif; margin: 0; }
+    h1,h2,h3 { font-family: 'Montserrat', sans-serif; }
 
+    /* ────────── LAYOUT UTILITIES ────────── */
     .container {
-      width: 100%;
       max-width: 960px;
       margin: 0 auto;
       padding: 0 1rem;
     }
+    .grid { display: grid; gap: 1rem; }
 
-    /* Hero */
+    /* ────────── HERO ────────── */
     .hero {
       background: var(--navy);
       color: var(--white);
       text-align: center;
-      padding: 5rem 1rem 4rem;
-      position: relative;
+      padding: 5rem 1rem 3rem;
     }
-    .preheader {
+    .hero .preheader {
       color: var(--emerald);
-      font-size: 0.9rem;
       text-transform: uppercase;
       font-weight: 600;
+      font-size: .9rem;
       margin-bottom: 1rem;
     }
     .hero h1 {
-      font-size: clamp(1.75rem, 6vw, 3rem);
+      font-size: clamp(1.75rem,5vw,3rem);
       font-weight: 700;
       max-width: 720px;
       margin: 0 auto 1rem;
       line-height: 1.2;
     }
-    .hero p {
-      font-size: 1rem;
+    .hero .sub {
       font-weight: 300;
       color: var(--gray-300);
       margin-bottom: 1rem;
     }
-    .social-proof {
-      font-size: 0.9rem;
+    .hero .social-proof {
       font-weight: 300;
       color: var(--white);
       margin-bottom: 2rem;
@@ -76,75 +69,68 @@
       background: var(--emerald);
       color: var(--white);
       border: none;
-      padding: 0.75rem 2rem;
+      padding: .75rem 2rem;
       font-size: 1rem;
-      border-radius: 0.5rem;
+      border-radius: .5rem;
       cursor: pointer;
       transition: background var(--transition);
     }
     .btn-primary:hover {
       background: var(--emerald-dark);
     }
-    .urgency {
-      font-size: 0.9rem;
+    .hero .urgency {
+      font-size: .9rem;
       color: var(--gray-300);
-      margin-top: 0.5rem;
+      margin-top: .5rem;
     }
-
-    /* One-off hero testimonial */
     .testimonials-hero {
       font-style: italic;
+      margin-top: 2rem;
       color: var(--white);
-      margin: 2rem auto 0;
-      max-width: 640px;
     }
     .testimonials-hero footer {
-      margin-top: 0.5rem;
+      margin-top: .5rem;
       font-weight: 600;
     }
 
-    /* Trust Bar */
+    /* ────────── TRUST BAR ────────── */
     .trust {
-      margin: 2rem 0;
-      padding: 0 1rem;
+      margin: 3rem 0;
     }
     .trust .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
+      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
     }
     .trust .card {
       background: var(--white);
       padding: 1.5rem;
       text-align: center;
-      border-radius: 0.5rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border-radius: .5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,.1);
     }
     .trust .icon {
       font-size: 2rem;
       color: var(--emerald);
-      margin-bottom: 0.5rem;
+      margin-bottom: .5rem;
     }
     .trust .label {
       font-weight: 600;
-      font-size: 0.95rem;
+      font-size: .95rem;
     }
 
-    /* Steps */
+    /* ────────── STEPS ────────── */
     .steps {
       background: var(--navy);
       color: var(--white);
       text-align: center;
-      padding: 4rem 1rem;
+      padding: 3rem 1rem;
     }
     .steps h2 {
       font-size: 2rem;
       font-weight: 600;
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
     }
     .steps .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
       gap: 2rem;
       max-width: 800px;
       margin: 0 auto;
@@ -153,151 +139,61 @@
       width: 3rem; height: 3rem;
       background: var(--emerald);
       border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 1.25rem;
       margin: 0 auto 1rem;
-      font-size: 1.25rem;
     }
-    .step-title {
-      font-size: 1.125rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-    .step-desc {
-      font-size: 0.9rem;
-      color: var(--gray-300);
-    }
+    .step-title { font-size: 1.125rem; font-weight: 600; margin-bottom: .5rem; }
+    .step-desc { font-size: .9rem; color: var(--gray-300); }
 
-    /* Mid-page CTA repeat */
+    /* ────────── MID-CTA ────────── */
     .mid-cta {
       text-align: center;
       margin: 3rem 0;
     }
 
-    /* Testimonials */
+    /* ────────── TESTIMONIALS ────────── */
     .testimonials {
-      padding: 4rem 1rem;
+      padding: 3rem 1rem;
       text-align: center;
     }
     .testimonials h2 {
-      font-size: 2rem;
-      font-weight: 600;
-      margin-bottom: 2.5rem;
+      font-size: 2rem; font-weight: 600; margin-bottom: 2rem;
     }
     .testimonials .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
     }
     .testimonial {
       background: var(--white);
-      padding: 1.5rem;
+      padding: 1.75rem;
       text-align: left;
-      border-radius: 0.5rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border-radius: .5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,.1);
     }
-    .testimonial .stars {
-      margin-bottom: 0.75rem;
-    }
-    .stars span {
-      font-size: 1rem;
-      color: gold;
-      margin-right: 0.125rem;
-    }
+    .stars { margin-bottom: .75rem; }
+    .stars span { color: gold; font-size: 1rem; margin-right: .125rem; }
     .testimonial p {
-      font-style: italic;
-      margin-bottom: 1rem;
-      font-size: 0.95rem;
+      font-style: italic; margin-bottom: 1rem; font-size: .95rem;
     }
     .author {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
+      display: flex; align-items: center; gap: .75rem;
     }
     .avatar {
       width: 2.25rem; height: 2.25rem;
-      background: var(--green-100);
-      color: var(--green-700);
+      background: #d1fae5; color: #047857;
       border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 1rem;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 1rem;
     }
-    .author-info {
-      font-size: 0.9rem;
-    }
+    .author-info { font-size: .9rem; }
 
-    /* Qualification Form */
-    .qualify {
-      background: var(--emerald);
-      color: var(--white);
-      text-align: center;
-      padding: 4rem 1rem;
-    }
-    .qualify h2 {
-      font-size: 2rem;
-      font-weight: 600;
-      margin-bottom: 2rem;
-    }
-    .qualify-form {
-      background: var(--white);
-      color: var(--gray-900);
-      max-width: 360px;
-      margin: 0 auto 1.5rem;
-      padding: 1.75rem;
-      border-radius: 0.5rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    .qualify-form input {
-      width: 100%;
-      padding: 0.75rem;
-      margin-bottom: 0.75rem;
-      border: 1px solid #ccc;
-      border-radius: 0.375rem;
-      font-size: 0.95rem;
-    }
-    .btn-secondary {
-      background: var(--navy);
-      color: var(--white);
-      width: 100%;
-      padding: 0.75rem;
-      border: none;
-      border-radius: 0.375rem;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background var(--transition);
-    }
-    .btn-secondary:hover {
-      background: #0c1320;
-    }
-    .qualify-form a {
-      display: block;
-      margin-top: 0.5rem;
-      color: var(--green-700);
-      font-size: 0.85rem;
-      text-decoration: none;
-    }
-    .qualify p {
-      font-size: 0.9rem;
-      margin-bottom: 0.5rem;
-    }
-    .qualify a.cont {
-      color: var(--white);
-      font-weight: 600;
-      text-decoration: underline;
-    }
-
-    /* Footer */
+    /* ────────── FOOTER ────────── */
     footer {
       background: var(--navy);
       color: var(--gray-300);
       text-align: center;
       padding: 2.5rem 1rem;
-      font-size: 0.85rem;
+      font-size: .85rem;
     }
     footer .info {
       display: flex;
@@ -306,114 +202,135 @@
       gap: 1.5rem;
       margin-bottom: 1rem;
     }
-    footer .info div {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    footer svg {
-      width: 1.25rem;
-      height: 1.25rem;
-      color: var(--emerald);
-    }
+    footer svg { width: 1.25rem; height: 1.25rem; color: var(--emerald); }
     footer a {
       color: var(--gray-300);
       text-decoration: none;
-      margin: 0 0.5rem;
+      margin: 0 .5rem;
     }
-    footer a:hover {
-      text-decoration: underline;
-    }
+    footer a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
 
-  <!-- Hero -->
+  <!-- HERO -->
   <section class="hero">
     <div class="container">
       <p class="preheader">FREE federal money—mobile only!</p>
-      <h1>“Struggling to Get Your Stimulus? Secure Your FREE $1,400 Check in Under 60 Seconds”</h1>
-      <p>No fees. No gimmicks. Mobile-only, government-backed process.</p>
+      <h1>Struggling to Get Your Stimulus? Secure Your FREE $1,400 Check in Under 60 Seconds</h1>
+      <p class="sub">No fees. No gimmicks. Mobile-only, government-backed process.</p>
       <p class="social-proof">Join 2,345 Americans who’ve already claimed theirs.</p>
       <button class="btn-primary" onclick="scrollTo('trust')">👉 Yes, Show Me If I Qualify</button>
       <p class="urgency">⏳ Limited spots—apply before they close!</p>
 
       <div class="testimonials-hero">
-        “I got my $1,400 in just 3 days—so easy!”  
+        “I got my $1,400 in just 3 days—so easy!”<br/>
         <footer>— Alex R., CA</footer>
       </div>
     </div>
   </section>
 
-  <!-- Trust Bar -->
+  <!-- TRUST BAR -->
   <section id="trust" class="trust">
     <div class="container grid">
-      <!-- … your three trust cards … -->
+      <div class="card">
+        <div class="icon">🏛️</div>
+        <div class="label">Official Government Program</div>
+      </div>
+      <div class="card">
+        <div class="icon">💯</div>
+        <div class="label">100% Free — No Up-Front Fees</div>
+      </div>
+      <div class="card">
+        <div class="icon">📱</div>
+        <div class="label">Fast, Mobile-Only Process</div>
+      </div>
     </div>
   </section>
 
-  <!-- 3 Steps -->
+  <!-- STEPS -->
   <section class="steps">
     <div class="container">
-      <!-- … your three-step content … -->
+      <h2>Get Your Stimulus in 3 Simple Steps</h2>
+      <div class="grid">
+        <div>
+          <div class="step-circle">1</div>
+          <h3 class="step-title">Answer 2 Quick Questions</h3>
+          <p class="step-desc">Takes less than 30 seconds</p>
+        </div>
+        <div>
+          <div class="step-circle">2</div>
+          <h3 class="step-title">Verify Your Info</h3>
+          <p class="step-desc">Secure confirmation of your eligibility</p>
+        </div>
+        <div>
+          <div class="step-circle">3</div>
+          <h3 class="step-title">Get Notified & Receive Funds</h3>
+          <p class="step-desc">Direct deposit in 5–7 business days</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Mid-page CTA repeat -->
+  <!-- MID-PAGE CTA -->
   <div class="mid-cta">
     <button class="btn-primary" onclick="scrollTo('trust')">👉 Yes, Show Me If I Qualify</button>
   </div>
 
-  <!-- Updated Testimonials (emotional & inspiring) -->
+  <!-- EMOTIONAL & INSPIRING TESTIMONIALS -->
   <section class="testimonials">
     <div class="container">
       <h2>What Our Users Say</h2>
       <div class="grid">
-        
-        <!-- Emotional Testimonial -->
         <div class="testimonial">
           <div class="stars">
             <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
           </div>
           <p>
-            “I was drowning in my daughter’s medical bills and didn’t know where to turn. 
-            Then I stumbled on this stimulus assistance—within days I had $1,400 deposited 
-            right into my account. That relief gave me hope and allowed me to focus on her care 
-            instead of payments.”
+            “I was drowning in my daughter’s medical bills and didn’t know where to turn.
+            Then I stumbled on this stimulus assistance—within days I had $1,400 deposited
+            right into my account. That relief gave me hope and allowed me to focus on her
+            care instead of payments.”
           </p>
           <div class="author">
             <div class="avatar">S</div>
             <div class="author-info">Sarah M., Ohio</div>
           </div>
         </div>
-
-        <!-- Inspiring Testimonial -->
         <div class="testimonial">
           <div class="stars">
             <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
           </div>
           <p>
-            “Thanks to that extra $1,400, I finally launched the bakery I’d dreamed of for years. 
-            I bought my first batch of ingredients, opened my doors, and now employ three 
-            wonderful folks in my neighborhood. This program didn’t just give me money—it gave 
-            me purpose.”
+            “Thanks to that extra $1,400, I finally launched the bakery I’d dreamed of for years.
+            I bought my first batch of ingredients, opened my doors, and now employ three
+            wonderful folks in my neighborhood. This program didn’t just give me money—it
+            gave me purpose.”
           </p>
           <div class="author">
             <div class="avatar">D</div>
             <div class="author-info">David L., New York</div>
           </div>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- (Qualification section REMOVED) -->
-
-  <!-- Footer -->
+  <!-- FOOTER -->
   <footer>
     <div class="info">
-      <!-- … your footer icons & text … -->
+      <div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M5 13l4 4L19 7"/>
+        </svg>
+        <span>We never share or sell your data</span>
+      </div>
+      <div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+        </svg>
+        <span>24/7 Support: support@relieffinder.com</span>
+      </div>
     </div>
     <div>
       <a href="#">Privacy Policy</a> |
@@ -424,7 +341,7 @@
 
   <script>
     function scrollTo(id) {
-      document.getElementById(id)?.scrollIntoView({behavior: 'smooth'});
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
     }
   </script>
 </body>
