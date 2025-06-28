@@ -341,6 +341,28 @@
   }
 }
 
+    @media (max-width: 640px) {
+  /* Make each step container a flex row */
+  .steps .grid > div {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.5rem; /* space between steps */
+  }
+
+  /* Number bubble stays its size but loses bottom margin */
+  .step-circle {
+    margin: 0;
+    flex-shrink: 0;
+  }
+
+  /* Keep title + desc stacked vertically */
+  .step-title, .step-desc {
+    text-align: left;
+  }
+}
+
+
   </style>
 </head>
 <body>
