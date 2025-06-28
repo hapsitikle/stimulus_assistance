@@ -152,6 +152,22 @@
       margin: 3rem 0;
     }
 
+    .avatar {
+  width: 5rem;           /* adjust size as needed */
+  height: 5rem;
+  border-radius: 50%;    /* makes it circular */
+  overflow: hidden;      /* crops the image to the circle */
+  flex-shrink: 0;        /* prevents shrinking in flex layouts */
+  margin-right: 1rem;    /* space between avatar & text */
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;     /* ensures the image covers the container */
+  display: block;
+}
+
     /* ────────── TESTIMONIALS ────────── */
     .testimonials {
       padding: 3rem 1rem;
@@ -313,7 +329,7 @@
         </p>
         <div class="author">
           <div class="avatar">
-            <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="David L." />
+            <img src="https://randomuser.me/api/portraits/men/40.jpg" alt="David L." />
           </div>
           <div class="author-info">David L., New York</div>
         </div>
