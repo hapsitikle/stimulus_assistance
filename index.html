@@ -46,6 +46,13 @@
       padding: 5rem 1rem 4rem;
       position: relative;
     }
+    .preheader {
+      color: var(--emerald);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
     .hero h1 {
       font-size: clamp(1.75rem, 6vw, 3rem);
       font-weight: 700;
@@ -57,6 +64,12 @@
       font-size: 1rem;
       font-weight: 300;
       color: var(--gray-300);
+      margin-bottom: 1rem;
+    }
+    .social-proof {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--white);
       margin-bottom: 2rem;
     }
     .btn-primary {
@@ -72,12 +85,29 @@
     .btn-primary:hover {
       background: var(--emerald-dark);
     }
+    .urgency {
+      font-size: 0.9rem;
+      color: var(--gray-300);
+      margin-top: 0.5rem;
+    }
 
+    /* One-off hero testimonial */
+    .testimonials-hero {
+      font-style: italic;
+      color: var(--white);
+      margin: 2rem auto 0;
+      max-width: 640px;
+    }
+    .testimonials-hero footer {
+      margin-top: 0.5rem;
+      font-weight: 600;
+    }
+
+    /* Trust Bar */
     .trust {
-  margin: 2rem 0;
-  padding: 0 1rem;
-}
-
+      margin: 2rem 0;
+      padding: 0 1rem;
+    }
     .trust .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -138,6 +168,12 @@
     .step-desc {
       font-size: 0.9rem;
       color: var(--gray-300);
+    }
+
+    /* Mid-page CTA repeat */
+    .mid-cta {
+      text-align: center;
+      margin: 3rem 0;
     }
 
     /* Testimonials */
@@ -295,9 +331,17 @@
   <!-- Hero -->
   <section class="hero">
     <div class="container">
-      <h1>How to Secure Your FREE $1,400 Stimulus Check in Under a Minute</h1>
+      <p class="preheader">FREE federal money—mobile only!</p>
+      <h1>“Struggling to Get Your Stimulus? Secure Your FREE $1,400 Check in Under 60 Seconds”</h1>
       <p>No fees. No gimmicks. Mobile-only, government-backed process.</p>
-      <button class="btn-primary" onclick="scrollTo('trust')">See If You Qualify</button>
+      <p class="social-proof">Join 2,345 Americans who’ve already claimed theirs.</p>
+      <button class="btn-primary" onclick="scrollTo('trust')">👉 Yes, Show Me If I Qualify</button>
+      <p class="urgency">⏳ Limited spots—apply before they close!</p>
+
+      <div class="testimonials-hero">
+        “I got my $1,400 in just 3 days—so easy!”  
+        <footer>— Alex R., CA</footer>
+      </div>
     </div>
   </section>
 
@@ -336,12 +380,17 @@
         </div>
         <div>
           <div class="step-circle">3</div>
-          <h3 class="step-title">Get Notified &amp; Receive Funds</h3>
-          <p class="step-desc">Direct deposit within 5-7 business days</p>
+          <h3 class="step-title">Get Notified & Receive Funds</h3>
+          <p class="step-desc">Direct deposit within 5–7 business days</p>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- Mid-page CTA repeat -->
+  <div class="mid-cta">
+    <button class="btn-primary" onclick="scrollTo('trust')">👉 Yes, Show Me If I Qualify</button>
+  </div>
 
   <!-- Testimonials -->
   <section class="testimonials">
@@ -350,8 +399,7 @@
       <div class="grid">
         <div class="testimonial">
           <div class="stars">
-            <span>★</span><span>★</span><span>★</span><span>★</span>
-            <span style="color:#ccc;">★</span>
+            <span>★</span><span>★</span><span>★</span><span>★</span><span style="color:#ccc;">★</span>
           </div>
           <p>"I got my $1,400 last week—so easy! The whole process was incredibly straightforward."</p>
           <div class="author">
@@ -391,8 +439,18 @@
   <!-- Footer -->
   <footer>
     <div class="info">
-      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 13l4 4L19 7"/></svg><span>We never share or sell your data</span></div>
-      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg><span>24/7 Support: support@relieffinder.com</span></div>
+      <div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M5 13l4 4L19 7"/>
+        </svg>
+        <span>We never share or sell your data</span>
+      </div>
+      <div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+        </svg>
+        <span>24/7 Support: support@relieffinder.com</span>
+      </div>
     </div>
     <div>
       <a href="#">Privacy Policy</a> |
