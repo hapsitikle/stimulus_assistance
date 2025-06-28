@@ -359,6 +359,21 @@ margin-bottom: 10px;
   }
 }
 
+    @media (max-width: 640px) {
+  /* Make the hero CTA stay big on phones */
+  .hero-cta {
+    /* restore more generous padding */
+    padding: 1.25rem 2rem !important;
+    /* bump the font size up */
+    font-size: 1.4rem !important;
+    /* let it fill its container width if you like */
+    width: 100%;
+    display: block;
+    margin: 0.75rem auto;
+  }
+}
+
+
 @media (max-width: 640px) {
   /* Stack steps vertically with spacing */
   .steps .grid > .step {
@@ -441,7 +456,13 @@ margin-bottom: 10px;
       <p class="preheader">FREE federal money—mobile only!</p>
       <h1>Unlock Your Federal Aid in Just 30 Seconds</h1>
       <p class="sub">No fees. No gimmicks. Mobile-only, government-backed process.</p>
-      <a href="https://rewarrdsgiant.com/aff_c?offer_id=1421&aff_id=134431" class="btn-primary">💰 Get My Federal Aid Now</a>
+      <a
+  href="https://rewarrdsgiant.com/aff_c?offer_id=1421&aff_id=134431"
+  class="btn-primary hero-cta"
+>
+  💰 Get My Federal Aid Now
+</a>
+
 
       <p class="urgency">⏳ Limited spots—apply before they close!</p>
 
