@@ -1,1 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Stimulus Assistance Bridge</title>
+  <style>
+    /* Import Google Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap');
+
+    :root {
+      --navy: #0f172a;
+      --emerald: #10b981;
+      --white: #fff;
+      --gray-300: #d1d5db;
+      --gray-900: #111827;
+      --green-100: #d1fae5;
+      --green-700: #047857;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: var(--gray-900);
+      background: var(--white);
+      line-height: 1.6;
+    }
+    h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
+    .container { max-width: 960px; margin: 0 auto; padding: 0 1rem; }
+
+    /* Hero */
+    .hero {
+      background: var(--navy);
+      color: var(--white);
+      text-align: center;
+      padding: 3rem 1rem;
+      position: relative;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-weight: 300;
+      margin-bottom: 2rem;
+      color: var(--gray-300);
+    }
+    .btn-primary {
+      background: var(--emerald);
+      color: var(--white);
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+    }
+
+    /* Trust bar */
+    .trust {
+      background: var(--white);
+      display: flex;
+      gap: 1rem;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+    }
+    .trust .card {
+      flex: 1;
+      min-width: 200px;
+      background: var(--white);
+      border-radius: 0.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,.1);
+      padding: 1rem;
+      text-align: center;
+    }
+    .trust .icon {
+      font-size: 2rem;
+      color: var(--emerald);
+      margin-bottom: 0.5rem;
+    }
+
+    /* Steps */
+    .steps {
+      background: var(--navy);
+      color: var(--white);
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+    .steps h2 { font-size: 2rem; margin-bottom: 2rem; }
+    .steps .grid {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .step {
+      background: none;
+      flex: 1;
+      min-width: 200px;
+      padding: 1rem;
+    }
+    .step-circle {
+      width: 3rem; height: 3rem;
+      background: var(--emerald);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .step h3 { font-size: 1.125rem; margin-bottom: .5rem; }
+
+    /* Testimonials */
+    .testimonials {
+      background: var(--white);
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+    .testimonials h2 { font-size: 2rem; margin-bottom: 2rem; }
+    .testimonials .grid {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .testimonial {
+      background: var(--white);
+      flex: 1;
+      min-width: 250px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,.1);
+      border-radius: .5rem;
+      text-align: left;
+    }
+    .stars { margin-bottom: 1rem; }
+    .stars span {
+      color: gold;
+      font-size: 1rem;
+      margin-right: .125rem;
+    }
+    .testimonial p { margin-bottom: 1rem; }
+    .author {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      font-weight: 600;
+    }
+    .avatar {
+      width: 2rem; height: 2rem;
+      background: var(--green-100);
+      color: var(--green-700);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Form section */
+    .qualify {
+      background: var(--emerald);
+      color: var(--white);
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+    .qualify h2 { font-size: 2rem; margin-bottom: 1.5rem; }
+    .qualify-form {
+      background: var(--white);
+      color: var(--gray-900);
+      max-width: 360px;
+      margin: 0 auto 1rem;
+      padding: 1.5rem;
+      border-radius: .5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,.1);
+    }
+    .qualify-form input {
+      width: 100%;
+      padding: .75rem;
+      margin-bottom: .75rem;
+      border: 1px solid #ccc;
+      border-radius: .375rem;
+      font-size: 1rem;
+    }
+    .btn-secondary {
+      background: var(--navy);
+      color: var(--white);
+      width: 100%;
+      padding: .75rem;
+      border: none;
+      border-radius: .375rem;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .qualify-form a {
+      display: block;
+      margin-top: .5rem;
+      color: var(--green-700);
+      text-decoration: none;
+      font-size: .875rem;
+    }
+    .qualify p {
+      font-size: .875rem;
+      margin-bottom: .5rem;
+    }
+    .qualify a.cont { color: var(--white); text-decoration: underline; font-weight: 600; }
+
+    /* Footer */
+    footer {
+      background: var(--navy);
+      color: var(--gray-300);
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: .875rem;
+    }
+    footer .info {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    footer .info div {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+    footer svg { width: 1.25rem; height: 1.25rem; color: var(--emerald); }
+    footer a { color: var(--gray-300); text-decoration: none; margin: 0 .5rem; }
+    footer a:hover { text-decoration: underline; }
+
+    /* Responsiveness */
+    @media(min-width: 640px) {
+      .trust { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1>How to Secure Your FREE $1,400 Stimulus Check in Under a Minute</h1>
+      <p>No fees. No gimmicks. Mobile-only, government-backed process.</p>
+      <button class="btn-primary" onclick="scrollToSection('trust')">See If You Qualify</button>
+    </div>
+  </section>
+
+  <!-- Trust -->
+  <section id="trust" class="trust container">
+    <div class="card">
+      <div class="icon">🏛️</div>
+      <div>Official Government Program</div>
+    </div>
+    <div class="card">
+      <div class="icon">💯</div>
+      <div>100% Free — No Up-Front Fees</div>
+    </div>
+    <div class="card">
+      <div class="icon">📱</div>
+      <div>Fast, Mobile-Only Process</div>
+    </div>
+  </section>
+
+  <!-- Steps -->
+  <section class="steps">
+    <div class="container">
+      <h2>Get Your Stimulus in 3 Simple Steps</h2>
+      <div class="grid">
+        <div class="step">
+          <div class="step-circle">1</div>
+          <h3>Answer 2 Quick Questions</h3>
+          <p>Simple verification takes less than 30 seconds</p>
+        </div>
+        <div class="step">
+          <div class="step-circle">2</div>
+          <h3>Verify Your Info</h3>
+          <p>Secure confirmation of your eligibility</p>
+        </div>
+        <div class="step">
+          <div class="step-circle">3</div>
+          <h3>Get Notified &amp; Receive Funds</h3>
+          <p>Direct deposit within 5-7 business days</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials">
+    <div class="container">
+      <h2>What Our Users Say</h2>
+      <div class="grid">
+        <div class="testimonial">
+          <div class="stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span style="color:#ccc">★</span>
+          </div>
+          <p>"I got my $1,400 last week—so easy! The whole process was incredibly straightforward."</p>
+          <div class="author">
+            <div class="avatar">E</div>
+            <div>Emma, Texas</div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="stars">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <p>"This was faster than filing taxes. Got my stimulus without any hassle."</p>
+          <div class="author">
+            <div class="avatar">C</div>
+            <div>Carlos, Florida</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Qualification Form -->
+  <section class="qualify">
+    <div class="container">
+      <h2>Start Here—See If You Qualify</h2>
+      <div class="qualify-form">
+        <input type="text" placeholder="Enter ZIP Code" />
+        <input type="text" placeholder="Enter Birth Year" />
+        <button class="btn-secondary" onclick="alert('Implement eligibility check')">Check Eligibility</button>
+        <a href="#">What if I don’t qualify?</a>
+      </div>
+      <p>Even if you don’t qualify for this stimulus, we’ll show you other relief programs you may be eligible for.</p>
+      <a href="#" class="cont">Continue to Find Out</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="info">
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 13l4 4L19 7"/></svg><span>We never share or sell your data</span></div>
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg><span>24/7 Support: support@relieffinder.com</span></div>
+    </div>
+    <div>
+      <a href="#">Privacy Policy</a> |
+      <a href="#">Terms & Conditions</a> |
+      © 2024 Relief Finder. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({behavior: 'smooth'});
+    }
+  </script>
+</body>
+</html>
 
