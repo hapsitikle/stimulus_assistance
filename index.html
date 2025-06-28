@@ -341,35 +341,49 @@
   }
 }
 
-  @media (max-width: 640px) {
+@media (max-width: 640px) {
+  /* Stack steps vertically with spacing */
   .steps .grid > .step {
     margin-bottom: 1.5rem;
   }
 
+  /* Header row: number + title */
   .step-header {
     display: flex;
     align-items: center;
     gap: 0.75rem;              /* tighten the gap */
   }
 
+  /* Smaller circle on mobile */
   .step-circle {
-    width: 2.5rem;             /* smaller circle */
+    width: 2.5rem;
     height: 2.5rem;
-    font-size: 1rem;           /* smaller number */
-    margin: 0;                 /* remove extra margin */
-  }
-  
-  .step-title {
-    font-size: 1rem;           /* keep title legible */
+    font-size: 1rem;
     margin: 0;
   }
-  
-  /* 2) Indent the description by exactly the header height + gap */
+
+  /* Title stays next to the circle */
+  .step-title {
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  /* Subtext: indent to align under the title + inject arrow */
   .step-desc {
+    position: relative;
     margin-top: 0.5rem;
-    margin-left: calc(2.5rem + 0.75rem);  /* circle + gap */
+    margin-left: calc(2.5rem + 0.75rem);  /* circle width + gap */
+    padding-left: 1rem;                   /* room for the arrow */
     font-size: 0.9rem;
     color: var(--gray-300);
+  }
+  .step-desc::before {
+    content: '→';
+    position: absolute;
+    left: 0;               /* at the same indent start */
+    top: 0;                /* aligned with the first line */
+    font-weight: 600;
+    color: var(--emerald);
   }
 }
 
