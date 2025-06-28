@@ -90,7 +90,6 @@
       cursor: pointer;
       transition: background var(--transition);
       margin-bottom: 12px;
-      white-space: nowrap;
     }
     .btn-primary:hover {
       background: var(--emerald-dark);
@@ -107,7 +106,6 @@
   background: rgba(255, 222, 89, 0.15);
   border-radius: 0.5rem;
   max-width: fit-content;  
-      white-space: nowrap;
 }
 
     .testimonials-hero {
@@ -403,8 +401,30 @@ margin-bottom: 10px;
   }
 }
 
+    /*─────────────────────────────────────────────────────────*
+ *  MOBILE WRAP & SIZING FIXES (max-width: 640px)
+ *─────────────────────────────────────────────────────────*/
+@media (max-width: 640px) {
+  /* Make all CTAs full-width, allow wrapping */
+  .btn-primary {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    margin: 0.75rem auto;     /* breathing room top & bottom */
+    white-space: normal;      /* allow the text to wrap */
+  }
 
-
+  /* Scale down the urgency bar, allow wrap, keep it centered */
+  .hero .urgency {
+    display: inline-block;    /* shrink-to-fit its contents */
+    max-width: 100%;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    margin: 0.5rem auto 1rem; /* top/bottom breathing room */
+    white-space: normal;      /* allow wrapping if needed */
+  }
+}
 
 
   </style>
