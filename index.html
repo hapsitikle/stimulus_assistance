@@ -2,610 +2,137 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Stimulus Assistance</title>
-  <!-- Taboola Pixel Code -->
-<script type='text/javascript'>
-  window._tfa = window._tfa || [];
-  window._tfa.push({notify: 'event', name: 'page_view', id: 1833931});
-  !function (t, f, a, x) {
-         if (!document.getElementById(x)) {
-            t.async = 1;t.src = a;t.id=x;f.parentNode.insertBefore(t, f);
-         }
-  }(document.createElement('script'),
-  document.getElementsByTagName('script')[0],
-  '//cdn.taboola.com/libtrc/unip/1833931/tfa.js',
-  'tb_tfa_script');
-</script>
-<!-- End of Taboola Pixel Code -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Check Your Federal Relief Eligibility</title>
   <style>
-    /* ────────── FONTS & ROOT ────────── */
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap');
+    /* Reset & Base */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; background: #f9f9f9; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    .container { width: 90%; max-width: 800px; margin: 0 auto; padding: 2rem 0; }
 
-    :root {
-      --navy: #0f172a;
-      --emerald: #10b981;
-      --emerald-dark: #059669;
-      --white: #ffffff;
-      --gray-300: #d1d5db;
-      --gray-900: #111827;
-      --transition: .25s ease-in-out;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Open Sans', sans-serif;
-      color: var(--gray-900);
-      background: var(--white);
-      line-height: 1.5;
-    }
-    h1,h2,h3 { font-family: 'Montserrat', sans-serif; }
+    /* Hero */
+    .hero { background: #fff; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); text-align: center; }
+    .hero h1 { font-size: 1.75rem; margin-bottom: 0.5rem; }
+    .hero p { color: #555; margin-bottom: 1.5rem; }
+    .btn-primary { display: inline-block; background: #2b8a3e; color: #fff; padding: 0.75rem 1.5rem; border-radius: 6px; font-size: 1rem; font-weight: bold; }
+    .badge { display: inline-block; margin-bottom: 1rem; padding: 0.25rem 0.5rem; background: #eaf8e8; color: #2b8a3e; border-radius: 4px; font-size: 0.875rem; }
 
-    /* ────────── LAYOUT UTILITIES ────────── */
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 0 1rem;
-    }
-    .grid { display: grid; gap: 1rem; }
+    /* Stats */
+    .stats { display: flex; gap: 1rem; margin: 2rem 0; text-align: center; }
+    .stat { flex: 1; background: #fff; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .stat h2 { font-size: 1.5rem; color: #2b8a3e; margin-bottom: 0.25rem; }
+    .stat p { font-size: 0.875rem; color: #555; }
 
-    /* ────────── HERO ────────── */
-    .hero {
-      background: var(--navy);
-      color: var(--white);
-      text-align: center;
-      padding: 5rem 1rem 3rem;
-    }
-    .hero .preheader {
-      color: var(--emerald);
-      text-transform: uppercase;
-      font-weight: 600;
-      font-size: .9rem;
-      margin-bottom: 1rem;
-    }
-    .hero h1 {
-      font-size: clamp(1.75rem,5vw,3rem);
-      font-weight: 700;
-      max-width: 720px;
-      margin: 0 auto 1rem;
-      line-height: 1.2;
-    }
-    .hero .sub {
-      font-weight: 300;
-      color: var(--gray-300);
-      margin-bottom: 1rem;
-    }
-    .hero .social-proof {
-      font-weight: 300;
-      color: var(--white);
-      margin-bottom: 2rem;
-    }
-    .btn-primary {
-      background: var(--emerald);
-      color: var(--white);
-      border: none;
-      text-decoration: none;
-      padding: 10px 16px;
-      font-size: 1.8rem;
-      border-radius: .75rem;
-      cursor: pointer;
-      transition: background var(--transition);
-      margin-bottom: 12px;
-    }
-    .btn-primary:hover {
-      background: var(--emerald-dark);
-      text-decoration: none;
-    }
-    .hero .urgency {
-  display: block;
-  margin: 1rem auto 0;
-  padding: 0.4rem 0.8rem;       /* smaller padding */
-  font-size: 0.9rem;            /* slightly smaller text */
-  font-weight: 600;
-  text-transform: uppercase;
-  color: #ffde59;
-  background: rgba(255, 222, 89, 0.15);
-  border-radius: 0.5rem;
-  max-width: fit-content;  
-}
+    /* How It Works */
+    .steps { background: #fff; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+    .steps h2 { text-align: center; margin-bottom: 1.5rem; font-size: 1.5rem; }
+    .step-list { display: flex; flex-direction: column; gap: 1rem; }
+    .step { display: flex; align-items: center; gap: 1rem; }
+    .step-icon { font-size: 1.5rem; }
+    .step-content h3 { margin-bottom: 0.25rem; font-size: 1.125rem; color: #2b8a3e; }
+    .step-content p { font-size: 0.9rem; color: #555; }
 
-    .testimonials-hero {
-      font-style: italic;
-      margin-top: 1.5rem;
-      color: var(--white);
-    }
-    .testimonials-hero footer {
-      margin-top: .5rem;
-      font-weight: 600;
-    }
-
-    
-
-    /* ────────── STEPS ────────── */
-    .steps {
-      background: var(--navy);
-      color: var(--white);
-      text-align: center;
-      padding: 15px 10px;
-    }
-    .steps h2 {
-      font-size: 2rem;
-      font-weight: 600;
-      margin-bottom: 2rem;
-    }
-    .steps .grid {
-      grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
-      gap: 2rem;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    .highlight-emerald {
-  color: var(--emerald);
-}
-
-    .step-circle {
-      width: 3rem; height: 3rem;
-      background: var(--emerald);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 700; font-size: 1.25rem;
-      margin: 0 auto 1rem;
-    }
-    .step-title { font-size: 1.125rem; font-weight: 600; margin-bottom: .5rem; }
-    .step-desc { font-size: .9rem; color: var(--gray-300); }
-
-    /* ────────── MID-CTA ────────── */
-    .mid-cta {
-      text-align: center;
-      margin: 3rem 0;
-    }
-
-    .avatar {
-  width: 6rem;           /* adjust size as needed */
-  height: 6rem;
-  border-radius: 50%;    /* makes it circular */
-  overflow: hidden;      /* crops the image to the circle */
-  flex-shrink: 0;        /* prevents shrinking in flex layouts */
-  margin-right: 1rem;    /* space between avatar & text */
-}
-
-.avatar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;     /* ensures the image covers the container */
-  display: block;
-}
-
-    /* ────────── TESTIMONIALS ────────── */
-    .testimonials {
-      padding: 3rem 1rem;
-      text-align: center;
-    }
-    .testimonials h2 {
-      font-size: 2rem; font-weight: 600; margin-bottom: 2rem;
-    }
-    .testimonials .grid {
-      grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
-    }
-    .testimonial {
-      background: var(--white);
-      padding: 1.75rem;
-      text-align: left;
-      border-radius: .5rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,.1);
-    }
-    .stars { margin-bottom: .75rem; }
-    .stars span { color: gold; font-size: 1rem; margin-right: .125rem; }
-    .testimonial p {
-      font-style: italic; margin-bottom: 1rem; font-size: .95rem;
-    }
-    .author {
-      display: flex; align-items: center; gap: .75rem;
-    }
-    .avatar {
-      width: 2.25rem; height: 2.25rem;
-      background: #d1fae5; color: #047857;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 700; font-size: 1rem;
-    }
-    .author-info { font-size: .9rem; }
-
-    /* ────────── FOOTER ────────── */
-    footer {
-      background: var(--navy);
-      color: var(--gray-300);
-      text-align: center;
-      padding: 2.5rem 1rem;
-      font-size: .85rem;
-    }
-    footer .info {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-bottom: 1rem;
-    }
-    footer svg { width: 1.25rem; height: 1.25rem; color: var(--emerald); }
-    footer a {
-      color: var(--gray-300);
-      text-decoration: none;
-      margin: 0 .5rem;
-    }
-    footer a:hover { text-decoration: underline; }
-
-    .testimonials-cta {
-  text-align: center;
-  margin-top: 2rem;
-margin-bottom: 10px;
-}
-
-.testimonials-cta .btn-primary {
-  padding: 1rem 3rem;     /* match your CTA sizing */
-  font-size: 1.2rem;      /* adjust as needed */
-}
-
-
-    .footer-icons {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  padding: 2rem 0;
-  background: var(--navy); /* or wherever you’re placing it */
-}
-
-.footer-icon {
-  text-align: center;
-}
-
-.footer-icon .icon {
-  font-size: 2.5rem;
-  color: var(--white);
-  display: block;
-}
-
-.footer-icon p {
-  margin-top: 0.5rem;
-  font-size: 0.95rem;
-  color: var(--white);
-  line-height: 1.3;
-}
-
-
-    /* ────────── MOBILE OPTIMIZATIONS ────────── */
-
-/* 1) Ensure container padding shrinks on small screens */
-@media (max-width: 640px) {
-  .container {
-    padding: 0 0.5rem;
-  }
-}
-
-/* 2) Stack grid columns to one column and tighten gaps */
-@media (max-width: 768px) {
-  .grid {
-    display: block;     /* switch off side-by-side */
-  }
-  .grid > * {
-    margin-bottom: 1.5rem;
-  }
-  .steps .grid,
-  .testimonials .grid,
-  .trust .grid {
-    display: block;
-  }
-  .trust .card,
-  .testimonial,
-  .steps .grid > div {
-    margin: 0 auto;
-    max-width: 100%;
-  }
-}
-
-/* 3) Make CTAs full-width on mobile + comfortable padding */
-@media (max-width: 640px) {
-  .btn-primary {
-    display: block;           /* full width button */
-    width: 100%;
-    padding: 1rem;            /* slightly less than desktop */
-    font-size: 1rem;        /* scale down text */
-    margin: 0.5rem 0;         /* breathing room */
-  }
-  .mid-cta .btn-primary {
-    margin: 1.5rem auto;
-  }
-}
-
-/* 4) Responsive hero text sizing & padding */
-@media (max-width: 480px) {
-  .hero {
-    padding: 3rem 0.5rem 2rem;
-  }
-  .hero h1 {
-    font-size: 2rem;          /* cap the size */
-    max-width: 100%;
-  }
-  .hero .sub,
-  .hero .social-proof,
-  .hero .urgency {
-    font-size: 0.9rem;
-  }
-}
-
-/* 5) Avatar scaling on mobile */
-@media (max-width: 640px) {
-  .author {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .avatar {
-    width: 4rem;
-    height: 4rem;
-    margin-bottom: 0.5rem;
-  }
-}
-
-/* 6) Footer link spacing */
-@media (max-width: 480px) {
-  footer .info {
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-  footer div + div {
-    margin-top: 1rem;
-  }
-  footer a {
-    display: block;
-    margin: 0.25rem 0;
-  }
-}
-
-    @media (max-width: 640px) {
-  /* Make the hero CTA stay big on phones */
-  .hero-cta {
-    /* restore more generous padding */
-    padding: 1.1rem 1.7rem !important;
-    /* bump the font size up */
-    font-size: 1.2rem !important;
-    /* let it fill its container width if you like */
-    width: 100%;
-    display: block;
-    margin: 0.75rem auto;
-  }
-}
-
-
-@media (max-width: 640px) {
-  /* Stack steps vertically with spacing */
-  .steps .grid > .step {
-    margin-bottom: 1.5rem;
-  }
-
-  /* Header row: number + title */
-  .step-header {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;              /* tighten the gap */
-  }
-
-  /* Smaller circle on mobile */
-  .step-circle {
-    width: 2.5rem;
-    height: 2.5rem;
-    font-size: 1rem;
-    margin: 0;
-  }
-
-  /* Title stays next to the circle */
-  .step-title {
-    font-size: 1rem;
-    margin: 0;
-  }
-
-  /* Subtext: indent to align under the title + inject arrow */
-  .step-desc {
-    position: relative;
-    margin-top: 0.5rem;
-    margin-left: calc(2.5rem + 0.75rem);  /* circle width + gap */
-    padding-left: 1rem;                   /* room for the arrow */
-    font-size: 0.9rem;
-    color: var(--gray-300);
-  }
-  .step-desc::before {
-    content: '→';
-    position: absolute;
-    left: 0;               /* at the same indent start */
-    top: 0;                /* aligned with the first line */
-    font-weight: 600;
-    color: var(--emerald);
-  }
-}
-
-    /*─────────────────────────────────────────────────────────*
- *  MOBILE WRAP & SIZING FIXES (max-width: 640px)
- *─────────────────────────────────────────────────────────*/
-@media (max-width: 640px) {
-  /* Make all CTAs full-width, allow wrapping */
-  .btn-primary {
-    display: block;
-    width: 100%;
-    padding: 0.75rem 1rem;
-    font-size: 1rem;
-    margin: 0.75rem auto;     /* breathing room top & bottom */
-    white-space: normal;      /* allow the text to wrap */
-  }
-
-  /* Scale down the urgency bar, allow wrap, keep it centered */
-  .hero .urgency {
-    display: inline-block;    /* shrink-to-fit its contents */
-    max-width: 100%;
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-    margin: 0.5rem auto 1rem; /* top/bottom breathing room */
-    white-space: normal;      /* allow wrapping if needed */
-  }
-}
-
-
+    /* Trust & Footer */
+    .trust { display: flex; flex-wrap: wrap; gap: 1rem; margin: 2rem 0; }
+    .trust-item { flex: 1; background: #fff; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); display: flex; align-items: center; gap: 0.75rem; }
+    .trust-item .icon { font-size: 1.25rem; color: #2b8a3e; }
+    .trust-item p { font-size: 0.875rem; }
+    footer { text-align: center; font-size: 0.75rem; color: #888; margin-top: 2rem; }
   </style>
 </head>
 <body>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container">
-      <p class="preheader">FREE federal money—mobile only!</p>
-      <h1>Claim Your Federal Aid Fast—Fully Mobile!</h1>
-      <p class="sub">No fees. No gimmicks. Mobile-only, government-backed process.</p>
-      <a
-  href="https://rewarrdsgiant.com/aff_c?offer_id=1421&aff_id=134431"
-  class="btn-primary hero-cta"
->
-  Get My Federal Aid Now
-</a>
-
-
-    
-
-      <div class="testimonials-hero">
-        “I got my aid in just 3 days—so easy!”<br/>
-        — Jordan R., CA
-      </div>
-    </div>
-  </section>
-
-  <section class="steps">
   <div class="container">
-    <h2>Follow These Exact Steps To Access Your Aid</h2>
-    <div class="grid">
-      
-      <div class="step">
-        <div class="step-header">
-          <div class="step-circle">1</div>
-          <h3 class="step-title">Tap the button below</h3>
-        </div>
-        <p class="step-desc">Jump right into the application</p>
-      </div>
-      
-      <div class="step">
-        <div class="step-header">
-          <div class="step-circle">2</div>
-          <h3 class="step-title">Hit “Continue”</h3>
-        </div>
-        <p class="step-desc">You’ll be redirected to the Assistance page</p>
-      </div>
-      
-      <div class="step">
-        <div class="step-header">
-          <div class="step-circle">3</div>
-          <h3 class="step-title">Enter correct details & submit</h3>
-        </div>
-        <p class="step-desc">Provide accurate info so your aid arrives hassle-free</p>
-      </div>
-      
-    </div>
-    <div class="testimonials-cta">
-      <a
-        href="https://rewarrdsgiant.com/aff_c?offer_id=1421&aff_id=134431"
-        class="btn-primary"
-      >
-        Get My Federal Aid Now
-      </a>
-    </div>
-  </div>
-</section>
 
- 
-  
+    <!-- Hero Section -->
+    <section class="hero">
+      <span class="badge">Official Federal Relief Portal</span>
+      <h1>Bills Piling Up? See If You Qualify for Up to $1,400</h1>
+      <p>No credit card required • 100% free eligibility check • Instant results</p>
+      <a href="#form" class="btn-primary">Check My Eligibility</a>
+    </section>
 
-  
-<section class="testimonials">
-  <div class="container">
-    <h2>Join Thousands Who Have Already Claimed Their Aid</h2>
-    <div class="grid">
-      <!-- Emotional Testimonial -->
-      <div class="testimonial">
-        <div class="stars">
-          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-        </div>
-        <p>
-          “I was on the brink of losing sleep over my son’s mounting hospital co-pays—
-          every day felt harder than the last. When I applied for this stimulus assistance,
-          the aid showed up in my bank within 48 hours. That lifeline covered his treatment
-          costs and let me finally breathe easy and be there for him.”
-        </p>
-        <div class="author">
-          <div class="avatar">
-            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Sarah M." />
+    <!-- Stats Section -->
+    <div class="stats">
+      <div class="stat">
+        <h2>1.2M+</h2>
+        <p>Applicants Helped</p>
+      </div>
+      <div class="stat">
+        <h2>$500M+</h2>
+        <p>Funds Secured</p>
+      </div>
+      <div class="stat">
+        <h2>95%</h2>
+        <p>Valid Submission Rate</p>
+      </div>
+    </div>
+
+    <!-- How It Works -->
+    <section class="steps" id="how-it-works">
+      <h2>How It Works</h2>
+      <div class="step-list">
+        <div class="step">
+          <div class="step-icon">🖱️</div>
+          <div class="step-content">
+            <h3>Step 1: Click &amp; Start</h3>
+            <p>Hit the button to begin your free check.</p>
           </div>
-          <div class="author-info">Sarah M., Ohio</div>
         </div>
-      </div>
-
-      <!-- Inspiring Testimonial -->
-      <div class="testimonial">
-        <div class="stars">
-          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-        </div>
-        <p>
-          “Thanks to that aid, I finally launched the bakery I’d dreamed of for years.
-          I bought my first batch of ingredients, opened my doors, and now employ three wonderful
-          folks in my neighborhood. This program didn’t just give me money—it gave me purpose.”
-        </p>
-        <div class="author">
-          <div class="avatar">
-            <img src="https://randomuser.me/api/portraits/men/40.jpg" alt="David L." />
+        <div class="step">
+          <div class="step-icon">✍️</div>
+          <div class="step-content">
+            <h3>Step 2: Enter Your Info</h3>
+            <p>Provide basic details in under 1 minute.</p>
           </div>
-          <div class="author-info">David L., New York</div>
+        </div>
+        <div class="step">
+          <div class="step-icon">✅</div>
+          <div class="step-content">
+            <h3>Step 3: Get Results</h3>
+            <p>Instant confirmation and next steps.</p>
+          </div>
         </div>
       </div>
+    </section>
+
+    <!-- Trust Section -->
+    <div class="trust">
+      <div class="trust-item">
+        <span class="icon">🔒</span>
+        <p>Bank-level Security</p>
+      </div>
+      <div class="trust-item">
+        <span class="icon">🛡️</span>
+        <p>Privacy Protected</p>
+      </div>
+      <div class="trust-item">
+        <span class="icon">👏</span>
+        <p>Trusted by Real Americans</p>
+      </div>
     </div>
 
-    <!-- CTA Below Testimonials -->
-    <div class="testimonials-cta">
-      <a
-        href="https://rewarrdsgiant.com/aff_c?offer_id=1421&aff_id=134431"
-        class="btn-primary"
-      >
-        Get My Federal Aid Now
-      </a>
+    <!-- Secondary CTA -->
+    <div style="text-align:center; margin:2rem 0;">
+      <a href="#form" class="btn-primary">Check My Eligibility Now</a>
     </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>This is an informational service. Not affiliated with any government agency.</p>
+      <p>&copy; 2025 Federal Relief Check</p>
+    </footer>
+
   </div>
-</section>
-
-
-
-    <!-- FOOTER -->
-  <footer>
-
-    <!-- Existing footer info -->
-    <div class="info">
-      <div>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <path d="M5 13l4 4L19 7"/>
-        </svg>
-        <span>We never share or sell your data</span>
-      </div>
-      <div>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-        </svg>
-        <span>24/7 Support: support@relieffinder.com</span>
-      </div>
-    </div>
-
-    <!-- Footer links -->
-    <div class="footer-links">
-      <a href="#">Privacy Policy</a> |
-      <a href="#">Terms &amp; Conditions</a> |
-      © 2024 Relief Finder. All rights reserved.
-    </div>
-  </footer>
-
-
   <script>
-    function scrollTo(id) {
-      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-    }
+    // Smooth scroll for CTAs
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
   </script>
 </body>
 </html>
