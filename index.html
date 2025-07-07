@@ -140,4 +140,32 @@
         <p>Privacy Protected</p>
       </div>
       <div class="trust-item">
-        <span class="icon">👏</
+        <span class="icon">👏</span>
+        <p>Trusted by Millions</p>
+      </div>
+    </div>
+
+    <!-- Bottom CTA Section -->
+    <section class="bottom-cta" style="background:#ffffff; padding:2rem; border-radius:10px; text-align:center; margin:2rem 0; box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+      <h2 style="font-size:1.5rem; color:#007c91; margin-bottom:0.5rem;">Don't Miss Out on Your Stimulus Check</h2>
+      <p style="color:#555; margin-bottom:1rem;">Check your eligibility now – it only takes 2 minutes and could put money in your pocket.</p>
+      <a href="#form" style="display:inline-block; background:#43a047; color:#fff; padding:0.75rem 1.5rem; border-radius:6px; font-weight:bold;">CHECK MY ELIGIBILITY NOW</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p style="margin-bottom:0.25rem;">This is an informational service. Not affiliated with any government agency.</p>
+      <p>&copy; 2025 Stimulus Check Portal. All rights reserved.</p>
+    </footer>
+  </div>
+  <script>
+    // Smooth scroll for CTAs
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>
