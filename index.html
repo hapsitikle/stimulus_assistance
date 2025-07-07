@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
   <title>Check Your Federal Relief Eligibility</title>
   <style>
     /* Reset & Base */
@@ -10,75 +10,82 @@
     body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; background: #f0f4f8; }
     a { text-decoration: none; color: inherit; }
     img { max-width: 100%; display: block; }
-    .container { width: 90%; max-width: 800px; margin: 0 auto; padding: 0 0 2rem; }
+    .container { width: 95%; max-width: 480px; margin: 0 auto; padding-bottom: 2rem; }
 
     /* Urgency Banner */
     .urgency-banner { display: flex; align-items: center; justify-content: center; background: #fdecea; color: #c62828; font-size: 0.9rem; padding: 0.5rem; border-radius: 4px; margin: 1rem 0; }
-    .urgency-banner img { width: 16px; margin-right: 0.5rem; }
 
     /* Hero */
-    .hero { background: #ffffff; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); text-align: center; }
-    .hero .badge { background: #00acc1; color: #fff; }
-    .hero h1 { font-size: 2rem; margin-bottom: 0.5rem; color: #333; }
+    .hero { background: #ffffff; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); text-align: center; }
+    .hero .badge { display: inline-block; background: #00acc1; color: #fff; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.8rem; margin-bottom: 0.75rem; }
+    .hero h1 { font-size: 1.5rem; margin-bottom: 0.5rem; color: #333; }
     .hero h1 .highlight { color: #0288d1; }
-    .hero p { color: #555; margin-bottom: 1.5rem; }
-    .btn-primary { display: inline-block; background: #43a047; color: #fff; padding: 0.75rem 1.5rem; border-radius: 6px; font-size: 1rem; font-weight: bold; transition: background 0.3s; }
+    .hero p { color: #555; margin-bottom: 1rem; font-size: 0.9rem; }
+    .btn-primary { display: inline-block; background: #43a047; color: #fff; padding: 0.75rem 1.25rem; border-radius: 6px; font-size: 1rem; font-weight: bold; transition: background 0.3s; }
     .btn-primary:hover { background: #388e3c; }
-    .badge { display: inline-block; margin-bottom: 1rem; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.875rem; }
 
     /* Simple Steps */
-    .simple-steps { display: flex; justify-content: space-between; background: #ffffff; padding: 1.5rem; margin: 2rem 0; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
-    .simple-step { flex: 1; text-align: center; }
+    .simple-steps { background: #ffffff; padding: 1rem; margin: 1.5rem 0; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .simple-steps .step-list { display: flex; justify-content: space-between; }
+    .simple-step { flex: 1; text-align: center; padding: 0 0.5rem; }
     .simple-step:not(:last-child) { border-right: 1px solid #e0e0e0; }
-    .simple-step h3 { font-size: 1.25rem; color: #007c91; margin-bottom: 0.5rem; }
-    .simple-step p { font-size: 0.9rem; color: #555; }
+    .simple-step h3 { font-size: 1.1rem; color: #007c91; margin-bottom: 0.25rem; }
+    .simple-step p { font-size: 0.85rem; color: #555; }
 
     /* Stats */
-    .stats { display: flex; gap: 1rem; margin: 2rem 0; text-align: center; }
-    .stat { flex: 1; background: #ffffff; padding: 1.25rem; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
-    .stat h2 { font-size: 1.75rem; margin-bottom: 0.25rem; }
-    .stat p { font-size: 0.9rem; color: #777; }
+    .stats { margin: 1.5rem 0; }
+    .stats .stat-list { display: flex; justify-content: space-between; }
+    .stat { flex: 1; background: #ffffff; padding: 1rem; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); text-align: center; margin: 0 0.25rem; }
+    .stat h2 { font-size: 1.5rem; margin-bottom: 0.25rem; }
+    .stat p { font-size: 0.85rem; color: #777; }
     .stat:nth-child(1) h2 { color: #0288d1; }
     .stat:nth-child(2) h2 { color: #43a047; }
     .stat:nth-child(3) h2 { color: #f57c00; }
 
     /* Detailed Steps */
-    .steps { background: #ffffff; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-    .steps h2 { text-align: center; margin-bottom: 1.5rem; font-size: 1.6rem; color: #007c91; }
-    .step-list { display: flex; flex-direction: column; gap: 1rem; }
-    .step { display: flex; align-items: center; gap: 1rem; }
-    .step-icon { font-size: 1.75rem; }
-    .step-content h3 { margin-bottom: 0.25rem; font-size: 1.125rem; color: #007c91; }
-    .step-content p { font-size: 0.9rem; color: #555; }
+    .steps { background: #ffffff; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+    .steps h2 { text-align: center; margin-bottom: 1rem; font-size: 1.4rem; color: #007c91; }
+    .step-list { display: flex; flex-direction: column; gap: 0.75rem; }
+    .step { display: flex; align-items: flex-start; gap: 0.5rem; }
+    .step-icon { font-size: 1.5rem; margin-top: 0.2rem; }
+    .step-content h3 { font-size: 1rem; color: #007c91; margin-bottom: 0.25rem; }
+    .step-content p { font-size: 0.85rem; color: #555; }
 
     /* Trust Section */
-    .trust { display: flex; flex-wrap: wrap; gap: 1rem; margin: 2rem 0; }
-    .trust-item { flex: 1; background: #ffffff; padding: 1rem; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); display: flex; align-items: center; gap: 0.75rem; }
-    .trust-item .icon { font-size: 1.5rem; }
-    .trust-item p { font-size: 0.9rem; }
+    .trust { margin: 1.5rem 0; }
+    .trust-item { background: #ffffff; padding: 0.75rem; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem; }
+    .trust-item .icon { font-size: 1.25rem; }
+    .trust-item p { font-size: 0.85rem; }
     .trust-item:nth-child(1) { border-left: 4px solid #0288d1; }
     .trust-item:nth-child(2) { border-left: 4px solid #43a047; }
     .trust-item:nth-child(3) { border-left: 4px solid #f57c00; }
 
     /* Bottom CTA */
-    .bottom-cta { background: #ffffff; padding: 2rem; border-radius: 10px; text-align: center; margin: 2rem 0; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
-    .bottom-cta h2 { font-size: 1.5rem; color: #007c91; margin-bottom: 0.5rem; }
-    .bottom-cta p { color: #555; margin-bottom: 1rem; }
-    .bottom-cta .btn-primary { background: #43a047; }
+    .bottom-cta { background: #ffffff; padding: 1.5rem; border-radius: 10px; text-align: center; margin: 1.5rem 0; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .bottom-cta h2 { font-size: 1.3rem; color: #007c91; margin-bottom: 0.5rem; }
+    .bottom-cta p { font-size: 0.85rem; color: #555; margin-bottom: 1rem; }
+    .bottom-cta .btn-primary { padding: 0.75rem 1.25rem; }
 
     /* Footer */
-    footer { text-align: center; font-size: 0.75rem; color: #888; margin-top: 1rem; }
+    footer { text-align: center; font-size: 0.75rem; color: #888; margin-top: 1rem; padding-bottom: 1rem; }
+
+    /* Responsive Adjustments */
+    @media (max-width: 400px) {
+      .hero h1 { font-size: 1.3rem; }
+      .simple-steps .step-list, .stats .stat-list { flex-direction: column; }
+      .simple-step, .stat { margin: 0 0 0.75rem; }
+      .stat { padding: 0.75rem; }
+      .steps h2 { font-size: 1.2rem; }
+    }
   </style>
 </head>
 <body>
   <div class="container">
 
-    <!-- Urgency Banner -->
     <div class="urgency-banner">
       <span>🚨 Limited Time: Check Your Eligibility Before Deadline</span>
     </div>
 
-    <!-- Hero -->
     <section class="hero">
       <span class="badge">Official Stimulus Check Portal</span>
       <h1>Check Your US <span class="highlight">Stimulus Eligibility</span></h1>
@@ -86,40 +93,41 @@
       <a href="https://rewarduplevel.com/aff_c?offer_id=1421&aff_id=134431" class="btn-primary">CLAIM NOW (FREE)</a>
     </section>
 
-    <!-- Simple Steps -->
     <div class="simple-steps">
-      <div class="simple-step">
-        <h3>1. Click the Button</h3>
-        <p>Start your check</p>
-      </div>
-      <div class="simple-step">
-        <h3>2. Fill the Form</h3>
-        <p>Enter basic info</p>
-      </div>
-      <div class="simple-step">
-        <h3>3. Claim Your Cheque</h3>
-        <p>Get your relief</p>
+      <div class="step-list">
+        <div class="simple-step">
+          <h3>1. Click the Button</h3>
+          <p>Start your check</p>
+        </div>
+        <div class="simple-step">
+          <h3>2. Fill the Form</h3>
+          <p>Enter basic info</p>
+        </div>
+        <div class="simple-step">
+          <h3>3. Claim Your Cheque</h3>
+          <p>Get your relief</p>
+        </div>
       </div>
     </div>
 
-    <!-- Stats -->
     <div class="stats">
-      <div class="stat">
-        <h2>2M+</h2>
-        <p>Applicants Helped</p>
-      </div>
-      <div class="stat">
-        <h2>$700M+</h2>
-        <p>Funds Secured</p>
-      </div>
-      <div class="stat">
-        <h2>96.8%</h2>
-        <p>Success Rate</p>
+      <div class="stat-list">
+        <div class="stat">
+          <h2>2M+</h2>
+          <p>Applicants Helped</p>
+        </div>
+        <div class="stat">
+          <h2>$700M+</h2>
+          <p>Funds Secured</p>
+        </div>
+        <div class="stat">
+          <h2>96.8%</h2>
+          <p>Success Rate</p>
+        </div>
       </div>
     </div>
 
-    <!-- Detailed Steps -->
-    <section class="steps" id="how-it-works">
+    <section class="steps">
       <h2>How It Works</h2>
       <div class="step-list">
         <div class="step">
@@ -146,7 +154,6 @@
       </div>
     </section>
 
-    <!-- Trust -->
     <div class="trust">
       <div class="trust-item">
         <span class="icon">🔒</span>
@@ -162,14 +169,12 @@
       </div>
     </div>
 
-    <!-- Bottom CTA -->
     <section class="bottom-cta">
       <h2>Don't Miss Out on Your Stimulus Check</h2>
       <p>Check your eligibility now – it only takes 2 minutes and could put money in your pocket.</p>
       <a href="https://rewarduplevel.com/aff_c?offer_id=1421&aff_id=134431" class="btn-primary">CHECK MY ELIGIBILITY NOW</a>
     </section>
 
-    <!-- Footer -->
     <footer>
       <p>This is an informational service. Not affiliated with any government agency.</p>
       <p>&copy; 2025 Stimulus Check Portal. All rights reserved.</p>
@@ -177,6 +182,7 @@
 
   </div>
   <script>
+    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
