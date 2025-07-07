@@ -19,11 +19,12 @@
       justify-content: center;
       background: #fde0e0;
       color: #d32f2f;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       font-weight: bold;
       padding: 0.4rem;
       border-radius: 4px;
-      margin: 1rem 0;
+      margin: 0.75rem 0 0.5rem;
+      white-space: nowrap;
     }
 
     /* Hero */
@@ -50,8 +51,8 @@
       border-radius: 10px;
       box-shadow: 0 8px 16px rgba(0,0,0,0.1);
     }
-    .simple-steps h2 { text-align: center; font-size: 1.4rem; color: black; margin-bottom: 0.75rem; }
-    .step-list { display: flex; justify-content: space-between; }
+    .simple-steps h2 { text-align: center; font-size: 1.4rem; color: black; margin-bottom: 0.5rem; }
+    .step-list { display: flex; justify-content: space-between; gap: 0.5rem; }
     .simple-step { flex: 1; text-align: center; padding: 0 0.5rem; }
     .simple-step:not(:last-child) { border-right: 1px solid #e0e0e0; }
     .simple-step h3 { font-size: 1.1rem; color: #0288d1; margin-bottom: 0.25rem; }
@@ -92,7 +93,7 @@
       box-shadow: 0 8px 16px rgba(0,0,0,0.1);
       margin: 1.5rem 0;
     }
-    .steps h2 { text-align: center; margin-bottom: 1rem; font-size: 1.6rem; color: black; }
+    .steps h2 { text-align: center; margin-bottom: 1rem; font-size: 1.6rem; color: #0288d1; }
     .step-list { display: flex; flex-direction: column; gap: 0.75rem; }
     .step { display: flex; align-items: flex-start; gap: 0.5rem; }
     .step-icon { font-size: 1.5rem; margin-top: 0.2rem; }
@@ -124,7 +125,7 @@
       margin: 1.5rem 0;
       text-align: center;
     }
-    .bottom-cta h2 { font-size: 1.3rem; color: #0288d1; margin-bottom: 0.5rem; }
+    .bottom-cta h2 { font-size: 1.3rem; color: #007c91; margin-bottom: 0.5rem; }
     .bottom-cta p { font-size: 0.85rem; color: #555; margin-bottom: 1rem; }
     .bottom-cta .btn-primary { padding: 0.75rem 1.25rem; }
 
@@ -145,14 +146,11 @@
 <body>
   <div class="container">
     
-    <section class="hero">
-      <span class="badge">Official Stimulus Check Portal</span>
-      <h1>Check Your US <span class="highlight">Stimulus Eligibility</span></h1>
-      <p>No credit card required • 100% free eligibility check • Instant results</p>
-      <a href="https://rewarduplevel.com/aff_c?offer_id=1421&aff_id=134431" class="btn-primary">CLAIM NOW (FREE)</a>
-      <div class="urgency-banner">
+    $1
+    <div class="urgency-banner">
       <span>🚨 Limited Time: Check Your Eligibility Before Deadline</span>
     </div>
+    <div class="simple-steps">
       <h2>Check your stimulus in 3 simple steps</h2>
       <div class="step-list">
         <div class="simple-step">
@@ -168,14 +166,16 @@
           <p>Get your relief</p>
         </div>
       </div>
+    </div>
     </section>
+    
     <section class="stats">
-      <h2>Join Over 2.2 Million Americans Who've Already Checked</h2>
+      <h2>Join Over 2.8 Million Americans Who've Already Checked</h2>
       <div style="text-align:center; margin-bottom:0.5rem;"><span style="font-size:1.25rem; color:#fbc02d;">★★★★★</span><span style="font-size:1rem; color:#333; margin-left:0.5rem;">4.9/5</span></div>
-      <p>Based on 674,000+ verified reviews</p>
+      <p>Based on 847,000+ verified reviews</p>
       <div class="stat-list">
         <div class="stat">
-          <h2>2.2M+</h2>
+          <h2>2M+</h2>
           <p>Applicants Helped</p>
         </div>
         <div class="stat">
@@ -219,7 +219,7 @@
       <ul class="security-list">
         <li class="security-item"><span class="security-icon">🔒</span><div class="security-content"><h3>Bank-Level Security</h3><p>256-bit SSL encryption</p></div></li>
         <li class="security-item"><span class="security-icon">🛡️</span><div class="security-content"><h3>Privacy Protected</h3><p>Data never sold or shared</p></div></li>
-        <li class="security-item"><span class="security-icon">👏</span><div class="security-content"><h3>Trusted by Millions</h3><p>Over 2.2M users served</p></div></li>
+        <li class="security-item"><span class="security-icon">👏</span><div class="security-content"><h3>Trusted by Millions</h3><p>Over 2.8M users served</p></div></li>
       </ul>
     </section>
     <section class="bottom-cta">
