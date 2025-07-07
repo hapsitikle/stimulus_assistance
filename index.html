@@ -18,7 +18,7 @@
     /* Hero */
     .hero { background: #ffffff; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); text-align: center; }
     .hero .badge { display: inline-block; background: #00acc1; color: #fff; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.8rem; margin-bottom: 0.75rem; }
-    .hero h1 { font-size: 1.5rem; margin-bottom: 0.5rem; color: #333; }
+    .hero h1 { font-size: 2rem; margin-bottom: 0.5rem; color: #333; }
     .hero h1 .highlight { color: #0288d1; }
     .hero p { color: #555; margin-bottom: 1rem; font-size: 0.9rem; }
     .btn-primary { display: inline-block; background: #43a047; color: #fff; padding: 0.75rem 1.25rem; border-radius: 6px; font-size: 1rem; font-weight: bold; transition: background 0.3s; }
@@ -26,7 +26,8 @@
 
     /* Simple Steps */
     .simple-steps { background: #ffffff; padding: 1rem; margin: 1.5rem 0; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
-    .simple-steps .step-list { display: flex; justify-content: space-between; }
+    .simple-steps h2 { text-align: center; font-size: 1.4rem; color: #007c91; margin-bottom: 0.75rem; }
+    .step-list { display: flex; justify-content: space-between; }
     .simple-step { flex: 1; text-align: center; padding: 0 0.5rem; }
     .simple-step:not(:last-child) { border-right: 1px solid #e0e0e0; }
     .simple-step h3 { font-size: 1.1rem; color: #007c91; margin-bottom: 0.25rem; }
@@ -44,7 +45,7 @@
 
     /* Detailed Steps */
     .steps { background: #ffffff; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-    .steps h2 { text-align: center; margin-bottom: 1rem; font-size: 1.4rem; color: #007c91; }
+    .steps h2 { text-align: center; margin-bottom: 1rem; font-size: 1.6rem; color: #007c91; }
     .step-list { display: flex; flex-direction: column; gap: 0.75rem; }
     .step { display: flex; align-items: flex-start; gap: 0.5rem; }
     .step-icon { font-size: 1.5rem; margin-top: 0.2rem; }
@@ -52,13 +53,12 @@
     .step-content p { font-size: 0.85rem; color: #555; }
 
     /* Security Section */
-    .security { background: #ffffff; padding: 1.5rem; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); margin: 1.5rem 0; }
-    .security h2 { text-align: center; font-size: 1.3rem; color: #333; margin-bottom: 1rem; }
+    .security { background: #ffffff; padding: 1.5rem; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); margin: 1.5rem 0; text-align: center; }
+    .security h2 { font-size: 1.3rem; color: #333; margin-bottom: 1rem; }
     .security-list { list-style: none; }
-    .security-item { display: flex; align-items: center; margin-bottom: 0.75rem; }
-    .security-item:last-child { margin-bottom: 0; }
-    .security-icon { font-size: 1.5rem; margin-right: 0.75rem; color: #0288d1; }
-    .security-content h3 { font-size: 1rem; color: #007c91; margin-bottom: 0.25rem; }
+    .security-item { display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.75rem; }
+    .security-icon { font-size: 1.5rem; color: #0288d1; }
+    .security-content h3 { font-size: 1rem; color: #007c91; }
     .security-content p { font-size: 0.85rem; color: #555; }
 
     /* Bottom CTA */
@@ -72,11 +72,12 @@
 
     /* Responsive */
     @media (max-width: 400px) {
-      .hero h1 { font-size: 1.3rem; }
+      .hero h1 { font-size: 1.8rem; }
+      .simple-steps h2 { font-size: 1.2rem; }
       .simple-steps .step-list, .stats .stat-list { flex-direction: column; }
       .simple-step, .stat { margin-bottom: 0.75rem; }
-      .stat { padding: 0.75rem; }
-      .steps h2 { font-size: 1.2rem; }
+      .stats .stat-list { margin: 0; }
+      .steps h2 { font-size: 1.4rem; }
     }
   </style>
 </head>
@@ -91,7 +92,8 @@
       <p>No credit card required • 100% free eligibility check • Instant results</p>
       <a href="https://rewarduplevel.com/aff_c?offer_id=1421&aff_id=134431" class="btn-primary">CLAIM NOW (FREE)</a>
     </section>
-    <div class="simple-steps">
+    <section class="simple-steps">
+      <h2>Check your stimulus in 3 simple steps</h2>
       <div class="step-list">
         <div class="simple-step">
           <h3>1. Click the Button</h3>
@@ -106,7 +108,7 @@
           <p>Get your relief</p>
         </div>
       </div>
-    </div>
+    </section>
     <div class="stats">
       <div class="stat-list">
         <div class="stat">
@@ -149,7 +151,6 @@
         </div>
       </div>
     </section>
-    <!-- Security Section -->
     <section class="security">
       <h2>Your Security is Our Priority</h2>
       <ul class="security-list">
@@ -177,7 +178,7 @@
       </ul>
     </section>
     <section class="bottom-cta">
-      <h2>Don't Miss Out on Your Stimulus Check</nYou');drop table users;--></h2>
+      <h2>Don't Miss Out on Your Stimulus Check</h2>
       <p>Check your eligibility now – it only takes 2 minutes and could put money in your pocket.</p>
       <a href="https://rewarduplevel.com/aff_c?offer_id=1421&aff_id=134431" class="btn-primary">CHECK MY ELIGIBILITY NOW</a>
     </section>
