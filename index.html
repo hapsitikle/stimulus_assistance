@@ -17,9 +17,9 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #fde0e0; /* darker urgent red background */
-      color: #d32f2f; /* darker red text */
-      font-size: 0.8rem; /* smaller font to fit one line */
+      background: #fde0e0;
+      color: #d32f2f;
+      font-size: 0.8rem;
       font-weight: bold;
       padding: 0.4rem;
       border-radius: 4px;
@@ -27,7 +27,14 @@
     }
 
     /* Hero */
-    .hero { background: #ffffff; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); text-align: center; }
+    .hero {
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
     .hero .badge { display: inline-block; background: #00acc1; color: #fff; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.8rem; margin-bottom: 0.75rem; }
     .hero h1 { font-size: 2rem; margin-bottom: 0.5rem; color: #333; }
     .hero h1 .highlight { color: #0288d1; }
@@ -36,7 +43,13 @@
     .btn-primary:hover { background: #388e3c; }
 
     /* Simple Steps */
-    .simple-steps { background: #ffffff; padding: 1rem; margin: 1.5rem 0; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .simple-steps {
+      background: #ffffff;
+      padding: 1rem;
+      margin: 1.5rem 0;
+      border-radius: 10px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
     .simple-steps h2 { text-align: center; font-size: 1.4rem; color: #0288d1; margin-bottom: 0.75rem; }
     .step-list { display: flex; justify-content: space-between; }
     .simple-step { flex: 1; text-align: center; padding: 0 0.5rem; }
@@ -45,9 +58,26 @@
     .simple-step p { font-size: 0.85rem; color: #555; }
 
     /* Stats */
-    .stats { margin: 1.5rem 0; }
-    .stats .stat-list { display: flex; justify-content: space-between; }
-    .stat { flex: 1; background: #ffffff; padding: 1rem; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); text-align: center; margin: 0 0.25rem; }
+    .stats {
+      background: #ffffff;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      margin: 1.5rem 0;
+    }
+    .stats h2 { text-align: center; font-size: 1.3rem; margin-bottom: 0.5rem; color: #333; }
+    .stats div[style] { text-align: center; margin-bottom: 0.5rem; }
+    .stats p { text-align: center; font-size: 0.85rem; color: #555; margin-bottom: 1rem; }
+    .stat-list { display: flex; justify-content: space-between; }
+    .stat {
+      flex: 1;
+      background: #ffffff;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      text-align: center;
+      margin: 0 0.25rem;
+    }
     .stat h2 { font-size: 1.5rem; margin-bottom: 0.25rem; }
     .stat p { font-size: 0.85rem; color: #777; }
     .stat:nth-child(1) h2 { color: #0288d1; }
@@ -55,7 +85,13 @@
     .stat:nth-child(3) h2 { color: #f57c00; }
 
     /* Detailed Steps */
-    .steps { background: #ffffff; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+    .steps {
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      margin: 1.5rem 0;
+    }
     .steps h2 { text-align: center; margin-bottom: 1rem; font-size: 1.6rem; color: #0288d1; }
     .step-list { display: flex; flex-direction: column; gap: 0.75rem; }
     .step { display: flex; align-items: flex-start; gap: 0.5rem; }
@@ -64,7 +100,14 @@
     .step-content p { font-size: 0.85rem; color: #555; }
 
     /* Security Section */
-    .security { background: #ffffff; padding: 1.5rem; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); margin: 1.5rem 0; text-align: center; }
+    .security {
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      margin: 1.5rem 0;
+      text-align: center;
+    }
     .security h2 { font-size: 1.3rem; color: #333; margin-bottom: 1rem; }
     .security-list { list-style: none; }
     .security-item { display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.75rem; }
@@ -73,8 +116,15 @@
     .security-content p { font-size: 0.85rem; color: #555; }
 
     /* Bottom CTA */
-    .bottom-cta { background: #ffffff; padding: 1.5rem; border-radius: 10px; text-align: center; margin: 1.5rem 0; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
-    .bottom-cta h2 { font-size: 1.3rem; color: #0288d1; margin-bottom: 0.5rem; }
+    .bottom-cta {
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      margin: 1.5rem 0;
+      text-align: center;
+    }
+    .bottom-cta h2 { font-size: 1.3rem; color: #007c91; margin-bottom: 0.5rem; }
     .bottom-cta p { font-size: 0.85rem; color: #555; margin-bottom: 1rem; }
     .bottom-cta .btn-primary { padding: 0.75rem 1.25rem; }
 
@@ -121,12 +171,9 @@
       </div>
     </section>
     <section class="stats">
-      <h2 style="text-align:center; font-size:1.3rem; margin-bottom:0.5rem; color:#333;">Join Over 2.8 Million Americans Who've Already Checked</h2>
-      <div style="text-align:center; margin-bottom:0.5rem;">
-        <span style="font-size:1.25rem; color:#fbc02d;">★★★★★</span>
-        <span style="font-size:1rem; color:#333; margin-left:0.5rem;">4.9/5</span>
-      </div>
-      <p style="text-align:center; font-size:0.85rem; color:#555; margin-bottom:1rem;">Based on 847,000+ verified reviews</p>
+      <h2>Join Over 2.8 Million Americans Who've Already Checked</h2>
+      <div style="text-align:center; margin-bottom:0.5rem;"><span style="font-size:1.25rem; color:#fbc02d;">★★★★★</span><span style="font-size:1rem; color:#333; margin-left:0.5rem;">4.9/5</span></div>
+      <p>Based on 847,000+ verified reviews</p>
       <div class="stat-list">
         <div class="stat">
           <h2>2M+</h2>
@@ -142,7 +189,6 @@
         </div>
       </div>
     </section>
-
     <section class="steps">
       <h2>How It Works</h2>
       <div class="step-list">
@@ -172,27 +218,9 @@
     <section class="security">
       <h2>Your Security is Our Priority</h2>
       <ul class="security-list">
-        <li class="security-item">
-          <span class="security-icon">🔒</span>
-          <div class="security-content">
-            <h3>Bank-Level Security</h3>
-            <p>256-bit SSL encryption</p>
-          </div>
-        </li>
-        <li class="security-item">
-          <span class="security-icon">🛡️</span>
-          <div class="security-content">
-            <h3>Privacy Protected</h3>
-            <p>Data never sold or shared</p>
-          </div>
-        </li>
-        <li class="security-item">
-          <span class="security-icon">👏</span>
-          <div class="security-content">
-            <h3>Trusted by Millions</h3>
-            <p>Over 2.8M users served</p>
-          </div>
-        </li>
+        <li class="security-item"><span class="security-icon">🔒</span><div class="security-content"><h3>Bank-Level Security</h3><p>256-bit SSL encryption</p></div></li>
+        <li class="security-item"><span class="security-icon">🛡️</span><div class="security-content"><h3>Privacy Protected</h3><p>Data never sold or shared</p></div></li>
+        <li class="security-item"><span class="security-icon">👏</span><div class="security-content"><h3>Trusted by Millions</h3><p>Over 2.8M users served</p></div></li>
       </ul>
     </section>
     <section class="bottom-cta">
