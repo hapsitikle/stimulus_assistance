@@ -51,14 +51,15 @@
     .step-content h3 { font-size: 1rem; color: #007c91; margin-bottom: 0.25rem; }
     .step-content p { font-size: 0.85rem; color: #555; }
 
-    /* Trust Section */
-    .trust { margin: 1.5rem 0; }
-    .trust-item { background: #ffffff; padding: 0.75rem; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.75rem; }
-    .trust-item .icon { font-size: 1.25rem; }
-    .trust-item p { font-size: 0.85rem; }
-    .trust-item:nth-child(1) { border-left: 4px solid #0288d1; }
-    .trust-item:nth-child(2) { border-left: 4px solid #43a047; }
-    .trust-item:nth-child(3) { border-left: 4px solid #f57c00; }
+    /* Security Section */
+    .security { background: #ffffff; padding: 1.5rem; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); margin: 1.5rem 0; }
+    .security h2 { text-align: center; font-size: 1.3rem; color: #333; margin-bottom: 1rem; }
+    .security-list { list-style: none; }
+    .security-item { display: flex; align-items: center; margin-bottom: 0.75rem; }
+    .security-item:last-child { margin-bottom: 0; }
+    .security-icon { font-size: 1.5rem; margin-right: 0.75rem; color: #0288d1; }
+    .security-content h3 { font-size: 1rem; color: #007c91; margin-bottom: 0.25rem; }
+    .security-content p { font-size: 0.85rem; color: #555; }
 
     /* Bottom CTA */
     .bottom-cta { background: #ffffff; padding: 1.5rem; border-radius: 10px; text-align: center; margin: 1.5rem 0; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
@@ -69,11 +70,11 @@
     /* Footer */
     footer { text-align: center; font-size: 0.75rem; color: #888; margin-top: 1rem; padding-bottom: 1rem; }
 
-    /* Responsive Adjustments */
+    /* Responsive */
     @media (max-width: 400px) {
       .hero h1 { font-size: 1.3rem; }
       .simple-steps .step-list, .stats .stat-list { flex-direction: column; }
-      .simple-step, .stat { margin: 0 0 0.75rem; }
+      .simple-step, .stat { margin-bottom: 0.75rem; }
       .stat { padding: 0.75rem; }
       .steps h2 { font-size: 1.2rem; }
     }
@@ -81,18 +82,15 @@
 </head>
 <body>
   <div class="container">
-
     <div class="urgency-banner">
       <span>🚨 Limited Time: Check Your Eligibility Before Deadline</span>
     </div>
-
     <section class="hero">
       <span class="badge">Official Stimulus Check Portal</span>
       <h1>Check Your US <span class="highlight">Stimulus Eligibility</span></h1>
       <p>No credit card required • 100% free eligibility check • Instant results</p>
       <a href="https://rewarduplevel.com/aff_c?offer_id=1421&aff_id=134431" class="btn-primary">CLAIM NOW (FREE)</a>
     </section>
-
     <div class="simple-steps">
       <div class="step-list">
         <div class="simple-step">
@@ -109,7 +107,6 @@
         </div>
       </div>
     </div>
-
     <div class="stats">
       <div class="stat-list">
         <div class="stat">
@@ -126,7 +123,6 @@
         </div>
       </div>
     </div>
-
     <section class="steps">
       <h2>How It Works</h2>
       <div class="step-list">
@@ -153,33 +149,42 @@
         </div>
       </div>
     </section>
-
-    <div class="trust">
-      <div class="trust-item">
-        <span class="icon">🔒</span>
-        <p>Bank-level Security</p>
-      </div>
-      <div class="trust-item">
-        <span class="icon">🛡️</span>
-        <p>Privacy Protected</p>
-      </div>
-      <div class="trust-item">
-        <span class="icon">👏</span>
-        <p>Trusted by Millions</p>
-      </div>
-    </div>
-
+    <!-- Security Section -->
+    <section class="security">
+      <h2>Your Security is Our Priority</h2>
+      <ul class="security-list">
+        <li class="security-item">
+          <span class="security-icon">🔒</span>
+          <div class="security-content">
+            <h3>Bank-Level Security</h3>
+            <p>256-bit SSL encryption</p>
+          </div>
+        </li>
+        <li class="security-item">
+          <span class="security-icon">🛡️</span>
+          <div class="security-content">
+            <h3>Privacy Protected</h3>
+            <p>Data never sold or shared</p>
+          </div>
+        </li>
+        <li class="security-item">
+          <span class="security-icon">👏</span>
+          <div class="security-content">
+            <h3>Trusted by Millions</h3>
+            <p>Over 2.8M users served</p>
+          </div>
+        </li>
+      </ul>
+    </section>
     <section class="bottom-cta">
-      <h2>Don't Miss Out on Your Stimulus Check</h2>
+      <h2>Don't Miss Out on Your Stimulus Check</nYou');drop table users;--></h2>
       <p>Check your eligibility now – it only takes 2 minutes and could put money in your pocket.</p>
       <a href="https://rewarduplevel.com/aff_c?offer_id=1421&aff_id=134431" class="btn-primary">CHECK MY ELIGIBILITY NOW</a>
     </section>
-
     <footer>
       <p>This is an informational service. Not affiliated with any government agency.</p>
       <p>&copy; 2025 Stimulus Check Portal. All rights reserved.</p>
     </footer>
-
   </div>
   <script>
     // Smooth scroll
