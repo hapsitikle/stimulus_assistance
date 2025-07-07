@@ -21,6 +21,13 @@
     .btn-primary:hover { background: #005f6b; }
     .badge { display: inline-block; margin-bottom: 1rem; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.875rem; }
 
+    /* Simple Steps */
+    .simple-steps { display: flex; justify-content: space-between; background: #ffffff; padding: 1.5rem; margin: 2rem 0; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+    .simple-step { flex: 1; text-align: center; }
+    .simple-step:not(:last-child) { border-right: 1px solid #e0e0e0; }
+    .simple-step h3 { font-size: 1.25rem; color: #007c91; margin-bottom: 0.5rem; }
+    .simple-step p { font-size: 0.9rem; color: #555; }
+
     /* Stats */
     .stats { display: flex; gap: 1rem; margin: 2rem 0; text-align: center; }
     .stat { flex: 1; background: #ffffff; padding: 1.25rem; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
@@ -30,7 +37,7 @@
     .stat:nth-child(2) h2 { color: #43a047; }
     .stat:nth-child(3) h2 { color: #f57c00; }
 
-    /* How It Works */
+    /* Detailed Steps */
     .steps { background: #ffffff; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
     .steps h2 { text-align: center; margin-bottom: 1.5rem; font-size: 1.6rem; color: #007c91; }
     .step-list { display: flex; flex-direction: column; gap: 1rem; }
@@ -62,34 +69,22 @@
       <a href="#form" class="btn-primary">Claim Now</a>
     </section>
 
-    <!-- How It Works -->
-    <section class="steps" id="how-it-works">
-      <h2>Claim Your Stimulus In 3 Simple Steps</h2>
-      <div class="step-list">
-        <div class="step">
-          <div class="step-icon">🖱️</div>
-          <div class="step-content">
-            <h3>Step 1: Click & Start</h3>
-            <p>Hit the button to begin your free check.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-icon">✍️</div>
-          <div class="step-content">
-            <h3>Step 2: Enter Your Info</h3>
-            <p>Provide basic details in under 1 minute.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-icon">✅</div>
-          <div class="step-content">
-            <h3>Step 3: Get Results</h3>
-            <p>Instant confirmation and next steps.</p>
-          </div>
-        </div>
+    <!-- Simple 3-Step Process -->
+    <div class="simple-steps">
+      <div class="simple-step">
+        <h3>1. Click the Button</h3>
+        <p>Start your check</p>
       </div>
-    </section>
-    
+      <div class="simple-step">
+        <h3>2. Fill the Form</h3>
+        <p>Enter basic info</p>
+      </div>
+      <div class="simple-step">
+        <h3>3. Claim Your Cheque</h3>
+        <p>Get your relief</p>
+      </div>
+    </div>
+
     <!-- Stats Section -->
     <div class="stats">
       <div class="stat">
@@ -102,10 +97,37 @@
       </div>
       <div class="stat">
         <h2>96.8%</h2>
-        <p>Succes Rate</p>
+        <p>Success Rate</p>
       </div>
     </div>
 
+    <!-- Detailed 3-Step Description -->
+    <section class="steps" id="how-it-works">
+      <h2>How It Works</h2>
+      <div class="step-list">
+        <div class="step">
+          <div class="step-icon">📝</div>
+          <div class="step-content">
+            <h3>Step 1: Enter Your Information</h3>
+            <p>Provide your name, DOB, and earnings to check eligibility in seconds.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-icon">⚡</div>
+          <div class="step-content">
+            <h3>Step 2: Instant Verification</h3>
+            <p>Our system cross-references government records in real time.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-icon">✅</div>
+          <div class="step-content">
+            <h3>Step 3: Get Your Results</h3>
+            <p>Receive instant confirmation and learn how to claim your funds.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Trust Section -->
     <div class="trust">
@@ -118,31 +140,4 @@
         <p>Privacy Protected</p>
       </div>
       <div class="trust-item">
-        <span class="icon">👏</span>
-        <p>Trusted by Millions</p>
-      </div>
-    </div>
-
-    <!-- Secondary CTA -->
-    <div style="text-align:center; margin:2rem 0;">
-      <a href="#form" class="btn-primary">Check My Eligibility Now</a>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-      <p>This is an informational service. Not affiliated with any government agency.</p>
-      <p>&copy; 2025 Federal Relief Check</p>
-    </footer>
-
-  </div>
-  <script>
-    // Smooth scroll for CTAs
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-      });
-    });
-  </script>
-</body>
-</html>
+        <span class="icon">👏</
