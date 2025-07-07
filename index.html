@@ -17,12 +17,13 @@
     .urgency-banner img { width: 16px; margin-right: 0.5rem; }
 
     /* Hero */
-    .hero { background: #e0f7fa; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); text-align: center; }
+    .hero { background: #ffffff; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); text-align: center; }
     .hero .badge { background: #00acc1; color: #fff; }
-    .hero h1 { font-size: 2rem; margin-bottom: 0.5rem; color: #007c91; }
+    .hero h1 { font-size: 2rem; margin-bottom: 0.5rem; color: #333; }
+    .hero h1 .highlight { color: #0288d1; }
     .hero p { color: #555; margin-bottom: 1.5rem; }
-    .btn-primary { display: inline-block; background: #007c91; color: #fff; padding: 0.75rem 1.5rem; border-radius: 6px; font-size: 1rem; font-weight: bold; transition: background 0.3s; }
-    .btn-primary:hover { background: #005f6b; }
+    .btn-primary { display: inline-block; background: #43a047; color: #fff; padding: 0.75rem 1.5rem; border-radius: 6px; font-size: 1rem; font-weight: bold; transition: background 0.3s; }
+    .btn-primary:hover { background: #388e3c; }
     .badge { display: inline-block; margin-bottom: 1rem; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.875rem; }
 
     /* Simple Steps */
@@ -74,14 +75,13 @@
 
     <!-- Urgency Banner -->
     <div class="urgency-banner">
-      <img src="https://i.imgur.com/8WK8YQb.png" alt="Urgency Icon" />
-      <span>🚨 Limited Time: Check Your Eligibility Before Deadline</span>
+      <span>🔔 Limited Time: Check Your Eligibility Before Deadline</span>
     </div>
 
     <!-- Hero Section -->
     <section class="hero">
       <span class="badge">Official Stimulus Check Portal</span>
-      <h1>Check Your US Stimulus Eligibility</h1>
+      <h1>Check Your US <span class="highlight">Stimulus Eligibility</span></h1>
       <p>No credit card required • 100% free eligibility check • Instant results</p>
       <a href="https://rewarduplevel.com/aff_c?offer_id=1421&aff_id=134431" class="btn-primary">Claim Now</a>
     </section>
@@ -135,14 +135,7 @@
             <h3>Step 2: Instant Verification</h3>
             <p>Our system cross-references government records in real time.</p>
           </div>
-        </div>
-        <div class="step">
-          <div class="step-icon">✅</div>
-          <div class="step-content">
-            <h3>Step 3: Get Your Results</h3>
-            <p>Receive instant confirmation and learn how to claim your funds.</p>
-          </div>
-        </div>
+        
       </div>
     </section>
 
@@ -158,31 +151,3 @@
       </div>
       <div class="trust-item">
         <span class="icon">👏</span>
-        <p>Trusted by Millions</p>
-      </div>
-    </div>
-
-    <!-- Bottom CTA Section -->
-    <section class="bottom-cta">
-      <h2>Don't Miss Out on Your Stimulus Check</h2>
-      <p>Check your eligibility now – it only takes 2 minutes and could put money in your pocket.</p>
-      <a href="https://rewarduplevel.com/aff_c?offer_id=1421&aff_id=134431" class="btn-primary">CHECK MY ELIGIBILITY NOW</a>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-      <p>This is an informational service. Not affiliated with any government agency.</p>
-      <p>&copy; 2025 Stimulus Check Portal. All rights reserved.</p>
-    </footer>
-  </div>
-  <script>
-    // Smooth scroll for CTAs
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-      });
-    });
-  </script>
-</body>
-</html>
