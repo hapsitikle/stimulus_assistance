@@ -43,20 +43,43 @@
     .btn-primary { display: inline-block; background: #43a047; color: #fff; padding: 0.75rem 1.25rem; border-radius: 6px; font-size: 1rem; font-weight: bold; transition: background 0.3s; }
     .btn-primary:hover { background: #388e3c; }
 
-   /* Simple Steps */
-    .simple-steps {
-      background: #ffffff;
-      padding: 1rem;
-      margin: 1.5rem 0;
-      border-radius: 10px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-    }
-    .simple-steps h2 { text-align: center; font-size: 1.4rem; color: black; margin-bottom: 0.5rem; }
-    .step-list { display: flex; justify-content: space-between; gap: 0.5rem; }
-    .simple-step { flex: 1; text-align: center; padding: 0 0.5rem; }
-    .simple-step:not(:last-child) { border-right: 1px solid #e0e0e0; }
-    .simple-step h3 { font-size: 1.1rem; color: #0288d1; margin-bottom: 0.25rem; }
-    .simple-step p { font-size: 0.85rem; color: #555; }
+  /* Simple Steps */
+.simple-steps {
+  background: #ffffff;
+  padding: 1rem;
+  margin: 1.5rem 0;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+.simple-steps h2 {
+  text-align: center;
+  font-size: 1.4rem;
+  color: #000;
+  margin-bottom: 0.5rem;
+}
+/* Stack vertically with small gaps */
+.simple-steps .step-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;       /* very tight spacing */
+}
+.simple-step {
+  padding: 0.75rem 1rem; 
+  text-align: left;
+  border: 1px solid #e0e0e0; 
+  border-radius: 6px;
+}
+.simple-step h3 {
+  font-size: 1.1rem;
+  color: #0288d1;
+  margin: 0 0 2px 0; 
+}
+.simple-step p {
+  font-size: 0.85rem;
+  color: #555;
+  margin: 0; 
+}
+
 
     /* Stats */
     .stats {
