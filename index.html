@@ -80,6 +80,31 @@
   margin: 0; 
 }
 
+    /* Simple Steps – no boxes, just vertical list */
+.simple-steps .step-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;     /* small vertical gap */
+}
+
+.simple-step {
+  background: transparent;   /* no background */
+  border: none;              /* remove border */
+  box-shadow: none;          /* remove any shadow */
+  padding: 0;                /* no extra padding */
+  margin: 0;                 /* reset margins */
+  text-align: left;          /* left-align text */
+}
+
+.simple-step h3 {
+  margin-bottom: 2px;        /* small gap under title */
+}
+
+.simple-step p {
+  margin: 0;                 /* remove default spacing */
+}
+
+
 
     /* Stats */
     .stats {
