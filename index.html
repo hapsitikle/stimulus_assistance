@@ -1,467 +1,693 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>FindResourcesUSA – Free Benefits Check</title>
-  <style>
-    /* —— RESET & BASE —— */
-    * { margin:0; padding:0; box-sizing:border-box }
-    body { font-family:Arial,sans-serif; background:#f0f4f8; color:#333; }
-    img, button { display:block; width:100%; }
-    a { text-decoration:none; }
-    .container { width:95%; max-width:480px; margin:0 auto; padding-bottom:2rem; }
-
-    /* —— HERO —— */
-    .hero { background:#fff; border-radius:12px; box-shadow:0 8px 16px rgba(0,0,0,0.1);
-      text-align:center; padding:1.5rem; margin:1rem 0; position:relative;
-      background-image:url('images/card.png');
-      background-size:cover; background-position:center;
-      color:#fff;
-    }
-    .hero::after {
-      content:''; position:absolute; top:0; left:0; right:0; bottom:0;
-      background:rgba(0,0,0,0.5); border-radius:12px;
-    }
-    .hero .inner { position:relative; z-index:1; }
-    .hero h1 { font-size:1.8rem; margin-bottom:0.5rem; line-height:1.2; }
-    .hero h1 .highlight { color:#ffd54f; }
-    .hero p { font-size:0.9rem; margin-bottom:1rem; }
-    .btn-primary {
-      background:#43a047; color:#fff; padding:1rem; font-size:1.2rem; border:none;
-      border-radius:6px; font-weight:bold; transition:background .3s;
-    }
-    .btn-primary:hover { background:#388e3c; }
-
-    /* —— URGENCY —— */
-    .urgency { background:#e53935; color:#fff; padding:.5rem; border-radius:6px;
-      font-size:0.8rem; font-weight:bold; margin:1rem 0; text-align:center;
-    }
-
-    /* —— BENEFITS ICONS —— */
-    .benefits { display:flex; gap:.75rem; margin:1rem 0; }
-    .benefit { flex:1; background:#fff; border-radius:10px; padding:1rem;
-      box-shadow:0 4px 12px rgba(0,0,0,0.05); text-align:center;
-    }
-    .benefit-icon { font-size:1.5rem; margin-bottom:.5rem; color:#0288d1; }
-    .benefit h3 { font-size:1rem; margin-bottom:.25rem; }
-    .benefit p { font-size:.85rem; color:#555; }
-
-   .proof-stats-block {
-  background: #e8f5e9;
-  padding: 1rem;
-  border-radius: 10px;
-  margin: 1.5rem 0;
-  text-align: center;
-}
-
-/* Notification card */
-.notification-card {
-  background: #fff;
-  border-left: 4px solid #43a047;
-  border-radius: 8px;
-  padding: 0.75rem 1rem;
-  display: inline-block;
-  margin-bottom: 1rem;
-  font-size: 0.9rem;
-}
-
-/* Stat cards container */
-.stats-cards {
-  display: flex;
-  gap: 0.5rem;
-  margin: 0 0 1rem;
-  overflow-x: auto;
-  padding-bottom: 0.5rem;
-}
-
-/* Individual stat card */
-.stat-card {
-  flex: 1 0 30%;
-  background: #fff;
-  border-radius: 8px;
-  padding: 1rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
-.stat-card h3 {
-  font-size: 1.25rem;
-  margin-bottom: 0.25rem;
-  color: #0288d1;
-}
-.stat-card p {
-  font-size: 0.85rem;
-  color: #555;
-}
-
-/* Rating row */
-.rating {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.5rem;
-  font-size: 0.9rem;
-  color: #333;
-}
-.stars {
-  color: #fbc02d;
-  font-size: 1rem;
-}
-.score {
-  font-weight: bold;
-}
-.reviews {
-  color: #555;
-}
-
-    /* Testimonials Carousel */
-.testimonials {
-  background: #fff;
-  padding: 1.5rem 1rem;
-  margin: 1.5rem 0;
-  border-radius: 10px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.05);
-  text-align: center;
-}
-.testimonials h2 {
-  font-size: 1.4rem;
-  margin-bottom: 0.25rem;
-}
-.testimonials p {
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
-  color: #555;
-}
-
-.carousel {
-  position: relative;
-  overflow: hidden;
-}
-.slides {
-  display: flex;
-  transition: transform 0.4s ease;
-}
-.slide {
-  min-width: 100%;
-  padding: 1rem;
-  box-sizing: border-box;
-  display: none;
-  flex-direction: column;
-  align-items: center;
-}
-.slide.active {
-  display: flex;
-}
-.slide img {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 0.75rem;
-}
-.stars {
-  color: #fbc02d;
-  margin-bottom: 0.5rem;
-  font-size: 1rem;
-}
-.slide blockquote {
-  font-style: italic;
-  font-size: 0.9rem;
-  margin: 0.5rem 0;
-  color: #333;
-}
-.slide cite {
-  font-size: 0.8rem;
-  color: #555;
-}
-
-.arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255,255,255,0.8);
-  border: none;
-  font-size: 1.5rem;
-  padding: 0.25rem 0.5rem;
-  cursor: pointer;
-  border-radius: 4px;
-}
-.arrow.prev { left: 0.5rem; }
-.arrow.next { right: 0.5rem; }
-
-.dots {
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-top: 1rem;
-}
-.dot {
-  width: 8px;
-  height: 8px;
-  background: #ccc;
-  border-radius: 50%;
-  cursor: pointer;
-}
-.dot.active { background: #0288d1; }
-
-@media (max-width: 400px) {
-  .testimonials h2 { font-size: 1.2rem; }
-  .arrow { font-size: 1.25rem; }
-  .slide blockquote { font-size: 0.85rem; }
-}
-
-
-/* Mobile tweaks */
-@media (max-width: 400px) {
-  .stats-cards {
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-  .stat-card {
-    flex: 1 0 auto;
-  }
-}
-
-
-    /* —— HOW IT WORKS —— */
-    .steps { background:#fff; border-radius:10px; padding:1rem; margin:1rem 0;
-      box-shadow:0 4px 12px rgba(0,0,0,0.05);
-    }
-    .steps h2 { text-align:center; margin-bottom:1rem; font-size:1.2rem; }
-    .steps-list { display:flex; flex-direction:column; gap:1rem; }
-    .step-item { display:flex; align-items:flex-start; gap:.5rem; }
-    .step-icon { font-size:1.4rem; margin-top:.2rem; color:#0288d1; }
-    .step-text h4 { font-size:1rem; margin-bottom:.25rem; }
-    .step-text p { color:#555; font-size:.85rem; }
-
-    /* —— COUNTDOWN CALL-TO-ACTION —— */
-    .countdown { background:#ef5350; border-radius:10px; padding:1rem; margin:1rem 0;
-      text-align:center; color:#fff;
-    }
-    .countdown h3 { margin-bottom:.5rem; }
-    .timer { display:flex; justify-content:center; gap:.75rem; margin-bottom:.5rem; }
-    .timer div { background:rgba(255,255,255,0.3); padding:.5rem; border-radius:6px; min-width:50px; }
-    .timer span { font-size:1.2rem; display:block; }
-
-    /* —— SECURITY & FOOTER —— */
-    .security { display:flex; gap:.5rem; overflow-x:auto; margin:1rem 0; }
-    .sec-item { flex:1; background:#fff; padding:.75rem; border-radius:10px;
-      box-shadow:0 4px 12px rgba(0,0,0,0.05); text-align:center; min-width:100px;
-    }
-    .sec-icon { font-size:1.4rem; margin-bottom:.25rem; color:#43a047; }
-    .sec-item p { font-size:.75rem; color:#555; }
-    footer { text-align:center; font-size:.7rem; color:#888; margin-top:1rem; }
-
-    @media(max-width:400px){
-      .benefits { flex-direction:column; }
-      .proof-stats { flex-direction:row; gap:1rem; }
-      .steps-list { gap:.75rem; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You May Qualify for $1,200+ Monthly Assistance - Check Free in 30 Seconds</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #111827;
+            background-color: #ffffff;
+        }
+        
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+        
+        .btn {
+            border: none;
+            border-radius: 0.5rem;
+            padding: 1rem 2rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            width: 100%;
+        }
+        
+        .btn-primary {
+            background-color: #10B981;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #059669;
+            transform: translateY(-2px);
+        }
+        
+        @media (min-width: 768px) {
+            .btn {
+                width: auto;
+            }
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1551650975-87deedd944c3?w=1200&h=800&fit=crop&crop=face') center/cover;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 2rem 1.5rem;
+        }
+        
+        .hero-content {
+            max-width: 480px;
+        }
+        
+        .hero h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        
+        @media (min-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        .hero p {
+            font-size: 1rem;
+            color: #D1D5DB;
+            margin-bottom: 1.5rem;
+        }
+        
+        .proof-nugget {
+            font-size: 0.875rem;
+            color: #D1D5DB;
+            margin-top: 0.5rem;
+        }
+        
+        /* Benefit Grid */
+        .benefit-grid {
+            background-color: #F9FAFB;
+            padding: 3rem 1.5rem;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+        
+        @media (min-width: 768px) {
+            .grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .card {
+            background: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .card-icon.blue { background-color: #1E3A8A; color: white; }
+        .card-icon.green { background-color: #10B981; color: white; }
+        .card-icon.purple { background-color: #6B21A8; color: white; }
+        
+        .card h3 {
+            font-size: 1.25rem;
+            color: #111827;
+            margin-bottom: 0.5rem;
+        }
+        
+        .card p {
+            font-size: 0.95rem;
+            color: #4B5563;
+        }
+        
+        /* Social Proof */
+        .social-proof {
+            background: white;
+            padding: 2rem 1.5rem;
+            text-align: center;
+        }
+        
+        .live-feed {
+            background: white;
+            border-left: 4px solid #10B981;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .stat h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat:nth-child(1) h2 { color: #1E3A8A; }
+        .stat:nth-child(2) h2 { color: #10B981; }
+        .stat:nth-child(3) h2 { color: #6B21A8; }
+        
+        .user-photos {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .user-photo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #E5E7EB;
+            border: 2px solid white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* How It Works */
+        .how-it-works {
+            background-color: #F9FAFB;
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+        
+        .how-it-works h2 {
+            font-size: 2rem;
+            color: #111827;
+            margin-bottom: 0.5rem;
+        }
+        
+        .how-it-works > p {
+            color: #4B5563;
+            margin-bottom: 2rem;
+        }
+        
+        .steps {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .steps {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .step-number {
+            width: 48px;
+            height: 48px;
+            background-color: #1E3A8A;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .step h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Urgency Countdown */
+        .urgency {
+            background-color: #DC2626;
+            color: white;
+            padding: 2rem 1.5rem;
+            text-align: center;
+        }
+        
+        .urgency h2 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+        }
+        
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .countdown-box {
+            background-color: #B91C1C;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            min-width: 60px;
+        }
+        
+        .countdown-box .number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: block;
+        }
+        
+        .countdown-box .label {
+            font-size: 0.75rem;
+            opacity: 0.8;
+        }
+        
+        .urgency-sub {
+            font-size: 0.9rem;
+            color: #FEE2E2;
+            margin-top: 1rem;
+        }
+        
+        /* Trust Badges */
+        .trust-badges {
+            background: white;
+            padding: 2rem 1.5rem;
+        }
+        
+        .badges {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+        
+        .badge {
+            text-align: center;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .badge-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .badge h4 {
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .badge p {
+            font-size: 0.875rem;
+            color: #4B5563;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background-color: #EFF6FF;
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+        
+        .testimonials h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .testimonials > p {
+            color: #4B5563;
+            margin-bottom: 2rem;
+        }
+        
+        .testimonial-card {
+            background: white;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stars {
+            color: #F59E0B;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: #1E3A8A;
+        }
+        
+        /* Final CTA */
+        .final-cta {
+            background: white;
+            padding: 3rem 1.5rem;
+            text-align: center;
+        }
+        
+        .final-cta h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .faq {
+            max-width: 600px;
+            margin: 2rem auto 0;
+            text-align: left;
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid #E5E7EB;
+            padding: 1rem 0;
+        }
+        
+        .faq-question {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+        }
+        
+        .faq-answer {
+            color: #4B5563;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: #F9FAFB;
+            padding: 1rem;
+            text-align: center;
+            font-size: 0.875rem;
+            color: #4B5563;
+        }
+        
+        /* Animations */
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
+    <!-- Hero Section -->
     <section class="hero">
-      <div class="inner">
-        <h1>Bills piling up? <span class="highlight">Discover up to $1,400</span> in relief and more!</h1>
-        <p>100% free • 3-minute check • grants, rent, utilities, groceries & more</p>
-        <button class="btn-primary">Start My Free Check</button>
-        <div class="urgency">🚨 Applications closing soon for many programs—act now!</div>
-      </div>
+        <div class="hero-content">
+            <h1>Bills Stacking Up? Grab Your Free $1,400 Stimulus Check Now</h1>
+            <p>100% Free • 3-Minute Eligibility Check • No Risk, No Fees</p>
+            <button class="btn btn-primary" onclick="startCheck()">Start My Free Check</button>
+            <p class="proof-nugget">10,432 Americans helped in the last 24 hours</p>
+        </div>
     </section>
 
-    <div class="benefits">
-      <div class="benefit">
-        <div class="benefit-icon">📦</div>
-        <h3>All U.S. aid in one place</h3>
-        <p>No more hunting multiple sites—every program compiled.</p>
-      </div>
-      <div class="benefit">
-        <div class="benefit-icon">🥘</div>
-        <h3>Food, housing & more</h3>
-        <p>SNAP, rent help, healthcare and other essential support.</p>
-      </div>
-      <div class="benefit">
-        <div class="benefit-icon">⚡</div>
-        <h3>Fast, no-cost check</h3>
-        <p>See your matches in under 3 minutes. Zero fees.</p>
-      </div>
-    </div>
-
-   <section id="proof-stats" class="proof-stats-block">
-  <h2>Join Thousands Getting Help</h2>
-  <div class="notification-card">
-    <span id="live-notice">🔥 John from Texas saved $1,200 on utilities!</span>
-  </div>
-  <div class="stats-cards">
-    <div class="stat-card">
-      <h3>10,000+</h3>
-      <p>Americans helped this week</p>
-    </div>
-    <div class="stat-card">
-      <h3>$2.4M</h3>
-      <p>In benefits discovered</p>
-    </div>
-    <div class="stat-card">
-      <h3>3 min</h3>
-      <p>Average completion time</p>
-    </div>
-  </div>
-  <div class="rating">
-    <span class="stars">★★★★★</span>
-    <span class="score">4.9/5</span>
-    <span class="reviews">based on 15,000+ reviews</span>
-  </div>
-</section>
-v
-
-    <section class="steps">
-      <h2>How It Works</h2>
-      <div class="steps-list">
-        <div class="step-item">
-          <div class="step-icon">1️⃣</div>
-          <div class="step-text"><h4>Answer 3 quick questions</h4><p>Tell us your situation in <strong>60 seconds</strong>.</p></div>
+    <!-- Benefit Grid -->
+    <section class="benefit-grid">
+        <div class="container">
+            <div class="grid">
+                <div class="card">
+                    <div class="card-icon blue">🛡️</div>
+                    <h3>Every U.S. Aid Program in One Place</h3>
+                    <p>We've compiled every government & state benefit—no more guesswork.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon green">🏠</div>
+                    <h3>Help with Food, Housing & Bills</h3>
+                    <p>From SNAP to rent relief, find the perfect support for your needs.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon purple">⏱️</div>
+                    <h3>Finish Your Check in Under 3 Minutes</h3>
+                    <p>Zero fees, zero obligations—results instantly.</p>
+                </div>
+            </div>
         </div>
-        <div class="step-item">
-          <div class="step-icon">🔍</div>
-          <div class="step-text"><h4>Instantly see programs</h4><p>Get matched with every benefit you qualify for.</p></div>
-        </div>
-        <div class="step-item">
-          <div class="step-icon">✅</div>
-          <div class="step-text"><h4>Apply in minutes</h4><p>Direct links & guidance—no risk, no fees.</p></div>
-        </div>
-      </div>
     </section>
 
-    <section class="countdown">
-      <h3>Deadline Approaching for Major Programs</h3>
-      <div class="timer">
-        <div><span id="hrs">24</span><small>Hours</small></div>
-        <div><span id="mins">00</span><small>Minutes</small></div>
-        <div><span id="secs">00</span><small>Seconds</small></div>
-      </div>
-      <button class="btn-primary">Check My Eligibility Now</button>
+    <!-- Social Proof -->
+    <section class="social-proof">
+        <div class="container">
+            <div class="live-feed">
+                <span class="pulse">🔥</span> Maria from FL just found $850 for groceries! • 2 min ago
+            </div>
+            
+            <div class="stats">
+                <div class="stat">
+                    <h2>12,345+</h2>
+                    <p>Americans helped this week</p>
+                </div>
+                <div class="stat">
+                    <h2>$3.1M</h2>
+                    <p>Benefits unlocked</p>
+                </div>
+                <div class="stat">
+                    <h2>2.8 min</h2>
+                    <p>Avg. check time</p>
+                </div>
+            </div>
+            
+            <div class="user-photos">
+                <div class="user-photo"></div>
+                <div class="user-photo"></div>
+                <div class="user-photo"></div>
+                <div class="user-photo"></div>
+                <div class="user-photo"></div>
+            </div>
+        </div>
     </section>
 
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2>How It Works</h2>
+            <p>Three simple steps to discover your benefits</p>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Answer 3 Quick Questions</h3>
+                    <p>We'll map your situation in 60 seconds.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>See Your Eligible Benefits</h3>
+                    <p>Instantly match with programs you qualify for.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Claim in Minutes—No Cost</h3>
+                    <p>Get direct links & guidance for each application.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Urgency Countdown -->
+    <section class="urgency">
+        <div class="container">
+            <h2>Deadlines Ending Soon for SNAP & Rent Relief</h2>
+            
+            <div class="countdown">
+                <div class="countdown-box">
+                    <span class="number" id="days">3</span>
+                    <span class="label">Days</span>
+                </div>
+                <div class="countdown-box">
+                    <span class="number" id="hours">14</span>
+                    <span class="label">Hours</span>
+                </div>
+                <div class="countdown-box">
+                    <span class="number" id="minutes">27</span>
+                    <span class="label">Minutes</span>
+                </div>
+                <div class="countdown-box">
+                    <span class="number" id="seconds">43</span>
+                    <span class="label">Seconds</span>
+                </div>
+            </div>
+            
+            <button class="btn btn-primary" onclick="startCheck()">Check My Eligibility Now</button>
+            <p class="urgency-sub">New deadlines drop daily—act before they're gone!</p>
+        </div>
+    </section>
+
+    <!-- Trust Badges -->
+    <section class="trust-badges">
+        <div class="container">
+            <div class="badges">
+                <div class="badge">
+                    <div class="badge-icon" style="color: #10B981;">🛡️</div>
+                    <h4>100% Free</h4>
+                    <p>Always</p>
+                </div>
+                <div class="badge">
+                    <div class="badge-icon" style="color: #1E3A8A;">🔒</div>
+                    <h4>Bank-Level SSL</h4>
+                    <p>256-bit encryption</p>
+                </div>
+                <div class="badge">
+                    <div class="badge-icon" style="color: #6B21A8;">🎗️</div>
+                    <h4>HIPAA Compliant</h4>
+                    <p>Your data is safe</p>
+                </div>
+                <div class="badge">
+                    <div class="badge-icon" style="color: #4B5563;">🚫</div>
+                    <h4>We Don't Sell Data</h4>
+                    <p>Ever</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
     <section class="testimonials">
-  <h2>Real People, Real Results</h2>
-  <p>See what others are saying about FindResourcesUSA</p>
+        <div class="container">
+            <h2>Real People, Real Results</h2>
+            <p>See what others are saying about FindResourcesUSA</p>
+            
+            <div class="testimonial-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"I was skeptical at first, but in just 2 minutes I found out I qualified for $1,200 in monthly food assistance. This saved my family!"</p>
+                <p class="testimonial-author">—Sarah L., Texas</p>
+            </div>
+        </div>
+    </section>
 
-  <div class="carousel">
-    <button class="arrow prev" aria-label="Previous testimonial">‹</button>
-    <div class="slides">
-      <!-- Slide 1 -->
-      <div class="slide active">
-        <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="User portrait">
-        <div class="stars">★★★★★</div>
-        <blockquote>"I was skeptical at first, but this really helped me get the medical coverage I needed."</blockquote>
-        <cite>Robert L., California</cite>
-      </div>
-      <!-- Slide 2 -->
-      <div class="slide">
-        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User portrait">
-        <div class="stars">★★★★★</div>
-        <blockquote>"In minutes I found rent assistance I didn’t even know existed—life-changing!"</blockquote>
-        <cite>Linda S., Texas</cite>
-      </div>
-      <!-- Slide 3 -->
-      <div class="slide">
-        <img src="https://randomuser.me/api/portraits/men/68.jpg" alt="User portrait">
-        <div class="stars">★★★★★</div>
-        <blockquote>"Fast, free, and reliable—finally some help with my grocery bills."</blockquote>
-        <cite>David M., Ohio</cite>
-      </div>
-      <!-- Slide 4 -->
-      <div class="slide">
-        <img src="https://randomuser.me/api/portraits/women/31.jpg" alt="User portrait">
-        <div class="stars">★★★★★</div>
-        <blockquote>"As a retiree, I needed quick support. This site delivered exactly that."</blockquote>
-        <cite>Marilyn T., Florida</cite>
-      </div>
-    </div>
-    <button class="arrow next" aria-label="Next testimonial">›</button>
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Ready to Claim Your Benefits?</h2>
+            <button class="btn btn-primary" onclick="startCheck()">Start My Free Check</button>
+            
+            <div class="faq">
+                <div class="faq-item">
+                    <div class="faq-question">Is it really free?</div>
+                    <div class="faq-answer">Yes, no fees ever.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">How secure is my info?</div>
+                    <div class="faq-answer">256-bit SSL & HIPAA compliant.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What if I don't qualify?</div>
+                    <div class="faq-answer">No obligation, no risk—see your results.</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <div class="dots">
-      <span class="dot active"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-    </div>
-  </div>
-</section>
-
-    
-    <div class="security">
-      <div class="sec-item"><div class="sec-icon">🔒</div><p>Bank-level SSL</p></div>
-      <div class="sec-item"><div class="sec-icon">🔐</div><p>No data selling ever</p></div>
-      <div class="sec-item"><div class="sec-icon">🛡️</div><p>HIPAA compliant</p></div>
-      <div class="sec-item"><div class="sec-icon">✅</div><p>100% free</p></div>
-    </div>
-
-    
-
-    <footer>
-      <p>Not affiliated with any government agency.</p>
-      <p>&copy; 2025 FindResourcesUSA</p>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 FindResourcesUSA. All rights reserved.</p>
+        </div>
     </footer>
-  </div>
 
-  <script>
-    // Simple countdown (24h cycle)
-    let end = Date.now() + 24*3600*1000;
-    function tick(){
-      let diff = end - Date.now();
-      if(diff<0) diff=0;
-      let hrs = Math.floor(diff/3600000);
-      let mins = Math.floor((diff%3600000)/60000);
-      let secs = Math.floor((diff%60000)/1000);
-      document.getElementById('hrs').textContent = String(hrs).padStart(2,'0');
-      document.getElementById('mins').textContent = String(mins).padStart(2,'0');
-      document.getElementById('secs').textContent = String(secs).padStart(2,'0');
-    }
-    setInterval(tick,1000);
-    tick();
-
-    (function rotateNotices(){
-    const notices = [
-      "🔥 John from Texas saved $1,200 on utilities!",
-      "🔥 Maria from Ohio just got $800 in relief!",
-      "🔥 Anthony from Florida received $1,000 for rent!",
-      "🔥 Emily from New York secured $950 in grocery aid!"
-    ];
-    let idx = 0;
-    const el = document.getElementById("live-notice");
-
-    function showNext() {
-      el.textContent = notices[idx];
-      idx = (idx + 1) % notices.length;
-      // First rotation after 8s, then every 10s:
-      setTimeout(showNext, idx === 1 ? 10000 : 10000);
-    }
-
-    // initial delay 8s
-    setTimeout(showNext, 8000);
-  })();
-
-    (function(){
-    const slides = document.querySelectorAll('.slide');
-    const dots   = document.querySelectorAll('.dot');
-    let idx = 0;
-
-    function showSlide(i) {
-      slides[idx].classList.remove('active');
-      dots[idx].classList.remove('active');
-      idx = (i + slides.length) % slides.length;
-      slides[idx].classList.add('active');
-      dots[idx].classList.add('active');
-    }
-
-    document.querySelector('.arrow.prev').onclick = () => showSlide(idx - 1);
-    document.querySelector('.arrow.next').onclick = () => showSlide(idx + 1);
-    dots.forEach((dot, i) => dot.onclick = () => showSlide(i));
-
-    // auto-rotate every 8 seconds
-    setInterval(() => showSlide(idx + 1), 8000);
-  })();
-  </script>
+    <script>
+        // Countdown timer
+        function updateCountdown() {
+            const days = document.getElementById('days');
+            const hours = document.getElementById('hours');
+            const minutes = document.getElementById('minutes');
+            const seconds = document.getElementById('seconds');
+            
+            let d = parseInt(days.textContent);
+            let h = parseInt(hours.textContent);
+            let m = parseInt(minutes.textContent);
+            let s = parseInt(seconds.textContent);
+            
+            s--;
+            if (s < 0) {
+                s = 59;
+                m--;
+                if (m < 0) {
+                    m = 59;
+                    h--;
+                    if (h < 0) {
+                        h = 23;
+                        d--;
+                    }
+                }
+            }
+            
+            days.textContent = d;
+            hours.textContent = h;
+            minutes.textContent = m;
+            seconds.textContent = s;
+        }
+        
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        
+        // Live feed updates
+        const feedMessages = [
+            "🔥 Maria from FL just found $850 for groceries! • 2 min ago",
+            "🎉 John from TX qualified for $1,200 rent assistance! • 4 min ago",
+            "✅ Lisa from CA discovered $600 utility help! • 7 min ago",
+            "💰 Mike from NY unlocked $900 in benefits! • 9 min ago"
+        ];
+        
+        let currentMessage = 0;
+        function updateFeed() {
+            const feed = document.querySelector('.live-feed');
+            if (feed) {
+                feed.innerHTML = `<span class="pulse">🔥</span> ${feedMessages[currentMessage]}`;
+                currentMessage = (currentMessage + 1) % feedMessages.length;
+            }
+        }
+        
+        // Update feed every 10 seconds
+        setInterval(updateFeed, 10000);
+        
+        // CTA button action
+        function startCheck() {
+            // Replace with your actual conversion tracking and redirect
+            console.log('Starting eligibility check...');
+            // Example: window.location.href = 'your-offer-url-here';
+            alert('This would redirect to your FindResourcesUSA offer page!');
+        }
+    </script>
 </body>
 </html>
