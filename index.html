@@ -47,13 +47,83 @@
     .benefit h3 { font-size:1rem; margin-bottom:.25rem; }
     .benefit p { font-size:.85rem; color:#555; }
 
-    /* —— SOCIAL PROOF —— */
-    .proof { background:#e8f5e9; border-radius:10px; padding:1rem; margin:1rem 0;
-      text-align:center; box-shadow:0 4px 12px rgba(0,0,0,0.05);
-    }
-    .proof-notice { font-size:.9rem; margin-bottom:.5rem; }
-    .proof-stats { display:flex; flex-direction:column; gap:.5rem; align-items:center; margin-bottom:1rem; }
-    .proof-stats span { font-weight:bold; }
+   .proof-stats-block {
+  background: #e8f5e9;
+  padding: 1rem;
+  border-radius: 10px;
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+/* Notification card */
+.notification-card {
+  background: #fff;
+  border-left: 4px solid #43a047;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  display: inline-block;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+/* Stat cards container */
+.stats-cards {
+  display: flex;
+  gap: 0.5rem;
+  margin: 0 0 1rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+/* Individual stat card */
+.stat-card {
+  flex: 1 0 30%;
+  background: #fff;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+.stat-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+  color: #0288d1;
+}
+.stat-card p {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+/* Rating row */
+.rating {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #333;
+}
+.stars {
+  color: #fbc02d;
+  font-size: 1rem;
+}
+.score {
+  font-weight: bold;
+}
+.reviews {
+  color: #555;
+}
+
+/* Mobile tweaks */
+@media (max-width: 400px) {
+  .stats-cards {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .stat-card {
+    flex: 1 0 auto;
+  }
+}
+
 
     /* —— HOW IT WORKS —— */
     .steps { background:#fff; border-radius:10px; padding:1rem; margin:1rem 0;
@@ -120,16 +190,32 @@
       </div>
     </div>
 
-    <section class="proof">
-      <p class="proof-notice">Join thousands getting help—live updates:</p>
-      <div class="proof-stats">
-        <span>🔥 Maria from Ohio just got $800!</span>
-      </div>
-      <div class="proof-stats">
-        <span>10,000+ Americans helped this week</span>
-        <span>★ 4.9/5 based on 15,000+ reviews</span>
-      </div>
-    </section>
+   <section id="proof-stats" class="proof-stats-block">
+  <h2>Join Thousands Getting Help</h2>
+  <div class="notification-card">
+    <span id="live-notice">🔥 John from Texas saved $1,200 on utilities!</span>
+  </div>
+  <div class="stats-cards">
+    <div class="stat-card">
+      <h3>10,000+</h3>
+      <p>Americans helped this week</p>
+    </div>
+    <div class="stat-card">
+      <h3>$2.4M</h3>
+      <p>In benefits discovered</p>
+    </div>
+    <div class="stat-card">
+      <h3>3 min</h3>
+      <p>Average completion time</p>
+    </div>
+  </div>
+  <div class="rating">
+    <span class="stars">★★★★★</span>
+    <span class="score">4.9/5</span>
+    <span class="reviews">based on 15,000+ reviews</span>
+  </div>
+</section>
+v
 
     <section class="steps">
       <h2>How It Works</h2>
@@ -187,6 +273,27 @@
     }
     setInterval(tick,1000);
     tick();
+
+    function rotateNotices(){
+    const notices = [
+      "🔥 John from Texas saved $1,200 on utilities!",
+      "🔥 Maria from Ohio just got $800 in relief!",
+      "🔥 Anthony from Florida received $1,000 for rent!",
+      "🔥 Emily from New York secured $950 in grocery aid!"
+    ];
+    let idx = 0;
+    const el = document.getElementById("live-notice");
+
+    function showNext() {
+      el.textContent = notices[idx];
+      idx = (idx + 1) % notices.length;
+      // First rotation after 8s, then every 10s:
+      setTimeout(showNext, idx === 1 ? 10000 : 10000);
+    }
+
+    // initial delay 8s
+    setTimeout(showNext, 8000);
+  })();
   </script>
 </body>
 </html>
