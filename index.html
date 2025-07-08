@@ -1,235 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-  <title>Stimulus Relief Check</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>FindResourcesUSA – Free Benefits Check</title>
   <style>
-    /* Reset & Base */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; background: #f0f4f8; }
-    a { text-decoration: none; color: inherit; }
-    img { max-width: 100%; display: block; }
-    .container { width: 95%; max-width: 480px; margin: 0 auto 2rem; }
+    /* —— RESET & BASE —— */
+    * { margin:0; padding:0; box-sizing:border-box }
+    body { font-family:Arial,sans-serif; background:#f0f4f8; color:#333; }
+    img, button { display:block; width:100%; }
+    a { text-decoration:none; }
+    .container { width:95%; max-width:480px; margin:0 auto; padding-bottom:2rem; }
 
-    /* Hero */
-    .hero {
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-      text-align: center;
-      padding: 1.5rem;
-      margin: 1rem 0;
+    /* —— HERO —— */
+    .hero { background:#fff; border-radius:12px; box-shadow:0 8px 16px rgba(0,0,0,0.1);
+      text-align:center; padding:1.5rem; margin:1rem 0; position:relative;
+      background-image:url('images/card.png');
+      background-size:cover; background-position:center;
+      color:#fff;
     }
-    .hero .badge {
-      display: inline-block;
-      background: #00acc1;
-      color: #fff;
-      padding: 0.25rem 0.75rem;
-      border-radius: 4px;
-      font-size: 0.8rem;
-      margin-bottom: 0.75rem;
+    .hero::after {
+      content:''; position:absolute; top:0; left:0; right:0; bottom:0;
+      background:rgba(0,0,0,0.5); border-radius:12px;
     }
-    .hero h1 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-      color: #333;
-    }
-    .hero h1 .highlight {
-      color: #0288d1;
-    }
-    .hero p {
-      color: #555;
-      margin-bottom: 1rem;
-      font-size: 0.9rem;
-    }
+    .hero .inner { position:relative; z-index:1; }
+    .hero h1 { font-size:1.8rem; margin-bottom:0.5rem; line-height:1.2; }
+    .hero h1 .highlight { color:#ffd54f; }
+    .hero p { font-size:0.9rem; margin-bottom:1rem; }
     .btn-primary {
-      display: block;
-      width: 100%;
-      padding: 1rem 0;
-      font-size: 1.25rem;
-      text-align: center;
-      border-radius: 6px;
-      background: #43a047;
-      color: #fff;
-      font-weight: bold;
-      transition: background 0.3s;
-      margin-bottom: 0.75rem;
+      background:#43a047; color:#fff; padding:1rem; font-size:1.2rem; border:none;
+      border-radius:6px; font-weight:bold; transition:background .3s;
     }
-    .btn-primary:hover { background: #388e3c; }
+    .btn-primary:hover { background:#388e3c; }
 
-    /* Urgency */
-    .urgency-banner {
-      background: #f8d7da;
-      color: #b71c1c;
-      font-size: 0.75rem;
-      font-weight: bold;
-      padding: 0.4rem;
-      border-radius: 4px;
-      white-space: nowrap;
-      margin-bottom: 1rem;
+    /* —— URGENCY —— */
+    .urgency { background:#e53935; color:#fff; padding:.5rem; border-radius:6px;
+      font-size:0.8rem; font-weight:bold; margin:1rem 0; text-align:center;
     }
 
-    /* Quick Steps */
-    .simple-steps h2 {
-      text-align: center;
-      font-size: 1.4rem;
-      margin-bottom: 0.5rem;
-      color: #000;
+    /* —— BENEFITS ICONS —— */
+    .benefits { display:flex; gap:.75rem; margin:1rem 0; }
+    .benefit { flex:1; background:#fff; border-radius:10px; padding:1rem;
+      box-shadow:0 4px 12px rgba(0,0,0,0.05); text-align:center;
     }
-    .simple-steps .step-list {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.4rem;
-    }
-    .simple-step h3 {
-      font-size: 1.1rem;
-      color: #0288d1;
-      margin-bottom: 2px;
-      text-align: center;
-    }
-    .simple-step p {
-      font-size: 0.85rem;
-      color: #555;
-      margin: 0;
-      text-align: center;
-    }
+    .benefit-icon { font-size:1.5rem; margin-bottom:.5rem; color:#0288d1; }
+    .benefit h3 { font-size:1rem; margin-bottom:.25rem; }
+    .benefit p { font-size:.85rem; color:#555; }
 
-    /* Stats */
-    .stats {
-      background: #fff;
-      padding: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-      margin: 1.5rem 0;
-      text-align: center;
+    /* —— SOCIAL PROOF —— */
+    .proof { background:#e8f5e9; border-radius:10px; padding:1rem; margin:1rem 0;
+      text-align:center; box-shadow:0 4px 12px rgba(0,0,0,0.05);
     }
-    .stats h2 {
-      font-size: 1.3rem;
-      margin-bottom: 0.5rem;
-      color: #333;
-    }
-    .stats img.check-image {
-      max-width: 70%;
-      margin: 0 auto 0.5rem;
-      filter: blur(2px);
-    }
-    .stats .rating {
-      font-size: 1.25rem;
-      color: #fbc02d;
-      margin-bottom: 0.25rem;
-    }
-    .stats .rating + span { font-size: 1rem; color: #333; margin-left: 0.5rem; }
-    .stats p.subtext {
-      font-size: 0.85rem;
-      color: #555;
-      margin-bottom: 1rem;
-    }
-    .stat-list {
-      display: flex;
-      justify-content: space-between;
-      gap: 0.5rem;
-    }
-    .stat {
-      flex: 1;
-      background: #fff;
-      padding: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-    }
-    .stat h2 { font-size: 1.5rem; margin-bottom: 0.25rem; }
-    .stat p { font-size: 0.85rem; color: #777; }
+    .proof-notice { font-size:.9rem; margin-bottom:.5rem; }
+    .proof-stats { display:flex; flex-direction:column; gap:.5rem; align-items:center; margin-bottom:1rem; }
+    .proof-stats span { font-weight:bold; }
 
-    /* Further Sections */
-    .steps, .security, .bottom-cta {
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-      margin: 1.5rem 0;
-      padding: 1.5rem;
-      text-align: center;
+    /* —— HOW IT WORKS —— */
+    .steps { background:#fff; border-radius:10px; padding:1rem; margin:1rem 0;
+      box-shadow:0 4px 12px rgba(0,0,0,0.05);
     }
-    .steps h2, .bottom-cta h2, .security h2 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
+    .steps h2 { text-align:center; margin-bottom:1rem; font-size:1.2rem; }
+    .steps-list { display:flex; flex-direction:column; gap:1rem; }
+    .step-item { display:flex; align-items:flex-start; gap:.5rem; }
+    .step-icon { font-size:1.4rem; margin-top:.2rem; color:#0288d1; }
+    .step-text h4 { font-size:1rem; margin-bottom:.25rem; }
+    .step-text p { color:#555; font-size:.85rem; }
+
+    /* —— COUNTDOWN CALL-TO-ACTION —— */
+    .countdown { background:#ef5350; border-radius:10px; padding:1rem; margin:1rem 0;
+      text-align:center; color:#fff;
     }
-    .step-content h3 { color: #0288d1; margin-bottom: 0.25rem; }
-    .step-content p { color: #555; font-size: 0.85rem; }
-    .security-item { display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 0.75rem; }
-    .security-content h3 { color: #0288d1; margin: 0; }
-    .security-content p { font-size: 0.85rem; color: #555; margin: 0; }
-    .bottom-cta p { font-size: 0.85rem; color: #555; margin-bottom: 1rem; }
+    .countdown h3 { margin-bottom:.5rem; }
+    .timer { display:flex; justify-content:center; gap:.75rem; margin-bottom:.5rem; }
+    .timer div { background:rgba(255,255,255,0.3); padding:.5rem; border-radius:6px; min-width:50px; }
+    .timer span { font-size:1.2rem; display:block; }
 
-    /* Footer */
-    footer { text-align: center; font-size: 0.75rem; color: #888; }
+    /* —— SECURITY & FOOTER —— */
+    .security { display:flex; gap:.5rem; overflow-x:auto; margin:1rem 0; }
+    .sec-item { flex:1; background:#fff; padding:.75rem; border-radius:10px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.05); text-align:center; min-width:100px;
+    }
+    .sec-icon { font-size:1.4rem; margin-bottom:.25rem; color:#43a047; }
+    .sec-item p { font-size:.75rem; color:#555; }
+    footer { text-align:center; font-size:.7rem; color:#888; margin-top:1rem; }
 
-    /* Responsive */
-    @media (max-width: 400px) {
-      .hero h1 { font-size: 1.8rem; }
-      .simple-steps h2 { font-size: 1.2rem; }
-      .stats, .stat-list { flex-direction: column; }
-      .steps h2 { font-size: 1.4rem; }
+    @media(max-width:400px){
+      .benefits { flex-direction:column; }
+      .proof-stats { flex-direction:row; gap:1rem; }
+      .steps-list { gap:.75rem; }
     }
   </style>
 </head>
 <body>
   <div class="container">
     <section class="hero">
-      <span class="badge">USA Financial Aid</span>
-      <h1>Bills Piling Up? <span class="highlight">$1,400 Stimulus Aid Has Got You Covered!</span></h1>
-      <p>No fees • Instant check • Funds in your pocket</p>
-      <a href="hhttps://rewarrdsgiant.com/aff_c?offer_id=2499&aff_id=134431" class="btn-primary">GET STARTED NOW</a>
-      <div class="urgency-banner">Limited Time—Grab Your Stimulus Before It’s Gone</div>
-      <div class="simple-steps">
-        <h2>3 Quick Steps to Your Relief</h2>
-        <div class="step-list">
-          <div class="simple-step"><h3>1. Tap the Button</h3><p>Start your free check</p></div>
-          <div class="simple-step"><h3>2. Enter Details</h3><p>Name, DOB & income</p></div>
-          <div class="simple-step"><h3>3. Get Funds</h3><p>Instant eligibility result</p></div>
-        </div>
+      <div class="inner">
+        <h1>Bills piling up? <span class="highlight">Discover up to $1,400</span> in relief and more!</h1>
+        <p>100% free • 3-minute check • grants, rent, utilities, groceries & more</p>
+        <button class="btn-primary">Start My Free Check</button>
+        <div class="urgency">🚨 Applications closing soon for many programs—act now!</div>
       </div>
     </section>
 
-    <section class="stats">
-      <h2>Join Over 2.2 Million Who’ve Claimed Their Checks </h2>
-      <div><span class="rating">★★★★★</span><span>4.9/5</span></div>
-      <p class="subtext">Based on 674,000+ verified reviews</p>
-      <div class="stat-list">
-        <div class="stat"><h2>2.2M+</h2><p>Applications Approved</p></div>
-        <div class="stat"><h2>$3B+</h2><p>Funds Distributed</p></div>
-        <div class="stat"><h2>96.8%</h2><p>Success Rate</p></div>
+    <div class="benefits">
+      <div class="benefit">
+        <div class="benefit-icon">📦</div>
+        <h3>All U.S. aid in one place</h3>
+        <p>No more hunting multiple sites—every program compiled.</p>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">🥘</div>
+        <h3>Food, housing & more</h3>
+        <p>SNAP, rent help, healthcare and other essential support.</p>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">⚡</div>
+        <h3>Fast, no-cost check</h3>
+        <p>See your matches in under 3 minutes. Zero fees.</p>
+      </div>
+    </div>
+
+    <section class="proof">
+      <p class="proof-notice">Join thousands getting help—live updates:</p>
+      <div class="proof-stats">
+        <span>🔥 Maria from Ohio just got $800!</span>
+      </div>
+      <div class="proof-stats">
+        <span>10,000+ Americans helped this week</span>
+        <span>★ 4.9/5 based on 15,000+ reviews</span>
       </div>
     </section>
 
     <section class="steps">
       <h2>How It Works</h2>
-      <div class="step-list">
-        <div class="step"><div class="step-icon">📝</div><div class="step-content"><h3>Enter Info</h3><p>Tell us a bit about yourself</p></div></div>
-        <div class="step"><div class="step-icon">⚡</div><div class="step-content"><h3>Instant Check</h3><p>We verify eligibility fast</p></div></div>
-        <div class="step"><div class="step-icon">✅</div><div class="step-content"><h3>Claim Your Aid</h3><p>Get guidance to receive payment</p></div></div>
+      <div class="steps-list">
+        <div class="step-item">
+          <div class="step-icon">1️⃣</div>
+          <div class="step-text"><h4>Answer 3 quick questions</h4><p>Tell us your situation in <strong>60 seconds</strong>.</p></div>
+        </div>
+        <div class="step-item">
+          <div class="step-icon">🔍</div>
+          <div class="step-text"><h4>Instantly see programs</h4><p>Get matched with every benefit you qualify for.</p></div>
+        </div>
+        <div class="step-item">
+          <div class="step-icon">✅</div>
+          <div class="step-text"><h4>Apply in minutes</h4><p>Direct links & guidance—no risk, no fees.</p></div>
+        </div>
       </div>
     </section>
 
-    <section class="security">
-      <h2>Your Security is Guaranteed</h2>
-      <ul class="security-list">
-        <li class="security-item"><span class="security-icon">🔒</span><div class="security-content"><h3>Bank-Level SSL</h3><p>256-bit data encryption</p></div></li>
-        <li class="security-item"><span class="security-icon">🛡️</span><div class="security-content"><h3>Privacy First</h3><p>We never sell your data</p></div></li>
-        <li class="security-item"><span class="security-icon">👏</span><div class="security-content"><h3>Trusted Service</h3><p>Millions helped nationwide</p></div></li>
-      </ul>
+    <section class="countdown">
+      <h3>Deadline Approaching for Major Programs</h3>
+      <div class="timer">
+        <div><span id="hrs">24</span><small>Hours</small></div>
+        <div><span id="mins">00</span><small>Minutes</small></div>
+        <div><span id="secs">00</span><small>Seconds</small></div>
+      </div>
+      <button class="btn-primary">Check My Eligibility Now</button>
     </section>
 
-    <section class="bottom-cta">
-      <h2>Ready to Claim Your Stimulus?</h2>
-      <p>It takes just minutes and could put money back in your pocket.</p>
-      <a href="https://rewarrdsgiant.com/aff_c?offer_id=2499&aff_id=134431" class="btn-primary">GET STARTED NOW</a>
-    </section>
+    <div class="security">
+      <div class="sec-item"><div class="sec-icon">🔒</div><p>Bank-level SSL</p></div>
+      <div class="sec-item"><div class="sec-icon">🔐</div><p>No data selling ever</p></div>
+      <div class="sec-item"><div class="sec-icon">🛡️</div><p>HIPAA compliant</p></div>
+      <div class="sec-item"><div class="sec-icon">✅</div><p>100% free</p></div>
+    </div>
 
     <footer>
-      <p>This is an informational service, not affiliated with any government agency.</p>
-      <p>&copy; 2025 USA Financial Aid</p>
+      <p>Not affiliated with any government agency.</p>
+      <p>&copy; 2025 FindResourcesUSA</p>
     </footer>
   </div>
+
+  <script>
+    // Simple countdown (24h cycle)
+    let end = Date.now() + 24*3600*1000;
+    function tick(){
+      let diff = end - Date.now();
+      if(diff<0) diff=0;
+      let hrs = Math.floor(diff/3600000);
+      let mins = Math.floor((diff%3600000)/60000);
+      let secs = Math.floor((diff%60000)/1000);
+      document.getElementById('hrs').textContent = String(hrs).padStart(2,'0');
+      document.getElementById('mins').textContent = String(mins).padStart(2,'0');
+      document.getElementById('secs').textContent = String(secs).padStart(2,'0');
+    }
+    setInterval(tick,1000);
+    tick();
+  </script>
 </body>
 </html>
