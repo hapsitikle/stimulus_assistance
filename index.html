@@ -336,48 +336,94 @@
             color: #4B5563;
         }
         
-        /* Testimonials */
         .testimonials {
-            background-color: #EFF6FF;
-            padding: 3rem 1.5rem;
-            text-align: center;
-        }
-        
-        .testimonials h2 {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .testimonials > p {
-            color: #4B5563;
-            margin-bottom: 2rem;
-        }
-        
-        .testimonial-card {
-            background: white;
-            max-width: 500px;
-            margin: 0 auto;
-            padding: 2rem;
-            border-radius: 1rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        .stars {
-            color: #F59E0B;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .testimonial-text {
-            font-style: italic;
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-        }
-        
-        .testimonial-author {
-            font-weight: 600;
-            color: #1E3A8A;
-        }
+    background-color: #EFF6FF;
+    padding: 3rem 1.5rem;
+    text-align: center;
+}
+
+.testimonials h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.testimonials > p {
+    color: #4B5563;
+    margin-bottom: 2rem;
+}
+
+.testimonials-grid {
+    background: white;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-card {
+    text-align: center;
+    padding: 1.5rem 0;
+}
+
+.stars {
+    color: #F59E0B;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.testimonial-text {
+    font-style: italic;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    color: #111827;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.author-photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #E5E7EB;
+}
+
+.author-name {
+    font-weight: 600;
+    color: #1E3A8A;
+    font-size: 1rem;
+}
+
+.testimonial-divider {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #E5E7EB, transparent);
+    margin: 1.5rem 0;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .testimonial-text {
+        font-size: 1rem;
+    }
+    
+    .author-photo {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .testimonials-grid {
+        padding: 1.5rem;
+    }
+}
         
         /* Final CTA */
         .final-cta {
@@ -523,13 +569,6 @@
                 </div>
             </div>
             
-            <div class="user-photos">
-                <div class="user-photo"></div>
-                <div class="user-photo"></div>
-                <div class="user-photo"></div>
-                <div class="user-photo"></div>
-                <div class="user-photo"></div>
-            </div>
         </div>
     </section>
 
@@ -609,19 +648,45 @@
         </div>
     </section>
 
-    <!-- Testimonials -->
     <section class="testimonials">
-        <div class="container">
-            <h2>Real People, Real Results</h2>
-            <p>See what others are saying about FindResourcesUSA</p>
-            
+    <div class="container">
+        <h2>Real People, Real Results</h2>
+        <p>See what others are saying about FindResourcesUSA</p>
+        
+        <div class="testimonials-grid">
             <div class="testimonial-card">
                 <div class="stars">⭐⭐⭐⭐⭐</div>
                 <p class="testimonial-text">"I was skeptical at first, but in just 2 minutes I found out I qualified for $1,200 in monthly food assistance. This saved my family!"</p>
-                <p class="testimonial-author">—Sarah L., Texas</p>
+                <div class="testimonial-author">
+                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b1e8?w=60&h=60&fit=crop&crop=face" alt="Sarah L." class="author-photo">
+                    <span class="author-name">—Sarah L., Texas</span>
+                </div>
+            </div>
+            
+            <hr class="testimonial-divider">
+            
+            <div class="testimonial-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"Found $850 rent assistance in under 3 minutes! I had no idea these programs existed. The process was so simple and fast."</p>
+                <div class="testimonial-author">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop&crop=face" alt="Mike J." class="author-photo">
+                    <span class="author-name">—Mike J., Florida</span>
+                </div>
+            </div>
+            
+            <hr class="testimonial-divider">
+            
+            <div class="testimonial-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"Qualified for $600 utility assistance and healthcare support. This platform connected me to programs I never knew about!"</p>
+                <div class="testimonial-author">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=60&h=60&fit=crop&crop=face" alt="Maria R." class="author-photo">
+                    <span class="author-name">—Maria R., California</span>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Final CTA -->
     <section class="final-cta">
