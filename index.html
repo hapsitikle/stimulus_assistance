@@ -266,19 +266,19 @@
         }
         
         .countdown {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .countdown-box {
-            background-color: #B91C1C;
-            padding: 1rem;
-            border-radius: 0.5rem;
-            text-align: center;
-            min-width: 60px;
-        }
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.countdown-box {
+    background-color: #B91C1C;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    min-width: 50px;
+}
         
         .countdown-box .number {
             font-size: 1.5rem;
@@ -530,23 +530,19 @@
             <h2>Deadlines Ending Soon for SNAP & Rent Relief</h2>
             
             <div class="countdown">
-                <div class="countdown-box">
-                    <span class="number" id="days">3</span>
-                    <span class="label">Days</span>
-                </div>
-                <div class="countdown-box">
-                    <span class="number" id="hours">14</span>
-                    <span class="label">Hours</span>
-                </div>
-                <div class="countdown-box">
-                    <span class="number" id="minutes">27</span>
-                    <span class="label">Minutes</span>
-                </div>
-                <div class="countdown-box">
-                    <span class="number" id="seconds">43</span>
-                    <span class="label">Seconds</span>
-                </div>
-            </div>
+    <div class="countdown-box">
+        <span class="number" id="hours">14</span>
+        <span class="label">Hours</span>
+    </div>
+    <div class="countdown-box">
+        <span class="number" id="minutes">27</span>
+        <span class="label">Minutes</span>
+    </div>
+    <div class="countdown-box">
+        <span class="number" id="seconds">18</span>
+        <span class="label">Seconds</span>
+    </div>
+</div>
             
             <button class="btn btn-primary" onclick="startCheck()">Check My Eligibility Now</button>
             <p class="urgency-sub">New deadlines drop daily—act before they're gone!</p>
@@ -626,37 +622,32 @@
     </footer>
 
     <script>
-        // Countdown timer
         function updateCountdown() {
-            const days = document.getElementById('days');
-            const hours = document.getElementById('hours');
-            const minutes = document.getElementById('minutes');
-            const seconds = document.getElementById('seconds');
-            
-            let d = parseInt(days.textContent);
-            let h = parseInt(hours.textContent);
-            let m = parseInt(minutes.textContent);
-            let s = parseInt(seconds.textContent);
-            
-            s--;
-            if (s < 0) {
-                s = 59;
-                m--;
-                if (m < 0) {
-                    m = 59;
-                    h--;
-                    if (h < 0) {
-                        h = 23;
-                        d--;
-                    }
-                }
+    const hours = document.getElementById('hours');
+    const minutes = document.getElementById('minutes');
+    const seconds = document.getElementById('seconds');
+    
+    let h = parseInt(hours.textContent);
+    let m = parseInt(minutes.textContent);
+    let s = parseInt(seconds.textContent);
+    
+    s--;
+    if (s < 0) {
+        s = 59;
+        m--;
+        if (m < 0) {
+            m = 59;
+            h--;
+            if (h < 0) {
+                h = 23; // Reset to 23 hours when it hits 0
             }
-            
-            days.textContent = d;
-            hours.textContent = h;
-            minutes.textContent = m;
-            seconds.textContent = s;
         }
+    }
+    
+    hours.textContent = h;
+    minutes.textContent = m;
+    seconds.textContent = s;
+}
         
         // Update countdown every second
         setInterval(updateCountdown, 1000);
