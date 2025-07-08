@@ -391,26 +391,59 @@
             margin-bottom: 1.5rem;
         }
         
-        .faq {
-            max-width: 600px;
-            margin: 2rem auto 0;
-            text-align: left;
-        }
-        
-        .faq-item {
-            border-bottom: 1px solid #E5E7EB;
-            padding: 1rem 0;
-        }
-        
-        .faq-question {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            cursor: pointer;
-        }
-        
-        .faq-answer {
-            color: #4B5563;
-        }
+        .faq h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #111827;
+}
+
+.faq-item {
+    border: 1px solid #E5E7EB;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+    overflow: hidden;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    padding: 1rem;
+    cursor: pointer;
+    background-color: #F9FAFB;
+    transition: background-color 0.3s ease;
+}
+
+.faq-question:hover {
+    background-color: #F3F4F6;
+}
+
+.faq-icon {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #1E3A8A;
+    transition: transform 0.3s ease;
+}
+
+.faq-answer {
+    padding: 0 1rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    color: #4B5563;
+    background-color: white;
+}
+
+.faq-answer.active {
+    max-height: 100px;
+    padding: 1rem;
+}
+
+.faq-icon.active {
+    transform: rotate(45deg);
+}
         
         /* Footer */
         .footer {
@@ -470,8 +503,8 @@
     <section class="social-proof">
         <div class="container">
             <div class="live-feed">
-                <span class="pulse">🔥</span> Maria from FL just found $850 for groceries! • 2 min ago
-            </div>
+    Maria from FL just found $850 for groceries! • 2 min ago
+</div>
             
             <div class="stats">
                 <div class="stat">
@@ -507,8 +540,8 @@
             <div class="steps">
                 <div class="step">
                     <div class="step-number">1</div>
-                    <h3>Answer 3 Quick Questions</h3>
-                    <p>We'll map your situation in 60 seconds.</p>
+                    <h3>Enter You Email And Basic Info</h3>
+                    <p>Quick details to find your personalized matches.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">2</div>
@@ -598,19 +631,38 @@
             <button class="btn btn-primary" onclick="startCheck()">Start My Free Check</button>
             
             <div class="faq">
-                <div class="faq-item">
-                    <div class="faq-question">Is it really free?</div>
-                    <div class="faq-answer">Yes, no fees ever.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">How secure is my info?</div>
-                    <div class="faq-answer">256-bit SSL & HIPAA compliant.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">What if I don't qualify?</div>
-                    <div class="faq-answer">No obligation, no risk—see your results.</div>
-                </div>
-            </div>
+    <h3>Frequently Asked Questions</h3>
+    
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+            Is it really free?
+            <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+            Yes, no fees ever.
+        </div>
+    </div>
+    
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+            How secure is my info?
+            <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+            256-bit SSL & HIPAA compliant.
+        </div>
+    </div>
+    
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+            What if I don't qualify?
+            <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+            No obligation, no risk—see your results.
+        </div>
+    </div>
+</div>
         </div>
     </section>
 
@@ -652,19 +704,18 @@
         // Update countdown every second
         setInterval(updateCountdown, 1000);
         
-        // Live feed updates
         const feedMessages = [
-            "🔥 Maria from FL just found $850 for groceries! • 2 min ago",
-            "🎉 John from TX qualified for $1,200 rent assistance! • 4 min ago",
-            "✅ Lisa from CA discovered $600 utility help! • 7 min ago",
-            "💰 Mike from NY unlocked $900 in benefits! • 9 min ago"
-        ];
+    "Maria from FL just found $850 for groceries! • 2 min ago",
+    "John from TX qualified for $1,200 rent assistance! • 4 min ago",
+    "Lisa from CA discovered $600 utility help! • 7 min ago",
+    "Mike from NY unlocked $900 in benefits! • 9 min ago"
+];
         
         let currentMessage = 0;
         function updateFeed() {
             const feed = document.querySelector('.live-feed');
             if (feed) {
-                feed.innerHTML = `<span class="pulse">🔥</span> ${feedMessages[currentMessage]}`;
+                feed.innerHTML = feedMessages[currentMessage];
                 currentMessage = (currentMessage + 1) % feedMessages.length;
             }
         }
@@ -679,6 +730,25 @@
             // Example: window.location.href = 'your-offer-url-here';
             alert('This would redirect to your FindResourcesUSA offer page!');
         }
+        function toggleFaq(element) {
+    const answer = element.nextElementSibling;
+    const icon = element.querySelector('.faq-icon');
+    
+    // Toggle active class
+    answer.classList.toggle('active');
+    icon.classList.toggle('active');
+    
+    // Close other FAQs (optional - for accordion behavior)
+    const allAnswers = document.querySelectorAll('.faq-answer');
+    const allIcons = document.querySelectorAll('.faq-icon');
+    
+    allAnswers.forEach((item, index) => {
+        if (item !== answer) {
+            item.classList.remove('active');
+            allIcons[index].classList.remove('active');
+        }
+    });
+}
     </script>
 </body>
 </html>
