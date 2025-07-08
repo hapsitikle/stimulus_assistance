@@ -113,6 +113,103 @@
   color: #555;
 }
 
+    /* Testimonials Carousel */
+.testimonials {
+  background: #fff;
+  padding: 1.5rem 1rem;
+  margin: 1.5rem 0;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.05);
+  text-align: center;
+}
+.testimonials h2 {
+  font-size: 1.4rem;
+  margin-bottom: 0.25rem;
+}
+.testimonials p {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+}
+.slides {
+  display: flex;
+  transition: transform 0.4s ease;
+}
+.slide {
+  min-width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+}
+.slide.active {
+  display: flex;
+}
+.slide img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 0.75rem;
+}
+.stars {
+  color: #fbc02d;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+.slide blockquote {
+  font-style: italic;
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+  color: #333;
+}
+.slide cite {
+  font-size: 0.8rem;
+  color: #555;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.8);
+  border: none;
+  font-size: 1.5rem;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.arrow.prev { left: 0.5rem; }
+.arrow.next { right: 0.5rem; }
+
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.dot {
+  width: 8px;
+  height: 8px;
+  background: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.dot.active { background: #0288d1; }
+
+@media (max-width: 400px) {
+  .testimonials h2 { font-size: 1.2rem; }
+  .arrow { font-size: 1.25rem; }
+  .slide blockquote { font-size: 0.85rem; }
+}
+
+
 /* Mobile tweaks */
 @media (max-width: 400px) {
   .stats-cards {
@@ -245,12 +342,62 @@ v
       <button class="btn-primary">Check My Eligibility Now</button>
     </section>
 
+    <section class="testimonials">
+  <h2>Real People, Real Results</h2>
+  <p>See what others are saying about FindResourcesUSA</p>
+
+  <div class="carousel">
+    <button class="arrow prev" aria-label="Previous testimonial">‹</button>
+    <div class="slides">
+      <!-- Slide 1 -->
+      <div class="slide active">
+        <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="User portrait">
+        <div class="stars">★★★★★</div>
+        <blockquote>"I was skeptical at first, but this really helped me get the medical coverage I needed."</blockquote>
+        <cite>Robert L., California</cite>
+      </div>
+      <!-- Slide 2 -->
+      <div class="slide">
+        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User portrait">
+        <div class="stars">★★★★★</div>
+        <blockquote>"In minutes I found rent assistance I didn’t even know existed—life-changing!"</blockquote>
+        <cite>Linda S., Texas</cite>
+      </div>
+      <!-- Slide 3 -->
+      <div class="slide">
+        <img src="https://randomuser.me/api/portraits/men/68.jpg" alt="User portrait">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Fast, free, and reliable—finally some help with my grocery bills."</blockquote>
+        <cite>David M., Ohio</cite>
+      </div>
+      <!-- Slide 4 -->
+      <div class="slide">
+        <img src="https://randomuser.me/api/portraits/women/31.jpg" alt="User portrait">
+        <div class="stars">★★★★★</div>
+        <blockquote>"As a retiree, I needed quick support. This site delivered exactly that."</blockquote>
+        <cite>Marilyn T., Florida</cite>
+      </div>
+    </div>
+    <button class="arrow next" aria-label="Next testimonial">›</button>
+
+    <div class="dots">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </div>
+</section>
+
+    
     <div class="security">
       <div class="sec-item"><div class="sec-icon">🔒</div><p>Bank-level SSL</p></div>
       <div class="sec-item"><div class="sec-icon">🔐</div><p>No data selling ever</p></div>
       <div class="sec-item"><div class="sec-icon">🛡️</div><p>HIPAA compliant</p></div>
       <div class="sec-item"><div class="sec-icon">✅</div><p>100% free</p></div>
     </div>
+
+    
 
     <footer>
       <p>Not affiliated with any government agency.</p>
@@ -274,7 +421,7 @@ v
     setInterval(tick,1000);
     tick();
 
-    function rotateNotices(){
+    (function rotateNotices(){
     const notices = [
       "🔥 John from Texas saved $1,200 on utilities!",
       "🔥 Maria from Ohio just got $800 in relief!",
@@ -293,6 +440,27 @@ v
 
     // initial delay 8s
     setTimeout(showNext, 8000);
+  })();
+
+    (function(){
+    const slides = document.querySelectorAll('.slide');
+    const dots   = document.querySelectorAll('.dot');
+    let idx = 0;
+
+    function showSlide(i) {
+      slides[idx].classList.remove('active');
+      dots[idx].classList.remove('active');
+      idx = (i + slides.length) % slides.length;
+      slides[idx].classList.add('active');
+      dots[idx].classList.add('active');
+    }
+
+    document.querySelector('.arrow.prev').onclick = () => showSlide(idx - 1);
+    document.querySelector('.arrow.next').onclick = () => showSlide(idx + 1);
+    dots.forEach((dot, i) => dot.onclick = () => showSlide(i));
+
+    // auto-rotate every 8 seconds
+    setInterval(() => showSlide(idx + 1), 8000);
   })();
   </script>
 </body>
