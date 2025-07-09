@@ -297,44 +297,44 @@
             margin-top: 1rem;
         }
         
-        /* Trust Badges */
         .trust-badges {
-            background: white;
-            padding: 2rem 1.5rem;
-        }
-        
-        .badges {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1rem;
-        }
-        
-        .badge {
-            text-align: center;
-            padding: 1rem;
-            border-radius: 0.5rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .badge:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-        
-        .badge-icon {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .badge h4 {
-            font-size: 1rem;
-            margin-bottom: 0.25rem;
-        }
-        
-        .badge p {
-            font-size: 0.875rem;
-            color: #4B5563;
-        }
+    background: white;
+    padding: 2rem 1.5rem;
+}
+
+.badges {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .badges {
+        grid-template-columns: repeat(4, 1fr); /* 4 columns on desktop */
+    }
+}
+
+.badge {
+    text-align: center;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    /* Removed all hover effects */
+}
+
+.badge-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.badge h4 {
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+}
+
+.badge p {
+    font-size: 0.875rem;
+    color: #4B5563;
+}
         
         .testimonials {
     background-color: #EFF6FF;
