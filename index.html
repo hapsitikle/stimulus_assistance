@@ -56,16 +56,39 @@
         }
         
         /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/happy couple.jpg') center/cover;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            padding: 2rem 1.5rem;
-        }
+       .hero {
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/happy-couple.jpg') center/cover;
+    min-height: 70vh; /* Reduced from 100vh */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 2rem 1.5rem;
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+    .hero {
+        min-height: 60vh; /* Even smaller on mobile */
+        padding: 1.5rem 1rem;
+    }
+    
+    .hero h1 {
+        font-size: 1.5rem; /* Slightly smaller headline */
+        margin-bottom: 0.75rem;
+    }
+    
+    .hero p {
+        font-size: 0.9rem;
+        margin-bottom: 1.25rem;
+    }
+    
+    .proof-nugget {
+        font-size: 0.8rem;
+        margin-top: 0.75rem;
+    }
+}
         
         .hero-content {
             max-width: 480px;
