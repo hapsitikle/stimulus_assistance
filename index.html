@@ -828,20 +828,40 @@
         setInterval(updateCountdown, 1000);
         
         const feedMessages = [
-    "Maria from FL just found $850 for groceries! • 2 min ago",
-    "John from TX qualified for $1,200 rent assistance! • 4 min ago",
-    "Lisa from CA discovered $600 utility help! • 7 min ago",
-    "Mike from NY unlocked $900 in benefits! • 9 min ago"
+    "Maria from FL just found $850 for groceries!",
+    "Kevin from CO discovered $1,400 in combined benefits!",
+    "Jessica from CA discovered $600 utility help!",
+    "Mike from TX qualified for $1,200 rent assistance!",
+    "Thomas from MI unlocked $800 healthcare support!",
+    "Jennifer from TX qualified for $1,200 in food benefits!",
+    "Sarah from AZ discovered $850 housing support!",
+    "Mark from NC found $400 energy assistance!",
+    "Robert from CA discovered $600 SNAP assistance!",
+    "Amanda from GA unlocked $950 housing help!",
+    "Angela from VA found $650 medical assistance!",
+    "Lisa from NY unlocked $900 in monthly food help!",
+    "Carlos from FL found $1,100 rent relief!",
+    "Patricia from WA qualified for $525 utility relief!",
+    "David from OH found $750 grocery assistance!",
+    "Rachel from IL qualified for $1,050 total assistance!"
 ];
+
+// Start from random index
+let currentIndex = Math.floor(Math.random() * feedMessages.length);
+const timeStamps = ["1 min ago", "2 min ago"];
+
+function updateFeed() {
+    const feed = document.querySelector('.live-feed');
+    if (feed) {
+        const message = feedMessages[currentIndex];
+        const randomTime = timeStamps[Math.floor(Math.random() * timeStamps.length)];
+        feed.innerHTML = `${message} • ${randomTime}`;
         
-        let currentMessage = 0;
-        function updateFeed() {
-            const feed = document.querySelector('.live-feed');
-            if (feed) {
-                feed.innerHTML = feedMessages[currentMessage];
-                currentMessage = (currentMessage + 1) % feedMessages.length;
-            }
-        }
+        // Move to next, cycle back to 0 after reaching end
+        currentIndex = (currentIndex + 1) % feedMessages.length;
+    }
+}
+        
         
         // Update feed every 10 seconds
         setInterval(updateFeed, 10000);
