@@ -279,9 +279,14 @@
         .urgency {
             background-color: #DC2626;
             color: white;
-            padding: 2rem 1.5rem;
+            padding: 1rem 1.5rem;
             text-align: center;
         }
+        @media (max-width: 768px) {
+    .urgency {
+        padding: 1rem 1rem; /* Tighter on mobile */
+    }
+}
         
         .urgency h2 {
             font-size: 1.75rem;
@@ -322,9 +327,14 @@
         
         .trust-badges {
     background: white;
-    padding: 2rem 1.5rem;
+    padding: 1.5rem 1.5rem;
 }
-
+@media (max-width: 768px) {
+    .trust-badges {
+        padding: 1rem 1rem;
+    }
+}
+        
 .badges {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
@@ -435,7 +445,7 @@
 /* Mobile-specific testimonial optimizations */
 @media (max-width: 768px) {
     .testimonials {
-        padding: 2rem 1rem; /* Reduced padding */
+        padding: 1rem 1rem; /* Reduced padding */
     }
     
     .testimonials h2 {
@@ -488,9 +498,14 @@
         /* Final CTA */
         .final-cta {
             background: white;
-            padding: 3rem 1.5rem;
+            padding: 1.5rem 1.5rem;
             text-align: center;
         }
+        @media (max-width: 768px) {
+    .final-cta {
+        padding: 1.5rem 1rem; /* Tighter on mobile */
+    }
+}
         
         .final-cta h2 {
             font-size: 2rem;
@@ -572,8 +587,8 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Struggling with Bills? See What Government Help You Qualify For—Free</h1>
-            <p>100% Free • 3-Minute Eligibility Check • No Risk, No Fees</p>
+            <h1>Overlwhelmed By Bills? Discover Your Free Government Help Now!</h1>
+            <p>100% Free • Just one quick form—no fees, no obligation.</p>
             <button class="btn btn-primary" onclick="startCheck()">Start My Free Check</button>
             <p class="proof-nugget">10,432 Americans helped this week</p>
         </div>
@@ -632,6 +647,30 @@
         </div>
     </section>
 
+    <!-- Urgency Countdown -->
+    <section class="urgency">
+        <div class="container">
+            <h2>Current Programs End Soon—See What's Available!</h2>
+            <button class="btn btn-primary" onclick="startCheck()">Check My Eligibility Now</button>
+            <div class="countdown">
+    <div class="countdown-box">
+        <span class="number" id="hours">14</span>
+        <span class="label">Hours</span>
+    </div>
+    <div class="countdown-box">
+        <span class="number" id="minutes">27</span>
+        <span class="label">Minutes</span>
+    </div>
+    <div class="countdown-box">
+        <span class="number" id="seconds">18</span>
+        <span class="label">Seconds</span>
+    </div>
+</div>
+            
+            
+        </div>
+    </section>
+
     <!-- Benefit Grid -->
     <section class="benefit-grid">
         <div class="container">
@@ -656,29 +695,7 @@
     </section>
 
     
-    <!-- Urgency Countdown -->
-    <section class="urgency">
-        <div class="container">
-            <h2>Current Programs End Soon—See What's Available!</h2>
-            <button class="btn btn-primary" onclick="startCheck()">Check My Eligibility Now</button>
-            <div class="countdown">
-    <div class="countdown-box">
-        <span class="number" id="hours">14</span>
-        <span class="label">Hours</span>
-    </div>
-    <div class="countdown-box">
-        <span class="number" id="minutes">27</span>
-        <span class="label">Minutes</span>
-    </div>
-    <div class="countdown-box">
-        <span class="number" id="seconds">18</span>
-        <span class="label">Seconds</span>
-    </div>
-</div>
-            
-            
-        </div>
-    </section>
+    
 
     <!-- Trust Badges -->
     <section class="trust-badges">
