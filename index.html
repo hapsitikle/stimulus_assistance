@@ -62,12 +62,11 @@
     }
 
   .hero {
-  position: relative;
   background:
     linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-    url('images/stressed2.png') no-repeat center top;
+    url('images/stressed2.png') no-repeat center 40%;
   background-size: cover;
-  min-height: 80vh;            /* or whatever height felt right before */
+  min-height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -76,14 +75,15 @@
   padding: 2rem 1.5rem;
 }
 
-/* on smaller screens, center vertically so the man stays visible */
+/* On mobile, recentre vertically */
 @media (max-width: 768px) {
   .hero {
-    background-position: center center;
+    background-position: center 50%;
     min-height: 60vh;
     padding: 1.5rem 1rem;
   }
 }
+
 
 .hero-content {
   /* keeps text over the image */
