@@ -15,22 +15,24 @@
       display:inline-block; text-align:center; transition:all .3s ease; }
     .btn { font-weight:600; }
 
-    /* Hero (plain color background) */
+    /* Hero */
     .hero {
-      background-color: #1E3A8A;
-      min-height: 70vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: #fff;
-      padding: 2rem 1.5rem;
-      border-radius: .75rem;
-    }
+  /* plain dark-blue background, no image */
+  background-color: #1E3A8A;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  padding: 2rem 1.5rem;
+  border-radius: .75rem;
+}
+
     .hero-content { max-width:480px; }
     .hero h1 { font-size:1.75rem; font-weight:700; line-height:1.2; margin-bottom:1rem; }
-    .hero p { font-size:1rem; color:rgba(255,255,255,0.8); margin-bottom:1.5rem; }
-    .proof-nugget { font-size:.875rem; color:rgba(255,255,255,0.7); margin-top:.5rem; }
+    .hero p { font-size:1rem; color:#D1D5DB; margin-bottom:1.5rem; }
+    .proof-nugget { font-size:.875rem; color:#D1D5DB; margin-top:.5rem; }
 
     .btn-primary {
       background-color:#10B981; color:#fff;
@@ -68,4 +70,247 @@
     }
     .stats h2 { font-size:2rem; font-weight:700; margin-bottom:.5rem; }
     .stats div:nth-child(1) h2 { color:#1E3A8A; }
-    .stats div:nth-child(
+    .stats div:nth-child(2) h2 { color:#10B981; }
+    .stats div:nth-child(3) h2 { color:#6B21A8; }
+
+    /* Urgency */
+    .urgency {
+      background:#DC2626; color:#fff; padding:1rem 1.5rem; text-align:center;
+    }
+    .urgency h2 { font-size:1.75rem; margin-bottom:1rem; }
+    .countdown { display:flex; justify-content:center; gap:.75rem; margin-top:1.5rem; }
+    .countdown-box {
+      background:#B91C1C; padding:.75rem; border-radius:.5rem; text-align:center;
+      min-width:50px;
+    }
+    .countdown-box .number { font-size:1.5rem; font-weight:700; display:block; }
+    .countdown-box .label { font-size:.75rem; opacity:.8; }
+
+    /* FAQ */
+    .final-cta { background:#fff; padding:1.5rem; text-align:center; }
+    .faq-item { border:1px solid #E5E7EB; border-radius:.5rem; margin-bottom:.5rem; overflow:hidden; }
+    .faq-question {
+      display:flex; justify-content:space-between; align-items:center;
+      font-weight:600; padding:1rem; background:#F9FAFB; cursor:pointer;
+    }
+    .faq-icon { font-size:1.5rem; color:#1E3A8A; transition:transform .3s ease; }
+    .faq-answer {
+      padding:0 1rem; max-height:0; overflow:hidden;
+      transition:max-height .3s ease,padding .3s ease; color:#4B5563; background:#fff;
+    }
+    .faq-answer.active { max-height:100px; padding:1rem; }
+    .faq-icon.active { transform:rotate(45deg); }
+
+    /* Utils */
+    @media (min-width:768px) {
+      .btn-primary { width:auto; }
+      .hero h1 { font-size:2.5rem; }
+      .steps { grid-template-columns:repeat(3,1fr); }
+    }
+
+    /* Mobile tweaks */
+    @media (max-width:768px) {
+
+      .hero {
+        background-position:center top !important;
+        min-height:50vh !important;
+        border-radius:0 !important;
+        padding:1rem !important;
+      }
+      .hero h1 {
+        font-size:1.75rem !important;
+        line-height:1.2 !important;
+        margin-bottom:.75rem !important;
+      }
+      .hero p {
+        font-size:.9rem !important;
+        margin-bottom:1rem !important;
+      }
+      .btn-primary {
+        padding:.75rem 1.5rem !important;
+        font-size:1.25rem !important;
+        width:100% !important;
+      }
+      .proof-nugget { display:none; }
+
+      /* tighten vertical gaps */
+      .how-it-works { padding-bottom:1.5rem !important; }
+      .social-proof { padding-top:1rem !important; }
+      .steps { gap:1rem !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Overwhelmed By Bills? Claim Up To $1,400 With A Free Eligibility Check!</h1>
+      <p>Next: Click below to start your free 2-minute check.</p>
+      <button class="btn btn-primary" onclick="startCheck()">Check If I Qualify</button>
+      <p class="proof-nugget">10,432 Americans helped this week</p>
+    </div>
+  </section>
+
+
+  <!-- How It Works -->
+  <section class="how-it-works">
+    <div class="container">
+      <h2>How It Works</h2>
+      <p>Follow these exact steps to claim your benefits in minutes</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Click & Enter Email</h3>
+          <p>Tap “Check If I Qualify” and type in your email.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Fill a Quick Form</h3>
+          <p>Answer a few basic questions—under 2 minutes.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>View Your Eligibility</h3>
+          <p>See exactly which programs you qualify for—up to $1,400.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Social Proof -->
+  <section class="social-proof">
+    <div class="container">
+      <div class="live-feed">
+        Maria from FL just found $850 for groceries! • 2 min ago
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <h2>10,432+</h2>
+          <p>Americans helped this week</p>
+        </div>
+        <div class="stat">
+          <h2>$3.1M</h2>
+          <p>Benefits unlocked</p>
+        </div>
+        <div class="stat">
+          <h2>2.6 min</h2>
+          <p>Avg. check time</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Urgency -->
+  <section class="urgency">
+    <div class="container">
+      <h2>Current Programs End Soon—See What’s Available!</h2>
+      <button class="btn btn-primary" onclick="startCheck()">Check If I Qualify</button>
+      <div class="countdown">
+        <div class="countdown-box">
+          <span class="number" id="hours">14</span>
+          <span class="label">Hours</span>
+        </div>
+        <div class="countdown-box">
+          <span class="number" id="minutes">27</span>
+          <span class="label">Minutes</span>
+        </div>
+        <div class="countdown-box">
+          <span class="number" id="seconds">18</span>
+          <span class="label">Seconds</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FAQ -->
+  <section class="final-cta">
+    <div class="container faq">
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Is it really free? <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">Yes, no fees ever.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          How secure is my info? <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">256-bit SSL & HIPAA compliant.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          What if I don’t qualify? <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">No obligation, no risk—see your results.</div>
+      </div>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 FindResourcesUSA. All rights reserved.</p>
+    </div>
+  </footer>
+
+
+  <script>
+    function startCheck() {
+      window.location.href = 'https://rewarduplevel.com/aff_c?offer_id=2499&aff_id=134431';
+    }
+
+    // Countdown
+    setInterval(() => {
+      let h = parseInt(document.getElementById('hours').textContent);
+      let m = parseInt(document.getElementById('minutes').textContent);
+      let s = parseInt(document.getElementById('seconds').textContent);
+      s--; if (s<0){ s=59; m--; if(m<0){ m=59; h = h>0? h-1:23; } }
+      document.getElementById('hours').textContent = h;
+      document.getElementById('minutes').textContent = m;
+      document.getElementById('seconds').textContent = s;
+    }, 1000);
+
+    // Live feed rotation
+    (function(){
+      const msgs = [
+        "Maria from FL just found $850 for groceries!",
+        "Kevin from CO discovered $1,400 in combined benefits!",
+        "Jessica from CA discovered $600 utility help!",
+        "Mike from TX qualified for $1,200 rent assistance!",
+        "Thomas from MI unlocked $800 healthcare support!",
+        "Jennifer from TX qualified for $1,200 in food benefits!",
+        "Sarah from AZ discovered $850 housing support!",
+        "Mark from NC found $400 energy assistance!",
+        "Robert from CA discovered $600 SNAP assistance!",
+        "Amanda from GA unlocked $950 housing help!",
+        "Angela from VA found $650 medical assistance!",
+        "Lisa from NY unlocked $900 in monthly food help!",
+        "Carlos from FL found $1,100 rent relief!",
+        "Patricia from WA qualified for $525 utility relief!",
+        "David from OH found $750 grocery assistance!",
+        "Rachel from IL qualified for $1,050 total assistance!"
+      ];
+      let idx = Math.floor(Math.random()*msgs.length);
+      setInterval(() => {
+        const stamp = Math.random()<.5? '1 min ago':'2 min ago';
+        document.querySelector('.live-feed').textContent = msgs[idx] + ' • ' + stamp;
+        idx = (idx+1)%msgs.length;
+      },10000);
+    })();
+
+    // FAQ accordion
+    function toggleFaq(el){
+      const ans = el.nextElementSibling, icon = el.querySelector('.faq-icon');
+      ans.classList.toggle('active');
+      icon.classList.toggle('active');
+      document.querySelectorAll('.faq-answer').forEach((a,i)=> {
+        if(a!==ans){ a.classList.remove('active'); document.querySelectorAll('.faq-icon')[i].classList.remove('active'); }
+      });
+    }
+  </script>
+</body>
+</html>
