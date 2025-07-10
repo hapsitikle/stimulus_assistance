@@ -63,28 +63,35 @@
 
   .hero {
   position: relative;
-  /* overlay + full image, centered */
   background:
-    linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),
-    url('images/stressed2.png') center center no-repeat;
-  background-size: contain;          /* show the whole image */
-  /* maintain approx 69.9% height of container’s width */
-  padding-top: 69.9%;                /* (699 ÷ 1000 × 100%) */
-  
+    linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+    url('images/stressed2.png') no-repeat center top;
+  background-size: cover;
+  min-height: 80vh;            /* or whatever height felt right before */
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   color: #fff;
+  padding: 2rem 1.5rem;
 }
 
-/* pull your text out of the flow so it sits on top */
-.hero-content {
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%,-50%);
-  max-width: 90%;  /* avoid overflow */
+/* on smaller screens, center vertically so the man stays visible */
+@media (max-width: 768px) {
+  .hero {
+    background-position: center center;
+    min-height: 60vh;
+    padding: 1.5rem 1rem;
+  }
 }
+
+.hero-content {
+  /* keeps text over the image */
+  position: relative;
+  z-index: 1;
+  max-width: 480px;
+}
+
 
     .hero h1 {
       font-size: 1.75rem;
