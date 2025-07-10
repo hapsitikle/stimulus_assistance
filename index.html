@@ -32,18 +32,25 @@
       .btn { padding:1.5rem 3rem; font-size:1.5rem; }
     }
 
-    /* Hero */
     .hero {
-      position:relative;
-      text-align:center;
-      color:#fff;
-      padding:2rem 1.5rem;
-      overflow:hidden;
-      background:
-        linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)),
-        url('images/stressed2.png') no-repeat center top;
-      background-size: auto 100%;
-    }
+  position: relative;
+  text-align: center;
+  color: #fff;
+  padding: 2rem 1.5rem;
+
+  /* NEW: match image width, center & round */
+  max-width: 720px;
+  margin: 0 auto;
+  border-radius: 1rem;
+  overflow: hidden;
+
+  /* your gradient + image */
+  background:
+    linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)),
+    url('images/stressed2.png') no-repeat center top;
+  background-size: auto 100%;
+}
+
     .hero-content {
       position:relative;
       z-index:1;
