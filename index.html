@@ -61,18 +61,24 @@
       }
     }
 
-    /* HERO */
-    .hero {
-      background: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),
-                  url('images/stressed2.png') center/cover no-repeat;
-      min-height: 70vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: #fff;
-      padding: 2rem 1.5rem;
-    }
+   .hero {
+  /* overlay gradient + new image */
+  background-image:
+    linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+    url('images/stressed2.png');
+  background-repeat: no-repeat;
+  background-size: cover;          /* ensure it fills container */
+  background-position: center top; /* crop from the top of the image */
+  
+  min-height: 80vh;    /* give it more vertical room */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  padding: 2rem 1.5rem;
+}
+
     .hero-content {
       max-width: 480px;
     }
