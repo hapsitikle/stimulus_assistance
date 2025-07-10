@@ -103,17 +103,17 @@
 
     @media (max-width: 768px) {
   .hero {
-    /* make the image “stick” to the top so you see more of the desk & calculator */
+    /* pin the image to the top so you reveal more of the desk/calculator */
     background-position: center top !important;
-    /* reduce the height so the CTA is visible without scrolling */
+    /* shorten the hero so the CTA stays above the fold */
     min-height: 50vh !important;
-    /* remove rounded corners so it spans the full width on mobile */
+    /* full-width on mobile */
     border-radius: 0 !important;
     padding: 1rem !important;
   }
 
   .hero h1 {
-    font-size: 1.4rem !important;
+    font-size: 2rem !important;
     line-height: 1.2 !important;
     margin-bottom: 0.75rem !important;
   }
@@ -123,16 +123,18 @@
     margin-bottom: 1rem !important;
   }
 
-  .btn {
+  .btn-primary {
+    /* only bump your green CTAs */
+    width: 100% !important;
     padding: 0.75rem 1.5rem !important;
     font-size: 1rem !important;
-    width: 100% !important;
   }
 
   .proof-nugget {
-    display: none; /* remove extra text so button area stays clean */
+    display: none; /* declutter */
   }
 }
+
 
     /* Social proof */
     .social-proof { padding:2rem 1.5rem; text-align:center; }
