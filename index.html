@@ -1,611 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>See What Government Help You Qualify For – Free Eligibility Check</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>See What Government Help You Qualify For - Free Eligibility Check</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* RESET & GLOBALS */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Inter', sans-serif;
-      line-height: 1.6;
-      color: #111827;
-      background-color: #fff;
-    }
-    .container {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 1.5rem;
-    }
+    * { margin:0; padding:0; box-sizing:border-box }
+    body { font-family:'Inter',sans-serif; color:#111827; background:#fff; }
+    .container { max-width:720px; margin:0 auto; padding:1.5rem; }
 
-    /* BUTTONS */
     .btn {
-      border: none;
-      border-radius: 0.5rem;
-      padding: 1rem 2rem;
-      font-size: 1.125rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      display: inline-block;
-      text-align: center;
-      width: 100%;
+      display:inline-block;
+      border:none;
+      border-radius:.5rem;
+      padding:1rem 2rem;
+      font-size:1.125rem;
+      font-weight:600;
+      cursor:pointer;
+      text-decoration:none;
+      text-align:center;
+      transition:background .3s,transform .3s;
     }
     .btn-primary {
-      background-color: #10b981;
-      color: #fff;
+      background:#10B981; color:#fff;
     }
     .btn-primary:hover {
-      background-color: #059669;
-      transform: translateY(-2px);
+      background:#059669;
+      transform:translateY(-2px);
     }
-    @media (min-width: 768px) {
-      .btn {
-        width: auto;
-      }
-    }
-    @media (min-width: 1024px) {
-      .btn {
-        padding: 1.5rem 3rem;
-        font-size: 1.5rem;
-      }
+    @media(min-width:1024px){
+      .btn { padding:1.5rem 3rem; font-size:1.5rem; }
     }
 
-  .hero {
-  background:
-    linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-    url('images/stressed2.png') no-repeat center 60%;
-  background-size: cover;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: #fff;
-  padding: 2rem 1.5rem;
-}
-
-/* On mobile, recentre vertically */
-@media (max-width: 768px) {
-  .hero {
-    background-position: center 50%;
-    min-height: 60vh;
-    padding: 1.5rem 1rem;
-  }
-}
-
-
-.hero-content {
-  /* keeps text over the image */
-  position: relative;
-  z-index: 1;
-  max-width: 480px;
-}
-
-
+    /* Hero */
+    .hero {
+      position:relative;
+      text-align:center;
+      color:#fff;
+      padding:2rem 1.5rem;
+      overflow:hidden;
+      background:
+        linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)),
+        url('images/stressed2.png') no-repeat center top;
+      background-size: auto 100%;
+    }
+    .hero-content {
+      position:relative;
+      z-index:1;
+      max-width:480px;
+      margin:0 auto;
+    }
     .hero h1 {
-      font-size: 1.75rem;
-      font-weight: 700;
-      line-height: 1.2;
-      margin-bottom: 1rem;
+      font-size:1.75rem;
+      font-weight:700;
+      line-height:1.2;
+      margin-bottom:1rem;
     }
-    .hero p {
-      font-size: 1rem;
-      color: #d1d5db;
-      margin-bottom: 1.5rem;
+    @media(min-width:768px){
+      .hero h1 { font-size:2.5rem; }
     }
-    .proof-nugget {
-      font-size: 0.875rem;
-      color: #d1d5db;
-      margin-top: 0.5rem;
-    }
-    @media (max-width: 768px) {
-      .hero {
-        min-height: 60vh;
-        padding: 1.5rem 1rem;
-      }
-      .hero h1 {
-        font-size: 1.5rem;
-        margin-bottom: 0.75rem;
-      }
-      .hero p {
-        font-size: 0.9rem;
-        margin-bottom: 1.25rem;
-      }
-      .proof-nugget {
-        font-size: 0.8rem;
-        margin-top: 0.75rem;
-      }
-    }
-    @media (min-width: 768px) {
-      .hero h1 {
-        font-size: 2.5rem;
-      }
-    }
+    .hero p { color:rgba(255,255,255,.85); margin-bottom:1.5rem; }
+    .proof-nugget { font-size:.875rem; color:rgba(255,255,255,.75); }
 
-    /* HOW IT WORKS */
+    /* How It Works */
     .how-it-works {
-      background-color: #f9fafb;
-      padding: 3rem 1.5rem;
-      text-align: center;
+      background:#F9FAFB; text-align:center;
+      padding:3rem 1.5rem;
     }
-    .how-it-works h2 {
-      font-size: 2rem;
-      color: #111827;
-      margin-bottom: 0.5rem;
-    }
-    .how-it-works > p {
-      color: #4b5563;
-      margin-bottom: 2rem;
-    }
+    .how-it-works h2 { font-size:2rem; margin-bottom:.5rem; }
+    .how-it-works p { color:#4B5563; margin-bottom:2rem; }
     .steps {
-      display: grid;
-      gap: 2rem;
-      grid-template-columns: 1fr;
+      display:grid; gap:2rem;
+      grid-template-columns:1fr;
     }
-    @media (min-width: 768px) {
-      .steps {
-        grid-template-columns: repeat(3, 1fr);
-      }
+    @media(min-width:768px){
+      .steps { grid-template-columns:repeat(3,1fr); }
     }
-    .step {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
+    .step { text-align:center; }
     .step-number {
-      width: 48px;
-      height: 48px;
-      background-color: #1e3a8a;
-      color: #fff;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      margin-bottom: 1rem;
+      width:48px; height:48px;
+      background:#1E3A8A; color:#fff;
+      border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      margin:0 auto 1rem; font-weight:700;
     }
-    .step h3 {
-      font-size: 1.25rem;
-      margin-bottom: 0.5rem;
-    }
+    .step h3 { font-size:1.25rem; margin-bottom:.5rem; }
+    .step p { color:#4B5563; }
 
-    /* SOCIAL PROOF */
-    .social-proof {
-      background: #fff;
-      padding: 2rem 1.5rem;
-      text-align: center;
-    }
+    /* Social proof */
+    .social-proof { padding:2rem 1.5rem; text-align:center; }
     .live-feed {
-      background: #fff;
-      border-left: 4px solid #10b981;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      border-radius: 0.5rem;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      border-left:4px solid #10B981; padding:1rem; margin-bottom:1rem;
+      background:#fff; box-shadow:0 1px 3px rgba(0,0,0,.1);
     }
     .stats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
-      gap: 1rem;
-      margin-bottom: 2rem;
+      display:grid; gap:1rem;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
     }
-    .stat h2 {
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-    .stat:nth-child(1) h2 { color: #1e3a8a; }
-    .stat:nth-child(2) h2 { color: #10b981; }
-    .stat:nth-child(3) h2 { color: #6b21a8; }
-
-    /* URGENCY */
+    .stat h2 { font-size:2rem; font-weight:700; margin-bottom:.5rem; }
+    .stat:nth-child(1) h2 { color:#1E3A8A }
+    .stat:nth-child(2) h2 { color:#10B981 }
+    .stat:nth-child(3) h2 { color:#6B21A8 }
+    
+    /* Urgency */
     .urgency {
-      background-color: #dc2626;
-      color: #fff;
-      padding: 1rem 1.5rem;
-      text-align: center;
+      background:#DC2626; color:#fff; text-align:center;
+      padding:1rem 1.5rem;
     }
-    .urgency h2 {
-      font-size: 1.75rem;
-      margin-bottom: 1rem;
-    }
+    .urgency h2 { font-size:1.75rem; margin-bottom:1rem }
+    .urgency .btn { margin-bottom:1rem }
     .countdown {
-      display: flex;
-      justify-content: center;
-      gap: 0.75rem;
-      margin-top: 1.5rem;
+      display:flex;justify-content:center;gap:.75rem;margin-top:1rem;
     }
     .countdown-box {
-      background-color: #b91c1c;
-      padding: 0.75rem;
-      border-radius: 0.5rem;
-      text-align: center;
-      min-width: 50px;
+      background:#B91C1C; color:#fff;
+      min-width:50px;padding:.75rem;border-radius:.5rem;
+      text-align:center;
     }
-    .countdown-box .number {
-      font-size: 1.5rem;
-      font-weight: 700;
-      display: block;
-    }
-    .countdown-box .label {
-      font-size: 0.75rem;
-      opacity: 0.8;
-    }
-    @media (max-width: 768px) {
-      .urgency {
-        padding: 1rem 1rem;
-      }
-    }
+    .countdown-box .number { font-size:1.5rem; font-weight:700; }
+    .countdown-box .label { font-size:.75rem; opacity:.8; }
 
     /* FAQ */
-    .faq {
-      margin-top: 10px;
-    }
-    .faq-item {
-      border: 1px solid #e5e7eb;
-      border-radius: 0.5rem;
-      margin-bottom: 0.5rem;
-      overflow: hidden;
-    }
+    .faq { margin:2rem 0; }
+    .faq-item { border:1px solid #E5E7EB; border-radius:.5rem; overflow:hidden; margin-bottom:.5rem; }
     .faq-question {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-weight: 600;
-      padding: 1rem;
-      cursor: pointer;
-      background-color: #f9fafb;
-      transition: background-color 0.3s ease;
+      display:flex;justify-content:space-between;align-items:center;
+      cursor:pointer; padding:1rem; background:#F9FAFB;
+      font-weight:600; transition:background .3s;
     }
-    .faq-question:hover {
-      background-color: #f3f4f6;
-    }
-    .faq-icon {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #1e3a8a;
-      transition: transform 0.3s ease;
-    }
+    .faq-question:hover { background:#F3F4F6 }
+    .faq-icon { font-size:1.5rem; transition:transform .3s; }
     .faq-answer {
-      padding: 0 1rem;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease,padding 0.3s ease;
-      color: #4b5563;
-      background-color: #fff;
+      max-height:0; overflow:hidden;
+      transition:max-height .3s,padding .3s;
+      background:#fff; color:#4B5563;
     }
     .faq-answer.active {
-      max-height: 100px;
-      padding: 1rem;
+      padding:1rem; max-height:200px;
     }
-    .faq-icon.active {
-      transform: rotate(45deg);
-    }
+    .faq-icon.active { transform:rotate(45deg) }
 
-    /* TRUST BADGES */
-    .trust-badges {
-      background: #fff;
-      padding: 1.5rem 1.5rem;
-    }
-    @media (max-width: 768px) {
-      .trust-badges {
-        padding: 1rem;
-      }
-    }
-    .badges {
-      display: grid;
-      grid-template-columns: repeat(2,1fr);
-      gap: 1rem;
-    }
-    @media (min-width: 768px) {
-      .badges {
-        grid-template-columns: repeat(4,1fr);
-      }
-    }
-    .badge {
-      text-align: center;
-      padding: 1rem;
-      border-radius: 0.5rem;
-    }
-    .badge-icon {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-    }
-    .badge h4 {
-      font-size: 1rem;
-      margin-bottom: 0.25rem;
-    }
-    .badge p {
-      font-size: 0.875rem;
-      color: #4b5563;
-    }
-
-    /* FOOTER */
+    /* Footer */
     .footer {
-      background-color: #f9fafb;
-      padding: 1rem;
-      text-align: center;
-      font-size: 0.875rem;
-      color: #4b5563;
+      background:#F9FAFB; text-align:center;
+      padding:1rem; font-size:.875rem; color:#4B5563;
     }
   </style>
 </head>
 <body>
-   <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Overwhelmed By Bills? Claim Up To $1,400 With A Free Eligibility Check!</h1>
-            <p>Next: Click below to start your free 2-minute check.</p>
 
-            <button class="btn btn-primary" onclick="startCheck()">Check If I Qualify</button>
-            <p class="proof-nugget">10,432 Americans helped this week</p>
-        </div>
-    </section>
-
-
-    
-
-    <!-- How It Works -->
-    <section class="how-it-works">
-        <div class="container">
-            <h2>How It Works</h2>
-            <p>Follow these exact steps to claim your benefits in minutes</p>
-            
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3>Click & Enter Email</h3>
-                    <p>Tap "Check If I Qualify" and type in your email.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3>Fill a Quick Form</h3>
-                    <p>Answer a few basic questions—under 2 minutes.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>View Your Eligibility</h3>
-                    <p>See exactly which programs you qualify for—up to $1,400.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Social Proof -->
-    <section class="social-proof">
-        <div class="container">
-            <div class="live-feed">
-    Maria from FL just found $850 for groceries! • 2 min ago
-</div>
-            
-            <div class="stats">
-                <div class="stat">
-                    <h2>10,432+</h2>
-                    <p>Americans helped this week</p>
-                </div>
-                <div class="stat">
-                    <h2>$3.1M</h2>
-                    <p>Benefits unlocked</p>
-                </div>
-                <div class="stat">
-                    <h2>2.6 min</h2>
-                    <p>Avg. check time</p>
-                </div>
-            </div>
-            
-        </div>
-    </section>
-
-    <!-- Urgency Countdown -->
-    <section class="urgency">
-        <div class="container">
-            <h2>Current Programs End Soon—See What's Available!</h2>
-            <button class="btn btn-primary" onclick="startCheck()">Check If I Qualify</button>
-            <div class="countdown">
-    <div class="countdown-box">
-        <span class="number" id="hours">14</span>
-        <span class="label">Hours</span>
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Overwhelmed By Bills? Claim Up To $1,400 With A Free Eligibility Check!</h1>
+      <p>Next: Click below to start your free 2-minute check.</p>
+      <button class="btn btn-primary" onclick="startCheck()">Check If I Qualify</button>
+      <p class="proof-nugget">10,432 Americans helped this week</p>
     </div>
-    <div class="countdown-box">
-        <span class="number" id="minutes">27</span>
-        <span class="label">Minutes</span>
+  </section>
+
+  <section class="how-it-works">
+    <div class="container">
+      <h2>How It Works</h2>
+      <p>Follow these exact steps to claim your benefits in minutes</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Click &amp; Enter Email</h3>
+          <p>Tap “Check If I Qualify” and type in your email.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Fill a Quick Form</h3>
+          <p>Answer a few basic questions—under 2 minutes.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>View Your Eligibility</h3>
+          <p>See exactly which programs you qualify for—up to $1,400.</p>
+        </div>
+      </div>
     </div>
-    <div class="countdown-box">
-        <span class="number" id="seconds">18</span>
-        <span class="label">Seconds</span>
+  </section>
+
+  <section class="social-proof">
+    <div class="container">
+      <div class="live-feed">
+        Maria from FL just found $850 for groceries! • 2 min ago
+      </div>
+      <div class="stats">
+        <div class="stat"><h2>10,432+</h2><p>Americans helped this week</p></div>
+        <div class="stat"><h2>$3.1M</h2><p>Benefits unlocked</p></div>
+        <div class="stat"><h2>2.6 min</h2><p>Avg. check time</p></div>
+      </div>
     </div>
-</div>
-            
-            
-        </div>
-    </section>
+  </section>
 
-   
-
-   
-
-    <!-- Final CTA -->
-    <section class="final-cta">
-        <div class="container">
-            
-            <div class="faq">
-    
-    <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)">
-            Is it really free?
-            <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-answer">
-            Yes, no fees ever.
-        </div>
+  <section class="urgency">
+    <div class="container">
+      <h2>Current Programs End Soon—See What’s Available!</h2>
+      <button class="btn btn-primary" onclick="startCheck()">Check If I Qualify</button>
+      <div class="countdown">
+        <div class="countdown-box"><span class="number" id="hours">14</span><span class="label">Hours</span></div>
+        <div class="countdown-box"><span class="number" id="minutes">27</span><span class="label">Minutes</span></div>
+        <div class="countdown-box"><span class="number" id="seconds">18</span><span class="label">Seconds</span></div>
+      </div>
     </div>
-    
-    <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)">
-            How secure is my info?
-            <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-answer">
-            256-bit SSL & HIPAA compliant.
-        </div>
+  </section>
+
+  <div class="container">
+    <div class="faq">
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">Is it really free?<span class="faq-icon">+</span></div>
+        <div class="faq-answer">Yes, no fees ever.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">How secure is my info?<span class="faq-icon">+</span></div>
+        <div class="faq-answer">256-bit SSL &amp; HIPAA compliant.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">What if I don't qualify?<span class="faq-icon">+</span></div>
+        <div class="faq-answer">No obligation, no risk—see your results.</div>
+      </div>
     </div>
-    
-    <div class="faq-item">
-        <div class="faq-question" onclick="toggleFaq(this)">
-            What if I don't qualify?
-            <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-answer">
-            No obligation, no risk—see your results.
-        </div>
-    </div>
-</div>
-        </div>
-    </section>
+  </div>
 
-     <!-- Trust Badges -->
-    <section class="trust-badges">
-        <div class="container">
-            <div class="badges">
-                <div class="badge">
-                    <div class="badge-icon" style="color: #10B981;">🛡️</div>
-                    <h4>100% Free</h4>
-                    <p>Always</p>
-                </div>
-                <div class="badge">
-                    <div class="badge-icon" style="color: #1E3A8A;">🔒</div>
-                    <h4>Bank-Level SSL</h4>
-                    <p>256-bit encryption</p>
-                </div>
-                <div class="badge">
-                    <div class="badge-icon" style="color: #6B21A8;">🎗️</div>
-                    <h4>HIPAA Compliant</h4>
-                    <p>Your data is safe</p>
-                </div>
-                <div class="badge">
-                    <div class="badge-icon" style="color: #4B5563;">🚫</div>
-                    <h4>We Don't Sell Data</h4>
-                    <p>Ever</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <footer class="footer">
+    <div class="container">© 2025 FindResourcesUSA. All rights reserved.</div>
+  </footer>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>© 2025 FindResourcesUSA. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script>
-// CTA button action
-function startCheck() {
-    // Redirect to your affiliate offer
-    window.location.href = 'https://rewarduplevel.com/aff_c?offer_id=2499&aff_id=134431';
-}
-        
-        function updateCountdown() {
-    const hours = document.getElementById('hours');
-    const minutes = document.getElementById('minutes');
-    const seconds = document.getElementById('seconds');
-    
-    let h = parseInt(hours.textContent);
-    let m = parseInt(minutes.textContent);
-    let s = parseInt(seconds.textContent);
-    
-    s--;
-    if (s < 0) {
-        s = 59;
-        m--;
-        if (m < 0) {
-            m = 59;
-            h--;
-            if (h < 0) {
-                h = 23; // Reset to 23 hours when it hits 0
-            }
-        }
+  <script>
+    function startCheck(){
+      window.location.href = 'https://rewarduplevel.com/aff_c?offer_id=2499&aff_id=134431';
     }
-    
-    hours.textContent = h;
-    minutes.textContent = m;
-    seconds.textContent = s;
-}
-        
-        // Update countdown every second
-        setInterval(updateCountdown, 1000);
-        
-        const feedMessages = [
-    "Maria from FL just found $850 for groceries!",
-    "Kevin from CO discovered $1,400 in combined benefits!",
-    "Jessica from CA discovered $600 utility help!",
-    "Mike from TX qualified for $1,200 rent assistance!",
-    "Thomas from MI unlocked $800 healthcare support!",
-    "Jennifer from TX qualified for $1,200 in food benefits!",
-    "Sarah from AZ discovered $850 housing support!",
-    "Mark from NC found $400 energy assistance!",
-    "Robert from CA discovered $600 SNAP assistance!",
-    "Amanda from GA unlocked $950 housing help!",
-    "Angela from VA found $650 medical assistance!",
-    "Lisa from NY unlocked $900 in monthly food help!",
-    "Carlos from FL found $1,100 rent relief!",
-    "Patricia from WA qualified for $525 utility relief!",
-    "David from OH found $750 grocery assistance!",
-    "Rachel from IL qualified for $1,050 total assistance!"
-];
-
-// Start from random index
-let currentIndex = Math.floor(Math.random() * feedMessages.length);
-const timeStamps = ["1 min ago", "2 min ago"];
-
-function updateFeed() {
-    const feed = document.querySelector('.live-feed');
-    if (feed) {
-        const message = feedMessages[currentIndex];
-        const randomTime = timeStamps[Math.floor(Math.random() * timeStamps.length)];
-        feed.innerHTML = ${message} • ${randomTime};
-        
-        // Move to next, cycle back to 0 after reaching end
-        currentIndex = (currentIndex + 1) % feedMessages.length;
+    // Countdown
+    setInterval(()=>{
+      let h=+document.getElementById('hours').textContent;
+      let m=+document.getElementById('minutes').textContent;
+      let s=+document.getElementById('seconds').textContent;
+      if(--s<0){s=59; if(--m<0){m=59; if(--h<0){h=23}}}
+      document.getElementById('hours').textContent=h;
+      document.getElementById('minutes').textContent=m;
+      document.getElementById('seconds').textContent=s;
+    },1000);
+    // FAQ toggle
+    function toggleFaq(el){
+      const ans=el.nextElementSibling, ic=el.querySelector('.faq-icon');
+      ans.classList.toggle('active');
+      ic.classList.toggle('active');
+      document.querySelectorAll('.faq-answer').forEach(a=>{ if(a!==ans) a.classList.remove('active') });
+      document.querySelectorAll('.faq-icon').forEach(i=>{ if(i!==ic) i.classList.remove('active') });
     }
-}
-        
-        
-        // Update feed every 10 seconds
-        setInterval(updateFeed, 10000);
-        
-        
-        function toggleFaq(element) {
-    const answer = element.nextElementSibling;
-    const icon = element.querySelector('.faq-icon');
-    
-    // Toggle active class
-    answer.classList.toggle('active');
-    icon.classList.toggle('active');
-    
-    // Close other FAQs (optional - for accordion behavior)
-    const allAnswers = document.querySelectorAll('.faq-answer');
-    const allIcons = document.querySelectorAll('.faq-icon');
-    
-    allAnswers.forEach((item, index) => {
-        if (item !== answer) {
-            item.classList.remove('active');
-            allIcons[index].classList.remove('active');
-        }
-    });
-}
-    </script>
+  </script>
 </body>
 </html>
