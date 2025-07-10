@@ -61,16 +61,19 @@
       }
     }
 
-   .hero {
-  /* overlay gradient + new image */
+  .hero {
+  /* gradient overlay + your image */
   background-image:
     linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
     url('images/stressed2.png');
   background-repeat: no-repeat;
-  background-size: cover;          /* ensure it fills container */
-  background-position: center top; /* crop from the top of the image */
+  background-size: cover;
+  /* shift the crop down so the man and family are both visible */
+  background-position: center 30%;
   
-  min-height: 80vh;    /* give it more vertical room */
+  /* give yourself a bit more breathing room */
+  min-height: 75vh;
+  
   display: flex;
   align-items: center;
   justify-content: center;
@@ -78,6 +81,7 @@
   color: #fff;
   padding: 2rem 1.5rem;
 }
+
 
     .hero-content {
       max-width: 480px;
