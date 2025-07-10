@@ -100,6 +100,40 @@
     .step h3 { font-size:1.25rem; margin-bottom:.5rem; }
     .step p { color:#4B5563; }
 
+
+    @media (max-width: 768px) {
+  .hero {
+    /* make the image “stick” to the top so you see more of the desk & calculator */
+    background-position: center top !important;
+    /* reduce the height so the CTA is visible without scrolling */
+    min-height: 50vh !important;
+    /* remove rounded corners so it spans the full width on mobile */
+    border-radius: 0 !important;
+    padding: 1rem !important;
+  }
+
+  .hero h1 {
+    font-size: 1.4rem !important;
+    line-height: 1.2 !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  .hero p {
+    font-size: 0.9rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .btn {
+    padding: 0.75rem 1.5rem !important;
+    font-size: 1rem !important;
+    width: 100% !important;
+  }
+
+  .proof-nugget {
+    display: none; /* remove extra text so button area stays clean */
+  }
+}
+
     /* Social proof */
     .social-proof { padding:2rem 1.5rem; text-align:center; }
     .live-feed {
