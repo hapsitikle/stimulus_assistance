@@ -31,6 +31,11 @@
         .cta-button { background: #4285f4; color: white; padding: 20px 50px; border: none; border-radius: 50px; font-size: 24px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; text-decoration: none; transition: all 0.3s ease; }
         .cta-button:hover { background: #3367d6; transform: translateY(-2px); }
         .cta-button::before { content: "🔍"; }
+        /* New “What Happens Next” styling */
+        .next-steps { margin-top: 30px; text-align: left; }
+        .next-steps h4 { font-size: 20px; margin-bottom: 10px; color: #2d3748; }
+        .next-steps ul { list-style-position: inside; color: #6c757d; }
+        .next-steps ul li { margin: 6px 0; }
         .stats { background: #4285f4; color: white; padding: 40px 0; text-align: center; }
         .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 60px; max-width: 1000px; margin: 0 auto; }
         .stat-number { font-size: 48px; font-weight: 700; margin-bottom: 10px; }
@@ -52,145 +57,24 @@
         .final-cta-button:hover { background: #218838; transform: translateY(-2px); }
         .final-cta-button::before { content: "$"; }
         /* Responsive rules omitted for brevity */
-        /* ==========================
-   Mobile Phones (≤480px)
-   ========================== */
-@media (max-width: 480px) {
-  .container {
-    padding: 0 15px;
-  }
-
-  /* Header */
-  .logo {
-    font-size: 20px;
-  }
-  .logo::before {
-    width: 28px;
-    height: 28px;
-    font-size: 16px;
-  }
-
-  /* Hero */
-  .hero h1 {
-    font-size: 28px;
-    line-height: 1.2;
-    margin-bottom: 15px;
-  }
-  .hero p {
-    font-size: 14px;
-    margin-bottom: 30px;
-  }
-
-  /* Features Box */
-  .features-box {
-    padding: 20px;
-    margin-bottom: 40px;
-  }
-  .features {
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  .chance-text {
-    font-size: 16px;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  .cta-button {
-    width: 100%;
-    max-width: none;
-    padding: 16px 0;
-    font-size: 18px;
-  }
-
-  /* Stats */
-  .stats-grid {
-    display: block;
-  }
-  .stat {
-    margin-bottom: 20px;
-  }
-  .stat-number {
-    font-size: 36px;
-  }
-  .stat-label {
-    font-size: 14px;
-  }
-
-  /* How It Works */
-  .how-it-works h2 {
-    font-size: 28px;
-    margin-bottom: 30px;
-  }
-  .steps {
-    display: block;
-  }
-  .step {
-    padding: 20px;
-    margin-bottom: 20px;
-  }
-  .step-icon {
-    width: 60px;
-    height: 60px;
-    font-size: 24px;
-    margin-bottom: 15px;
-  }
-  .step h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-  .step p {
-    font-size: 14px;
-  }
-
-  /* Final CTA */
-  .final-cta h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
-  }
-  .final-cta p {
-    font-size: 14px;
-    margin-bottom: 30px;
-  }
-  .final-cta-button {
-    width: 100%;
-    padding: 16px 0;
-    font-size: 18px;
-  }
-    .cta-button,
-  .final-cta-button {
-    /* stretch full width */
-    width: 100%;
-    padding: 16px 0;
-    font-size: 18px;
-
-    /* center the icon + text */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-}
-
     </style>
     <!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '724691963481667');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=724691963481667&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '724691963481667');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=724691963481667&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
 </head>
 <body>
     <!-- Header -->
@@ -208,22 +92,22 @@ src="https://www.facebook.com/tr?id=724691963481667&ev=PageView&noscript=1"
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>Check What Aid You Qualify For<br><span class="highlight">In Just 2 Minutes</span></h1>
-            <p>Free 2‑Minute Check • No Hidden Fees • Covers Rent, Utilities & Groceries</p>
+            <h1>Free <span class="highlight">2 Minute</span><br> Assistance Check</h1>
+            <p>No fees, no risk—fast support for rent, utilities & groceries</p>
 
             <div class="features-box">
                 <div class="features">
                     <div class="feature">
                         <div class="feature-icon check">✓</div>
-                        <span>Free Stimulus Check</span>
+                        <span>Free Assistance Check</span>
                     </div>
                     <div class="feature">
                         <div class="feature-icon shield">✓</div>
-                        <span>Covers Rent, Utilities & Groceries</span>
+                        <span>Mobile Friendly - Takes 2 Minutes</span>
                     </div>
                     <div class="feature">
                         <div class="feature-icon lock">🔒</div>
-                        <span>Trusted & Secure</span>
+                        <span>Trusted By Thousands Of Americans</span>
                     </div>
                 </div>
 
@@ -231,7 +115,19 @@ src="https://www.facebook.com/tr?id=724691963481667&ev=PageView&noscript=1"
                     If you have a <span class="highlight">1 in 5 chance</span> of unlocking government aid, isn’t 2 minutes worth your time?
                 </div>
 
-                <a href="https://rewarrdsgiant.com/aff_c?offer_id=1421&aff_id=134431" class="cta-button">Check My Eligibility</a>
+                <a href="https://rewarrdsgiant.com/aff_c?offer_id=1421&aff_id=134431" class="cta-button">
+                    Check My Eligibility
+                </a>
+
+                <!-- New What Happens Next -->
+                <div class="next-steps">
+                    <h4>What Happens Next:</h4>
+                    <ul>
+                        <li>You’ll be taken to our secure application form</li>
+                        <li>Enter name, address, email, phone & birth month</li>
+                        <li>Get instant eligibility—no fees, no obligation</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
@@ -245,8 +141,8 @@ src="https://www.facebook.com/tr?id=724691963481667&ev=PageView&noscript=1"
                     <div class="stat-label">Americans qualify for stimulus aid</div>
                 </div>
                 <div class="stat">
-                    <div class="stat-number">$1,000</div>
-                    <div class="stat-label">Average aid amount</div>
+                    <div class="stat-number">$1,000+</div>
+                    <div class="stat-label">Average aid per applicant</div>
                 </div>
                 <div class="stat">
                     <div class="stat-number">Billions</div>
@@ -260,39 +156,34 @@ src="https://www.facebook.com/tr?id=724691963481667&ev=PageView&noscript=1"
     <section class="how-it-works" id="how-it-works">
         <div class="container">
             <h2>How It Works</h2>
-
             <div class="steps">
-  <!-- Step 1 stays the same (magnifier icon) -->
-  <div class="step">
-    <div class="step-icon search">🔍</div>
-    <h3>1. Check</h3>
-    <p>Enter your info to match federal & state aid programs</p>
-  </div>
-
-  <!-- Step 2: switch to a check-mark -->
-  <div class="step">
-    <div class="step-icon discover">✓</div>
-    <h3>2. Discover</h3>
-    <p>See all rent, food & utility benefits you qualify for</p>
-  </div>
-
-  <!-- Step 3: use the dollar sign -->
-  <div class="step">
-    <div class="step-icon claim">$</div>
-    <h3>3. Apply</h3>
-    <p>Complete a simple form—get paid directly by the government</p>
-  </div>
-</div>
-
+                <div class="step">
+                    <div class="step-icon search">🔍</div>
+                    <h3>1. Apply</h3>
+                    <p>Fill out the general information form - under 2 minutes.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon discover">✓</div>
+                    <h3>2. Discover</h3>
+                    <p>Instantly see all rent, food & utility benefits you qualify for.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon claim">$</div>
+                    <h3>3. Claim</h3>
+                    <p>Select your programs and get support fast—100% free, no risk.</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Final CTA Section -->
     <section class="final-cta">
         <div class="container">
-            <h2>Ready to Claim Your Stimulus Aid?</h2>
-            <p>Don’t wait—start your free eligibility check now and see what relief you qualify for.</p>
-            <a href="https://rewarrdsgiant.com/aff_c?offer_id=1421&aff_id=134431" class="final-cta-button">Check Eligibility Free</a>
+            <h2>Ready to Get Your Free Assistance?</h2>
+            <p>Tap below on your mobile to start your free 2-minute check—no fees, just fast relief.</p>
+            <a href="https://rewarrdsgiant.com/aff_c?offer_id=1421&aff_id=134431" class="final-cta-button">
+                Start My Free Check
+            </a>
         </div>
     </section>
 
