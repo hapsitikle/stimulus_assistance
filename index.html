@@ -116,6 +116,25 @@
   color: #374151;
 }
 
+/* Urgency Banner */
+.urgency-banner {
+  background: #fdecea;          /* light red */
+  color: #b91c1c;               /* bold red */
+  padding: 0.75rem 1rem;        /* comfy padding */
+  border-radius: 0.5rem;        /* match your rounded style */
+  text-align: center;           
+  font-size: 1rem;              
+  font-weight: 600;             
+  margin-bottom: 1rem;          /* space before the button */
+  line-height: 1.2;
+}
+
+@media (max-width: 480px) {
+  .urgency-banner {
+    font-size: 0.9rem;          
+    padding: 0.6rem 0.8rem;     
+  }
+}
 
 
 /* Mobile tweak */
@@ -387,8 +406,13 @@ src="https://www.facebook.com/tr?id=724691963481667&ev=PageView&noscript=1"
     <!-- Final CTA Section -->
     <section class="final-cta">
         <div class="container">
-            <h2>Ready to Claim Your Stimulus Aid?</h2>
+            <h2>You're 2 Minutes Away From Real Aid!?</h2>
             <p>Don’t wait—start your free eligibility check now and see what relief you qualify for.</p>
+             <!-- Urgency Banner -->
+    <div class="urgency-banner">
+      ⏰ Only <strong>250 spots</strong> remaining this week!
+    </div>
+            
             <a href="https://rewarrdsgiant.com/aff_c?offer_id=2499&aff_id=134431" class="final-cta-button">Get Free Assistance</a>
         </div>
     </section>
