@@ -324,12 +324,15 @@
 
       .chance-text { font-size: 16px; text-align: center; margin-bottom: 25px; }
 
-      .cta-button {
-        width: 100%;
-        font-size: 18px;
-        padding: 16px;
-      }
-
+      .cta-button,
+  .final-cta-button {
+    display: flex;               /* or inline-flex */
+    justify-content: center;     /* ← add this */
+    align-items: center;         /* should already be there */
+    width: 100%;
+    padding: 16px;
+    font-size: 18px;
+  }
       .next-steps {
         margin-top: 20px;
       }
@@ -363,11 +366,6 @@
       }
       .final-cta h2 { font-size: 28px; margin-bottom: 20px; }
       .final-cta p { font-size: 14px; margin-bottom: 30px; }
-      .final-cta-button {
-        width: 100%;
-        font-size: 18px;
-        padding: 16px;
-      }
     }
   </style>
 
