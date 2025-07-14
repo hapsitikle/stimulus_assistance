@@ -96,23 +96,26 @@
   margin: 0 10px;
   color: #adb5bd;
 }
-        /* Social Proof */
+
+        /* Tweak the Social-Proof bar to match .features-box width */
 .social-proof {
-  background: white;
-  padding: 2rem 1.5rem;
-  text-align: center;
+  background: transparent;       /* no grey/white behind */
+  padding: 0;                    /* remove extra space */
 }
 
+/* Target the live-feed bar itself */
 .live-feed {
-  background: white;
-  border-left: 4px solid #10B981;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  background: none;              /* remove white bg */
+  box-shadow: none;              /* remove shadow */
+  border-radius: 0;              /* square corners to match box */
+  max-width: 800px;              /* same max-width as .features-box */
+  margin: 0 auto 1.5rem;         /* center & add bottom gap */
+  padding: 1rem 1.5rem;          /* you can tweak vertical/horizontal padding */
+  border-left: 4px solid #10B981;/* keep the accent stripe */
   font-size: 18px;
   color: #374151;
 }
+
 
 
 /* Mobile tweak */
