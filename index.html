@@ -39,36 +39,10 @@
         .how-it-works h2 { font-size: 48px; font-weight: 700; margin-bottom: 60px; color: #2d3748; }
         .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-bottom: 20px; }
         .step { background: white; padding: 15px 30px; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); text-align: center; }
-        .step-icon {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  margin: 0 auto 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 32px;
-  color: white;
-}
-
-/* 1. Check */
-.step-icon.search {
-  background: linear-gradient(135deg, #e3f2fd, #bbdefb);
-  color: #1976d2;
-}
-
-/* 2. Apply */
-.step-icon.apply {
-  background: linear-gradient(135deg, #fff3e0, #ffe0b2);
-  color: #fb8c00;
-}
-
-/* 3. Claim */
-.step-icon.claim {
-  background: linear-gradient(135deg, #e8f5e8, #c8e6c9);
-  color: #388e3c;
-}
-
+        .step-icon { width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 30px; display: flex; align-items: center; justify-content: center; font-size: 32px; color: white; margin-bottom: 30px; }
+        .step-icon.search { background: linear-gradient(135deg, #e3f2fd, #bbdefb); color: #1976d2; }
+        .step-icon.discover { background: linear-gradient(135deg, #e8f5e8, #c8e6c9); color: #388e3c; }
+        .step-icon.claim { background: linear-gradient(135deg, #f3e5f5, #e1bee7); color: #7b1fa2; }
         .step h3 { font-size: 24px; font-weight: 600; margin-bottom: 15px; color: #2d3748; }
         .step p { color: #6c757d; line-height: 1.6; }
         .final-cta { background: #f8f9fa; padding: 20px 0; text-align: center; }
@@ -77,83 +51,6 @@
         .final-cta-button { background: #28a745; color: white; padding: 22px 60px; border: none; border-radius: 50px; font-size: 24px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; text-decoration: none; transition: all 0.3s ease; }
         .final-cta-button:hover { background: #218838; transform: translateY(-2px); }
         .final-cta-button::before { content: "$"; }
-        /* STEPPER */
-.stepper {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
-  font-size: 16px;
-  color: black;
-  text-transform: uppercase;
-  letter-spacing: .5px;
-}
-.stepper span {
-  flex: 1;
-  text-align: center;
-}
-.stepper span:not(:last-child)::after {
-  content: "›";
-  margin: 0 10px;
-  color: #adb5bd;
-}
-
-        /* Tweak the Social-Proof bar to match .features-box width */
-.social-proof {
-  background: transparent;       /* no grey/white behind */
-  padding: 0;                    /* remove extra space */
-}
-
-/* Target the live-feed bar itself */
-.live-feed {
-  background: white;              /* remove white bg */
-  box-shadow: none;              /* remove shadow */
-  border-radius: 0.5rem;              /* square corners to match box */
-  max-width: 800px;              /* same max-width as .features-box */
-  margin: 0 auto 1.5rem;         /* center & add bottom gap */
-  padding: 1rem 1.5rem;          /* you can tweak vertical/horizontal padding */
-  border-left: 4px solid #10B981;/* keep the accent stripe */
-  font-size: 18px;
-  color: #374151;
-}
-
-/* Urgency Banner */
-.urgency-banner {
-  background: #fdecea;          /* light red */
-  color: #b91c1c;               /* bold red */
-  padding: 0.75rem 1rem;        /* comfy padding */
-  border-radius: 0.5rem;        /* match your rounded style */
-  text-align: center;           
-  font-size: 1rem;              
-  font-weight: 600;             
-  margin-bottom: 1rem;          /* space before the button */
-  line-height: 1.2;
-}
-
-@media (max-width: 480px) {
-  .urgency-banner {
-    font-size: 0.9rem;          
-    padding: 0.6rem 0.8rem;     
-  }
-}
-
-
-/* Mobile tweak */
-@media (max-width: 480px) {
-  .stepper {
-    flex-direction: column;
-    gap: 8px;
-    font-size: 14px;
-    margin-top: 8px;
-  }
-  .stepper span:not(:last-child)::after {
-    content: none;
-  }
-  .stepper span {
-    text-align: center;
-  }
-}
-
-        
         /* Responsive rules omitted for brevity */
         /* ==========================
    Mobile Phones (≤480px)
@@ -312,21 +209,13 @@ src="https://www.facebook.com/tr?id=724691963481667&ev=PageView&noscript=1"
     <section class="hero">
         <div class="container">
             <h1>Get Your Free Government Help<br><span class="highlight">In Just 2 Minutes</span></h1>
-            <!-- Social Proof -->
-<section class="social-proof">
-  <div class="container">
-    <div class="live-feed">
-      Maria from FL just found $850 for groceries! • 2 min ago
-    </div>
-  </div>
-</section>
-
+            <p>Free 2‑Minute Check • No Hidden Fees • Covers Rent, Utilities & Groceries</p>
 
             <div class="features-box">
                 <div class="features">
                     <div class="feature">
                         <div class="feature-icon check">✓</div>
-                        <span>Free Government Help</span>
+                        <span>Free Stimulus Check</span>
                     </div>
                     <div class="feature">
                         <div class="feature-icon shield">✓</div>
@@ -339,17 +228,10 @@ src="https://www.facebook.com/tr?id=724691963481667&ev=PageView&noscript=1"
                 </div>
 
                 <div class="chance-text">
-                    If you have a <span class="highlight">1 in 3 chance</span> of unlocking government aid, isn’t 2 minutes worth your time?
+                    If you have a <span class="highlight">1 in 4 chance</span> of unlocking government aid, isn’t 2 minutes worth your time?
                 </div>
-                
-                <a href="https://rewarrdsgiant.com/aff_c?offer_id=2499&aff_id=134431" class="cta-button">Get My Free Aid Now</a>
-                <!-- inside .features-box, just above your <a class="cta-button">… -->
-<div class="stepper">
-  <span>1. Quick Form</span>
-  <span>2. Instant Match</span>
-  <span>3. Funds Disbursed</span>
-</div>
 
+                <a href="https://rewarrdsgiant.com/aff_c?offer_id=2499&aff_id=134431" class="cta-button">Check My Eligibility</a>
             </div>
         </div>
     </section>
@@ -359,7 +241,7 @@ src="https://www.facebook.com/tr?id=724691963481667&ev=PageView&noscript=1"
         <div class="container">
             <div class="stats-grid">
                 <div class="stat">
-                    <div class="stat-number">1 in 3</div>
+                    <div class="stat-number">1 in 4</div>
                     <div class="stat-label">Americans qualify for stimulus aid</div>
                 </div>
                 <div class="stat">
@@ -375,88 +257,46 @@ src="https://www.facebook.com/tr?id=724691963481667&ev=PageView&noscript=1"
     </section>
 
     <!-- How It Works Section -->
-<section class="how-it-works" id="how-it-works">
-  <div class="container">
-    <h2>How It Works</h2>
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <h2>How It Works</h2>
 
-    <div class="steps">
-      <div class="step">
-  <div class="step-icon search">🔍</div>
-  <h3>1. Check</h3>
-  <p>Enter your info to match federal & state aid programs</p>
-</div>
-
-<div class="step">
-  <div class="step-icon apply">📝</div>
-  <h3>2. Apply</h3>
-  <p>Complete a simple form for all benefits you qualify for</p>
-</div>
-
-<div class="step">
-  <div class="step-icon claim">$</div>
-  <h3>3. Claim</h3>
-  <p>Claim your aid within minutes</p>
-</div>
-
-    </div>
+            <div class="steps">
+  <!-- Step 1 stays the same (magnifier icon) -->
+  <div class="step">
+    <div class="step-icon search">🔍</div>
+    <h3>1. Check</h3>
+    <p>Enter your info to match federal & state aid programs</p>
   </div>
-</section>
 
+  <!-- Step 2: switch to a check-mark -->
+  <div class="step">
+    <div class="step-icon discover">✓</div>
+    <h3>2. Discover</h3>
+    <p>See all rent, food & utility benefits you qualify for</p>
+  </div>
+
+  <!-- Step 3: use the dollar sign -->
+  <div class="step">
+    <div class="step-icon claim">$</div>
+    <h3>3. Apply</h3>
+    <p>Complete a simple form—get paid directly by the government</p>
+  </div>
+</div>
+
+        </div>
+    </section>
 
     <!-- Final CTA Section -->
     <section class="final-cta">
         <div class="container">
-            <h2>You're 2 Minutes Away From Real Aid!</h2>
+            <h2>Ready to Claim Your Stimulus Aid?</h2>
             <p>Don’t wait—start your free eligibility check now and see what relief you qualify for.</p>
-             <!-- Urgency Banner -->
-    <div class="urgency-banner">
-      ⏰ Only <strong>250 spots</strong> remaining this week!
-    </div>
-            
-            <a href="https://rewarrdsgiant.com/aff_c?offer_id=2499&aff_id=134431" class="final-cta-button">Get Free Assistance</a>
+            <a href="https://rewarrdsgiant.com/aff_c?offer_id=2499&aff_id=134431" class="final-cta-button">Check Eligibility Free</a>
         </div>
     </section>
 
     <script>
-         const feedMessages = [
-    "Maria from FL just found $850 for groceries!",
-    "Kevin from CO discovered $1,400 in combined benefits!",
-    "Jessica from CA discovered $600 utility help!",
-    "Mike from TX qualified for $1,200 rent assistance!",
-    "Thomas from MI unlocked $800 healthcare support!",
-    "Jennifer from TX qualified for $1,200 in food benefits!",
-    "Sarah from AZ discovered $850 housing support!",
-    "Mark from NC found $400 energy assistance!",
-    "Robert from CA discovered $600 SNAP assistance!",
-    "Amanda from GA unlocked $950 housing help!",
-    "Angela from VA found $650 medical assistance!",
-    "Lisa from NY unlocked $900 in monthly food help!",
-    "Carlos from FL found $1,100 rent relief!",
-    "Patricia from WA qualified for $525 utility relief!",
-    "David from OH found $750 grocery assistance!",
-    "Rachel from IL qualified for $1,050 total assistance!"
-];
-
-// Start from random index
-let currentIndex = Math.floor(Math.random() * feedMessages.length);
-const timeStamps = ["1 min ago", "2 min ago"];
-
-function updateFeed() {
-    const feed = document.querySelector('.live-feed');
-    if (feed) {
-        const message = feedMessages[currentIndex];
-        const randomTime = timeStamps[Math.floor(Math.random() * timeStamps.length)];
-        feed.innerHTML = `${message} • ${randomTime}`;
-       
-        // Move to next, cycle back to 0 after reaching end
-        currentIndex = (currentIndex + 1) % feedMessages.length;
-    }
-}
-       
-       
-        // Update feed every 10 seconds
-        setInterval(updateFeed, 10000);
-        
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
