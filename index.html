@@ -51,6 +51,26 @@
         .final-cta-button { background: #28a745; color: white; padding: 22px 60px; border: none; border-radius: 50px; font-size: 24px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; text-decoration: none; transition: all 0.3s ease; }
         .final-cta-button:hover { background: #218838; transform: translateY(-2px); }
         .final-cta-button::before { content: "$"; }
+        /* STEPPER */
+.stepper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 16px;
+  color: black;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+.stepper span {
+  flex: 1;
+  text-align: center;
+}
+.stepper span:not(:last-child)::after {
+  content: "›";
+  margin: 0 10px;
+  color: #adb5bd;
+}
+        
         /* Responsive rules omitted for brevity */
         /* ==========================
    Mobile Phones (≤480px)
@@ -232,6 +252,12 @@ src="https://www.facebook.com/tr?id=724691963481667&ev=PageView&noscript=1"
                 </div>
 
                 <a href="https://rewarrdsgiant.com/aff_c?offer_id=2499&aff_id=134431" class="cta-button">Check My Eligibility</a>
+
+                <div class="stepper">
+  <span>1. Quick Form</span>
+  <span>2. Instant Match</span>
+  <span>3. Funds Disbursed</span>
+</div>
             </div>
         </div>
     </section>
