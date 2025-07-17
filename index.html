@@ -1,340 +1,250 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AidFinderUSA - Check Stimulus Aid Eligibility</title>
-    <style>
-        /* (styles unchanged) */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background-color: #f8f9fa; color: #333; line-height: 1.6; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        .header { background: white; padding: 20px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .nav { display: flex; justify-content: space-between; align-items: center; }
-        .logo { display: flex; align-items: center; font-size: 24px; font-weight: bold; color: #333; text-decoration: none; }
-        .logo::before { content: "$"; background: #4285f4; color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 10px; font-size: 18px; }
-        .nav-links a { color: #6c757d; text-decoration: none; font-weight: 600; }
-        .nav-links a:hover { color: #4285f4; }
-        .hero { text-align: center; padding: 40px 0; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); }
-        .hero h1 { font-size: 64px; font-weight: 700; margin-bottom: 20px; color: #2d3748; }
-        .hero h1 .highlight { color: #4285f4; }
-        .hero p { font-size: 18px; color: #6c757d; margin-bottom: 50px; }
-        .features-box { background: white; border-radius: 20px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin: 0 auto 60px; max-width: 800px; }
-        .features { display: flex; justify-content: space-around; margin-bottom: 30px; }
-        .feature { display: flex; align-items: center; gap: 10px; font-weight: 500; }
-        .feature-icon { width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px; }
-        .feature-icon.check { background: #28a745; }
-        .feature-icon.shield { background: #6f42c1; }
-        .feature-icon.lock { background: #fd7e14; }
-        .chance-text { font-size: 18px; color: #6c757d; margin-bottom: 30px; }
-        .chance-text .highlight { color: #28a745; font-weight: bold; }
-        .cta-button { background: #4285f4; color: white; padding: 20px 50px; border: none; border-radius: 50px; font-size: 24px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; text-decoration: none; transition: all 0.3s ease; }
-        .cta-button:hover { background: #3367d6; transform: translateY(-2px); }
-        .stats { background: #4285f4; color: white; padding: 40px 0; text-align: center; }
-        .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 60px; max-width: 1000px; margin: 0 auto; }
-        .stat-number { font-size: 48px; font-weight: 700; margin-bottom: 10px; }
-        .stat-label { font-size: 16px; opacity: 0.9; }
-        .how-it-works { padding: 30px 0; text-align: center; }
-        .how-it-works h2 { font-size: 48px; font-weight: 700; margin-bottom: 60px; color: #2d3748; }
-        .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-bottom: 20px; }
-        .step { background: white; padding: 15px 30px; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); text-align: center; }
-        .step-icon { width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 30px; display: flex; align-items: center; justify-content: center; font-size: 32px; color: white; margin-bottom: 30px; }
-        .step-icon.search { background: linear-gradient(135deg, #e3f2fd, #bbdefb); color: #1976d2; }
-        .step-icon.discover { background: linear-gradient(135deg, #e8f5e8, #c8e6c9); color: #388e3c; }
-        .step-icon.claim { background: linear-gradient(135deg, #f3e5f5, #e1bee7); color: #7b1fa2; }
-        .step h3 { font-size: 24px; font-weight: 600; margin-bottom: 15px; color: #2d3748; }
-        .step p { color: #6c757d; line-height: 1.6; }
-        .final-cta { background: #f8f9fa; padding: 20px 0; text-align: center; }
-        .final-cta h2 { font-size: 48px; font-weight: 700; margin-bottom: 30px; color: #2d3748; }
-        .final-cta p { font-size: 18px; color: #6c757d; margin-bottom: 40px; max-width: 800px; margin-left: auto; margin-right: auto; }
-        .final-cta-button { background: #28a745; color: white; padding: 22px 60px; border: none; border-radius: 50px; font-size: 24px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; text-decoration: none; transition: all 0.3s ease; }
-        .final-cta-button:hover { background: #218838; transform: translateY(-2px); }
-        .final-cta-button::before { content: "$"; }
-        /* STEPPER */
-.stepper {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
-  font-size: 16px;
-  color: black;
-  text-transform: uppercase;
-  letter-spacing: .5px;
-}
-.stepper span {
-  flex: 1;
-  text-align: center;
-}
-.stepper span:not(:last-child)::after {
-  content: "›";
-  margin: 0 10px;
-  color: #adb5bd;
-}
-       
-        /* Responsive rules omitted for brevity */
-        /* ==========================
-   Mobile Phones (≤480px)
-   ========================== */
-@media (max-width: 480px) {
-  .container {
-    padding: 0 15px;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FindResourcesUSA – Discover Your Unclaimed Money</title>
+  <style>
+    /* Reset & Base */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, sans‑serif; color: #333; line-height: 1.5; background: #f5f7fa; }
+    a { text-decoration: none; color: inherit; }
+    button { cursor: pointer; }
 
-  /* Header */
-  .logo {
-    font-size: 20px;
-  }
-  .logo::before {
-    width: 28px;
-    height: 28px;
-    font-size: 16px;
-  }
+    /* Header */
+    header {
+      background: #1a4fb7;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+    }
+    header h1 { font-size: 1.5rem; margin-bottom: 0.25rem; }
+    header p { font-size: 0.9rem; opacity: 0.9; }
 
-  /* Hero */
-  .hero h1 {
-    font-size: 28px;
-    line-height: 1.2;
-    margin-bottom: 15px;
-  }
-  .hero p {
-    font-size: 14px;
-    margin-bottom: 30px;
-  }
+    /* Stats bar */
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      background: #e8f0ff;
+      padding: 1rem 0;
+      text-align: center;
+    }
+    .stats .stat { flex: 1; }
+    .stats .stat h2 {
+      font-size: 1.25rem;
+      margin-bottom: 0.25rem;
+    }
+    .stats .stat p {
+      font-size: 0.85rem;
+      opacity: 0.75;
+    }
 
-  /* Features Box */
-  .features-box {
-    padding: 20px;
-    margin-bottom: 40px;
-  }
-  .features {
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  .chance-text {
-    font-size: 16px;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  .cta-button {
-    width: 100%;
-    max-width: none;
-    padding: 16px 0;
-    font-size: 18px;
-  }
+    /* Finder form */
+    .finder {
+      max-width: 480px;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .finder h3 {
+      text-align: center;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+    .finder label {
+      display: block;
+      margin: 0.5rem 0 0.25rem;
+      font-size: 0.9rem;
+    }
+    .finder input,
+    .finder select {
+      width: 100%;
+      padding: 0.5rem;
+      font-size: 0.95rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .finder button {
+      width: 100%;
+      margin-top: 1rem;
+      padding: 0.75rem;
+      background: #1a4fb7;
+      color: #fff;
+      font-size: 1rem;
+      border: none;
+      border-radius: 4px;
+    }
 
-  /* Stats */
-  .stats-grid {
-    display: block;
-  }
-  .stat {
-    margin-bottom: 20px;
-  }
-  .stat-number {
-    font-size: 36px;
-  }
-  .stat-label {
-    font-size: 14px;
-  }
+    /* Results – hidden initially */
+    .results {
+      display: none;
+      max-width: 480px;
+      margin: 1rem auto 2rem;
+      padding: 1.5rem;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .results h3 { margin-bottom: 1rem; font-size: 1.1rem; }
+    .results .amount {
+      font-size: 2rem;
+      color: #1a4fb7;
+      margin-bottom: 1rem;
+    }
+    .results ul {
+      list-style: none;
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+    .results ul li {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.25rem 0;
+    }
+    .results .claim-btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: #28a745;
+      color: #fff;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
 
-  /* How It Works */
-  .how-it-works h2 {
-    font-size: 28px;
-    margin-bottom: 30px;
-  }
-  .steps {
-    display: block;
-  }
-  .step {
-    padding: 20px;
-    margin-bottom: 20px;
-  }
-  .step-icon {
-    width: 60px;
-    height: 60px;
-    font-size: 24px;
-    margin-bottom: 15px;
-  }
-  .step h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-  .step p {
-    font-size: 14px;
-  }
+    /* State map */
+    .state-map {
+      max-width: 640px;
+      margin: 0 auto 2rem;
+      text-align: center;
+    }
+    .state-map img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .state-map p {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      opacity: 0.75;
+    }
 
-  /* Final CTA */
-  .final-cta h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
-  }
-  .final-cta p {
-    font-size: 14px;
-    margin-bottom: 30px;
-  }
-  .final-cta-button {
-    width: 100%;
-    padding: 16px 0;
-    font-size: 18px;
-  }
-    .cta-button,
-  .final-cta-button {
-    /* stretch full width */
-    width: 100%;
-    padding: 16px 0;
-    font-size: 18px;
+    /* Testimonial */
+    .testimonial {
+      max-width: 480px;
+      margin: 2rem auto 3rem;
+      font-style: italic;
+      text-align: center;
+      opacity: 0.85;
+    }
+    .testimonial p:last-child {
+      margin-top: 0.5rem;
+      font-weight: bold;
+      opacity: 1;
+    }
 
-    /* center the icon + text */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-}
-
-    </style>
-    <!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '724691963481667');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=724691963481667&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+    /* Mobile tweaks */
+    @media(max-width: 500px) {
+      .stats { flex-direction: column; }
+      .stats .stat { margin-bottom: 1rem; }
+    }
+  </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <nav class="nav">
-                <a href="#" class="logo">AidFinderUSA</a>
-                <div class="nav-links">
-                    <a href="#how-it-works">How It Works</a>
-                </div>
-            </nav>
-        </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h1>Get Your Free Government Help<br><span class="highlight">In Just 2 Minutes</span></h1>
-            <p>Free 2‑Minute Check • No Hidden Fees • Covers Rent, Utilities & Groceries</p>
+  <header>
+    <h1>💰 FindResourcesUSA</h1>
+    <p>Discover Your Unclaimed Money • Americans have over $49 billion waiting!</p>
+  </header>
 
-            <div class="features-box">
-                <div class="features">
-                    <div class="feature">
-                        <div class="feature-icon check">✓</div>
-                        <span>Free Stimulus Check</span>
-                    </div>
-                    <div class="feature">
-                        <div class="feature-icon shield">✓</div>
-                        <span>Covers Rent, Utilities & Groceries</span>
-                    </div>
-                    <div class="feature">
-                        <div class="feature-icon lock">🔒</div>
-                        <span>Trusted & Secure</span>
-                    </div>
-                </div>
+  <section class="stats">
+    <div class="stat">
+      <h2>1 in 10</h2>
+      <p>Americans have unclaimed money</p>
+    </div>
+    <div class="stat">
+      <h2>$892</h2>
+      <p>Average claim amount</p>
+    </div>
+    <div class="stat">
+      <h2>$49B+</h2>
+      <p>Total unclaimed nationwide</p>
+    </div>
+  </section>
 
-                <div class="chance-text">
-                    If all you have to do is fill a quick form for unlocking up to $1,400 aid, isn’t 2 minutes worth your time?
-                </div>
+  <section class="finder">
+    <h3>Find Your Unclaimed Money in 30 Seconds</h3>
+    <form id="finderForm">
+      <label for="firstName">First Name</label>
+      <input id="firstName" name="firstName" type="text" required />
 
-                <a href="https://rewarrdsgiant.com/aff_c?offer_id=2499&aff_id=134431" class="cta-button">Check Eligibility Now</a>
+      <label for="lastName">Last Name</label>
+      <input id="lastName" name="lastName" type="text" required />
 
-                <div class="stepper">
-  <span>1. Quick Form</span>
-  <span>2. Instant Match</span>
-  <span>3. Funds Disbursed</span>
-</div>
-            </div>
-        </div>
-    </section>
+      <label for="state">State</label>
+      <select id="state" name="state" required>
+        <option value="" disabled selected>Select your state</option>
+        <option>Alabama</option><option>Alaska</option><option>Arizona</option>
+        <option>Arkansas</option><option>California</option><option>Colorado</option>
+        <option>Connecticut</option><option>Delaware</option><option>Florida</option>
+        <option>Georgia</option><option>Hawaii</option><option>Idaho</option>
+        <option>Illinois</option><option>Indiana</option><option>Iowa</option>
+        <option>Kansas</option><option>Kentucky</option><option>Louisiana</option>
+        <option>Maine</option><option>Maryland</option><option>Massachusetts</option>
+        <option>Michigan</option><option>Minnesota</option><option>Mississippi</option>
+        <option>Missouri</option><option>Montana</option><option>Nebraska</option>
+        <option>Nevada</option><option>New Hampshire</option><option>New Jersey</option>
+        <option>New Mexico</option><option>New York</option><option>North Carolina</option>
+        <option>North Dakota</option><option>Ohio</option><option>Oklahoma</option>
+        <option>Oregon</option><option>Pennsylvania</option><option>Rhode Island</option>
+        <option>South Carolina</option><option>South Dakota</option><option>Tennessee</option>
+        <option>Texas</option><option>Utah</option><option>Vermont</option>
+        <option>Virginia</option><option>Washington</option><option>West Virginia</option>
+        <option>Wisconsin</option><option>Wyoming</option>
+      </select>
 
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat">
-                    <div class="stat-number">1 in 3</div>
-                    <div class="stat-label">Americans qualify for stimulus aid</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">$1,000</div>
-                    <div class="stat-label">Average aid amount</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">Billions</div>
-                    <div class="stat-label">Available nationwide</div>
-                </div>
-            </div>
-        </div>
-    </section>
+      <button type="submit">Search For My Money</button>
+    </form>
+  </section>
 
-    <!-- How It Works Section -->
-    <section class="how-it-works" id="how-it-works">
-        <div class="container">
-            <h2>How It Works</h2>
+  <section class="results" id="results">
+    <h3>We Found Potential Unclaimed Money For You!</h3>
+    <div class="amount">$1,247.83</div>
+    <ul>
+      <li><span>Forgotten Bank Account</span><span>$843.29</span></li>
+      <li><span>Insurance Refund</span><span>$215.75</span></li>
+      <li><span>Utility Deposit</span><span>$188.79</span></li>
+    </ul>
+    <a class="claim-btn"
+       href="https://rewarrdsgiant.com/aff_c?offer_id=2499&aff_id=134431"
+       target="_blank">
+      Claim My Money Now
+    </a>
+  </section>
 
-            <div class="steps">
-  <!-- Step 1 stays the same (magnifier icon) -->
-  <div class="step">
-    <div class="step-icon search">🔍</div>
-    <h3>1. Check</h3>
-    <p>Enter your info to match federal & state aid programs</p>
-  </div>
+  <section class="state-map">
+    <a href="https://rewarrdsgiant.com/aff_c?offer_id=2499&aff_id=134431" target="_blank">
+      <img src="map-of-usa.png" alt="Click your state to see unclaimed money stats" />
+    </a>
+    <p>Click on your state to see state‑specific unclaimed money stats.</p>
+  </section>
 
-  <!-- Step 2: switch to a check-mark -->
-  <div class="step">
-    <div class="step-icon discover">✓</div>
-    <h3>2. Apply</h3>
-    <p>Complete a simple form for benefits you qualify for</p>
-  </div>
+  <section class="testimonial">
+    <p>“I was shocked to find over $1,500 from an old insurance policy I had completely forgotten about. The claim process was surprisingly easy!”</p>
+    <p>– Sarah J., Florida</p>
+  </section>
 
-  <!-- Step 3: use the dollar sign -->
-  <div class="step">
-    <div class="step-icon claim">$</div>
-    <h3>3. Claim</h3>
-    <p>Claim your aid within minutes</p>
-  </div>
-</div>
+  <script>
+    document.getElementById('finderForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Reveal the static results
+      document.getElementById('results').style.display = 'block';
+      // Optionally scroll into view
+      document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+    });
+  </script>
 
-        </div>
-    </section>
-
-    <!-- Final CTA Section -->
-    <section class="final-cta">
-        <div class="container">
-            <h2>Ready to Claim Your Stimulus Aid?</h2>
-            <p>Don’t wait—start your free eligibility check now and see what relief you qualify for.</p>
-            <a href="https://rewarrdsgiant.com/aff_c?offer_id=2499&aff_id=134431" class="final-cta-button">Check Eligibility Free</a>
-        </div>
-    </section>
-
-    <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) target.scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-        document.querySelectorAll('.cta-button, .final-cta-button').forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.preventDefault();
-                window.location.href = 'https://rewarrdsgiant.com/aff_c?offer_id=2499&aff_id=134431';
-            });
-        });
-    </script>
 </body>
 </html>
