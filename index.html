@@ -11,15 +11,28 @@
     a { text-decoration: none; color: inherit; }
     button { cursor: pointer; }
 
-    /* Header */
-    header {
-      background: #1a4fb7;
-      color: #fff;
-      text-align: center;
-      padding: 1rem;
-    }
-    header h1 { font-size: 1.5rem; margin-bottom: 0.25rem; }
-    header p { font-size: 0.9rem; opacity: 0.9; }
+    .hero {
+  background: #1a4fb7;
+  color: #fff;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+.hero h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+.hero h2 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  font-weight: normal;
+}
+.hero p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
 
     /* Stats bar */
     .stats {
@@ -142,10 +155,12 @@
 </head>
 <body>
 
-  <header>
-    <h1>💰 FindResourcesUSA</h1>
-    <p>Discover Your Unclaimed Money • Americans have over $49 billion waiting!</p>
-  </header>
+  <header class="hero">
+  <h1>💰 FindResourcesUSA</h1>
+  <h2>Discover And Get Your Unclaimed Money</h2>
+  <p>Americans have over $49 billion in unclaimed funds. Find out if some of it is yours.</p>
+</header>
+
 
   <section class="stats">
     <div class="stat">
