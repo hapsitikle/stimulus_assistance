@@ -1,82 +1,340 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>AidFinderUSA – Unlock Your $1,400 Stimulus Aid</title>
-  <style>
-    :root {
-      --brand-blue: #4285f4;
-      --text-dark: #2d3748;
-      --text-gray: #6c757d;
-      --badge-green: #10B981;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: Arial,sans-serif; color: var(--text-dark); background: #f8f9fa; }
-    .container { max-width: 600px; margin: auto; padding: 20px; text-align: center; }
-    h1 { font-size: 2rem; margin-bottom: 10px; }
-    .highlight { color: var(--brand-blue); }
-    p.lead { color: var(--text-gray); font-size: 1rem; margin-bottom: 20px; }
-    .btn { background: var(--brand-blue); color: #fff; padding: 15px 25px; border:none; border-radius: 50px;
-           font-size: 1.1rem; text-decoration: none; display: inline-block; margin-bottom: 15px; }
-    .stat { font-size: .9rem; color: var(--text-gray); margin-bottom: 30px; }
-    .steps { display: flex; justify-content: space-between; margin-bottom: 30px; }
-    .step { width: 30%; background: #fff; padding: 15px; border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-    .step h3 { font-size: 1rem; margin-bottom: 8px; }
-    .step p { font-size: .85rem; color: var(--text-gray); }
-    .badges { display: flex; justify-content: center; gap: 20px; margin-top: 20px; }
-    .badge { font-size: .8rem; color: var(--badge-green); }
-    .badge::before { content: "✔️"; margin-right: 6px; }
-    @media (max-width: 480px) {
-      .steps { flex-direction: column; gap: 15px; }
-      .step { width: 100%; }
-      .btn {
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AidFinderUSA - Check Stimulus Aid Eligibility</title>
+    <style>
+        /* (styles unchanged) */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background-color: #f8f9fa; color: #333; line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .header { background: white; padding: 20px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; font-size: 24px; font-weight: bold; color: #333; text-decoration: none; }
+        .logo::before { content: "$"; background: #4285f4; color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 10px; font-size: 18px; }
+        .nav-links a { color: #6c757d; text-decoration: none; font-weight: 600; }
+        .nav-links a:hover { color: #4285f4; }
+        .hero { text-align: center; padding: 40px 0; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); }
+        .hero h1 { font-size: 64px; font-weight: 700; margin-bottom: 20px; color: #2d3748; }
+        .hero h1 .highlight { color: #4285f4; }
+        .hero p { font-size: 18px; color: #6c757d; margin-bottom: 50px; }
+        .features-box { background: white; border-radius: 20px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin: 0 auto 60px; max-width: 800px; }
+        .features { display: flex; justify-content: space-around; margin-bottom: 30px; }
+        .feature { display: flex; align-items: center; gap: 10px; font-weight: 500; }
+        .feature-icon { width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px; }
+        .feature-icon.check { background: #28a745; }
+        .feature-icon.shield { background: #6f42c1; }
+        .feature-icon.lock { background: #fd7e14; }
+        .chance-text { font-size: 18px; color: #6c757d; margin-bottom: 30px; }
+        .chance-text .highlight { color: #28a745; font-weight: bold; }
+        .cta-button { background: #4285f4; color: white; padding: 20px 50px; border: none; border-radius: 50px; font-size: 24px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; text-decoration: none; transition: all 0.3s ease; }
+        .cta-button:hover { background: #3367d6; transform: translateY(-2px); }
+        .stats { background: #4285f4; color: white; padding: 40px 0; text-align: center; }
+        .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 60px; max-width: 1000px; margin: 0 auto; }
+        .stat-number { font-size: 48px; font-weight: 700; margin-bottom: 10px; }
+        .stat-label { font-size: 16px; opacity: 0.9; }
+        .how-it-works { padding: 30px 0; text-align: center; }
+        .how-it-works h2 { font-size: 48px; font-weight: 700; margin-bottom: 60px; color: #2d3748; }
+        .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-bottom: 20px; }
+        .step { background: white; padding: 15px 30px; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); text-align: center; }
+        .step-icon { width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 30px; display: flex; align-items: center; justify-content: center; font-size: 32px; color: white; margin-bottom: 30px; }
+        .step-icon.search { background: linear-gradient(135deg, #e3f2fd, #bbdefb); color: #1976d2; }
+        .step-icon.discover { background: linear-gradient(135deg, #e8f5e8, #c8e6c9); color: #388e3c; }
+        .step-icon.claim { background: linear-gradient(135deg, #f3e5f5, #e1bee7); color: #7b1fa2; }
+        .step h3 { font-size: 24px; font-weight: 600; margin-bottom: 15px; color: #2d3748; }
+        .step p { color: #6c757d; line-height: 1.6; }
+        .final-cta { background: #f8f9fa; padding: 20px 0; text-align: center; }
+        .final-cta h2 { font-size: 48px; font-weight: 700; margin-bottom: 30px; color: #2d3748; }
+        .final-cta p { font-size: 18px; color: #6c757d; margin-bottom: 40px; max-width: 800px; margin-left: auto; margin-right: auto; }
+        .final-cta-button { background: #28a745; color: white; padding: 22px 60px; border: none; border-radius: 50px; font-size: 24px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; text-decoration: none; transition: all 0.3s ease; }
+        .final-cta-button:hover { background: #218838; transform: translateY(-2px); }
+        .final-cta-button::before { content: "$"; }
+        /* STEPPER */
+.stepper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 16px;
+  color: black;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+.stepper span {
+  flex: 1;
+  text-align: center;
+}
+.stepper span:not(:last-child)::after {
+  content: "›";
+  margin: 0 10px;
+  color: #adb5bd;
+}
+       
+        /* Responsive rules omitted for brevity */
+        /* ==========================
+   Mobile Phones (≤480px)
+   ========================== */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 15px;
+  }
+
+  /* Header */
+  .logo {
+    font-size: 20px;
+  }
+  .logo::before {
+    width: 28px;
+    height: 28px;
+    font-size: 16px;
+  }
+
+  /* Hero */
+  .hero h1 {
+    font-size: 28px;
+    line-height: 1.2;
+    margin-bottom: 15px;
+  }
+  .hero p {
+    font-size: 14px;
+    margin-bottom: 30px;
+  }
+
+  /* Features Box */
+  .features-box {
+    padding: 20px;
+    margin-bottom: 40px;
+  }
+  .features {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  .chance-text {
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .cta-button {
+    width: 100%;
+    max-width: none;
+    padding: 16px 0;
+    font-size: 18px;
+  }
+
+  /* Stats */
+  .stats-grid {
     display: block;
-    width: 100% !important;
-    font-size: 1.3rem !important;
-    font-weight: 700 !important;
-    padding: 18px 0 !important;
+  }
+  .stat {
+    margin-bottom: 20px;
+  }
+  .stat-number {
+    font-size: 36px;
+  }
+  .stat-label {
+    font-size: 14px;
+  }
+
+  /* How It Works */
+  .how-it-works h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+  .steps {
+    display: block;
+  }
+  .step {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  .step-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  .step h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  .step p {
+    font-size: 14px;
+  }
+
+  /* Final CTA */
+  .final-cta h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  .final-cta p {
+    font-size: 14px;
+    margin-bottom: 30px;
+  }
+  .final-cta-button {
+    width: 100%;
+    padding: 16px 0;
+    font-size: 18px;
+  }
+    .cta-button,
+  .final-cta-button {
+    /* stretch full width */
+    width: 100%;
+    padding: 16px 0;
+    font-size: 18px;
+
+    /* center the icon + text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
   }
-    }
-  </style>
+}
+
+    </style>
+    <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '724691963481667');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=724691963481667&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 </head>
 <body>
-  <div class="container">
-    <!-- Hero / Push -->
-    <h1>You Are Just <span class="highlight">2 Minutes</span> Away<br>
-        From Unlocking Up To <span class="highlight">$1,400</span> in Stimulus Aid</h1>
-    <p class="lead">Answer a few simple questions — no cost, no credit check.</p>
-    <a href="https://rewarrdsgiant.com/aff_c?offer_id=2499&aff_id=134431"
-       class="btn">Check My Eligibility Now</a>
-    <div class="stat">10,000+ Americans helped this week</div>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="#" class="logo">AidFinderUSA</a>
+                <div class="nav-links">
+                    <a href="#how-it-works">How It Works</a>
+                </div>
+            </nav>
+        </div>
+    </header>
 
-    <!-- 3‑Step Flow -->
-    <h2 style="font-size:1.2rem; margin-bottom:15px;">
-      Follow These 3 Steps To Unlock Your Aid:
-    </h2>
-    <div class="steps">
-      <div class="step">
-        <h3>1. Quick 2‑min Form</h3>
-        <p>Tell us basic info to match your needs.</p>
-      </div>
-      <div class="step">
-        <h3>2. Instant Match</h3>
-        <p>Unlock up to $1,400 in federal aid.</p>
-      </div>
-      <div class="step">
-        <h3>3. Funds Disbursed</h3>
-        <p>Receive support directly to you.</p>
-      </div>
-    </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Get Your Free Government Help<br><span class="highlight">In Just 2 Minutes</span></h1>
+            <p>Free 2‑Minute Check • No Hidden Fees • Covers Rent, Utilities & Groceries</p>
 
-    <!-- Trust Badges -->
-    <div class="badges">
-      <div class="badge">Trusted & Secure</div>
-      <div class="badge">No Hidden Fees</div>
-      <div class="badge">Gov’t‑Backed Programs</div>
-    </div>
+            <div class="features-box">
+                <div class="features">
+                    <div class="feature">
+                        <div class="feature-icon check">✓</div>
+                        <span>Free Stimulus Check</span>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon shield">✓</div>
+                        <span>Covers Rent, Utilities & Groceries</span>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon lock">🔒</div>
+                        <span>Trusted & Secure</span>
+                    </div>
+                </div>
+
+                <div class="chance-text">
+                    If all you have to do is fill a quick form for unlocking up to $1,400 aid, isn’t 2 minutes worth your time?
+                </div>
+
+                <a href="https://rewarrdsgiant.com/aff_c?offer_id=2499&aff_id=134431" class="cta-button">Check Eligibility Now</a>
+
+                <div class="stepper">
+  <span>1. Quick Form</span>
+  <span>2. Instant Match</span>
+  <span>3. Funds Disbursed</span>
+</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat">
+                    <div class="stat-number">1 in 3</div>
+                    <div class="stat-label">Americans qualify for stimulus aid</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">$1,000</div>
+                    <div class="stat-label">Average aid amount</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">Billions</div>
+                    <div class="stat-label">Available nationwide</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <h2>How It Works</h2>
+
+            <div class="steps">
+  <!-- Step 1 stays the same (magnifier icon) -->
+  <div class="step">
+    <div class="step-icon search">🔍</div>
+    <h3>1. Check</h3>
+    <p>Enter your info to match federal & state aid programs</p>
   </div>
+
+  <!-- Step 2: switch to a check-mark -->
+  <div class="step">
+    <div class="step-icon discover">✓</div>
+    <h3>2. Apply</h3>
+    <p>Complete a simple form for benefits you qualify for</p>
+  </div>
+
+  <!-- Step 3: use the dollar sign -->
+  <div class="step">
+    <div class="step-icon claim">$</div>
+    <h3>3. Claim</h3>
+    <p>Claim your aid within minutes</p>
+  </div>
+</div>
+
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>Ready to Claim Your Stimulus Aid?</h2>
+            <p>Don’t wait—start your free eligibility check now and see what relief you qualify for.</p>
+            <a href="https://rewarrdsgiant.com/aff_c?offer_id=2499&aff_id=134431" class="final-cta-button">Check Eligibility Free</a>
+        </div>
+    </section>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+        document.querySelectorAll('.cta-button, .final-cta-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.location.href = 'https://rewarrdsgiant.com/aff_c?offer_id=2499&aff_id=134431';
+            });
+        });
+    </script>
 </body>
 </html>
