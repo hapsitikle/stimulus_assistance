@@ -179,10 +179,13 @@
     padding: 1rem;                /* extra tappable area */
   }
     .claim-btn {
-      width: 100% !important;
-      font-size: 1.4rem;
-      padding: 0.8rem;
-    }
+    width: 80% !important;        /* narrower so it doesn’t hug the edges */
+    margin: 1rem auto;            /* auto‑center it with some vertical spacing */
+    font-size: 1.3rem !important; /* bump the text size */
+    font-weight: 600;             /* make the text bolder */
+    padding: 1rem !important;     /* increase the tappable area */
+    display: block;               /* ensure it respects width & margin */
+  }
   </style>
 </head>
 <body>
