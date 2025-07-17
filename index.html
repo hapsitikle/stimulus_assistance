@@ -113,6 +113,11 @@
       font-size: 1rem;
     }
 
+    input::placeholder {
+      color: #999;
+      opacity: 1; /* Firefox */
+    }
+
 
     /* Testimonial */
     .testimonial {
@@ -144,11 +149,11 @@
 
   <section class="stats">
     <div class="stat">
-      <h2>1 in 10</h2>
+      <h2>1 in 7</h2>
       <p>Americans have unclaimed money</p>
     </div>
     <div class="stat">
-      <h2>$892</h2>
+      <h2>$1143</h2>
       <p>Average claim amount</p>
     </div>
     <div class="stat">
@@ -161,10 +166,10 @@
     <h3>Find Your Unclaimed Money in 30 Seconds</h3>
     <form id="finderForm">
       <label for="firstName">First Name</label>
-      <input id="firstName" name="firstName" type="text" required />
+      <input id="firstName" name="firstName" type="text" placeholder="Enter your first name" required />
 
       <label for="lastName">Last Name</label>
-      <input id="lastName" name="lastName" type="text" required />
+      <input id="lastName" name="lastName" type="text" placeholder="Enter your last name" required />
 
       <label for="state">State</label>
       <select id="state" name="state" required>
