@@ -301,7 +301,7 @@ function updateFeed() {
         currentIndex = (currentIndex + 1) % feedMessages.length;
     }
 }
-    
+    setInterval(updateFeed, 10000);
     document.getElementById('finderForm')
       .addEventListener('submit', function(e) {
         e.preventDefault();
