@@ -120,6 +120,22 @@
   font-size: 0.9rem;
   color: #dc2626; /* red for urgency */
 }
+    .urgency-container {
+  text-align: center;
+  margin-top: 0.75rem;
+}
+#countdown {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #dc2626;      /* red */
+}
+.urgency-text {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #dc2626;
+  margin-top: 0.25rem;
+}
+
 
 
     /* Mobile tweaks */
@@ -227,7 +243,11 @@ src="https://www.facebook.com/tr?id=724691963481667&ev=PageView&noscript=1"
       onclick="fbq('track','CompleteRegistration')">
       Learn How To Claim
     </a>
-    <div class="urgency" id="urgency"></div>
+    <div class="urgency-container">
+  <div id="countdown">04:00:00</div>
+  <p class="urgency-text">Don't miss your chance to claim your money!</p>
+</div>
+
   </section>
 
   <!-- Stats bar -->
@@ -252,19 +272,21 @@ src="https://www.facebook.com/tr?id=724691963481667&ev=PageView&noscript=1"
   </section>
 
   <script>
-    function updateUrgency() {
-    const now = new Date();
-    const deadline = new Date();
-    // Set deadline to 24h from page load, or change to a fixed time:
-    deadline.setHours(23,59,59,999);
-    const hoursLeft = Math.max(0,
-      Math.ceil((deadline - now) / (1000 * 60 * 60))
-    );
-    document.getElementById('urgency').textContent =
-      `Only ${hoursLeft} hours left to apply this week!`;
+    const endTime = Date.now() + 4 * 60 * 60 * 1000;
+
+  function tick() {
+    const now = Date.now();
+    let diff = Math.max(0, endTime - now);
+    const h = String(Math.floor(diff / 3600000)).padStart(2,'0');
+    diff %= 3600000;
+    const m = String(Math.floor(diff / 60000)).padStart(2,'0');
+    diff %= 60000;
+    const s = String(Math.floor(diff / 1000)).padStart(2,'0');
+    document.getElementById('countdown').textContent = `${h}:${m}:${s}`;
   }
-  updateUrgency();
-  setInterval(updateUrgency, 60 * 60 * 1000);
+
+  tick();
+  setInterval(tick, 1000);
     
     const feedMessages = [
     "Maria from FL uncovered $1,150 in unclaimed funds!",
