@@ -79,6 +79,23 @@
       font-size: 1rem; text-align: center;
     }
 
+    .social-proof {
+  background: transparent;       /* no grey/white behind */
+  padding: 0;                    /* remove extra space */
+}
+
+/* Target the live-feed bar itself */
+.live-feed {
+  background: white;              /* remove white bg */
+  box-shadow: none;              /* remove shadow */
+  border-radius: 0.5rem;              /* square corners to match box */
+  max-width: 800px;              /* same max-width as .features-box */
+  margin: 0 auto 1.5rem;         /* center & add bottom gap */
+  padding: 1rem 1.5rem;          /* you can tweak vertical/horizontal padding */
+  border-left: 4px solid #10B981;/* keep the accent stripe */
+  font-size: 18px;
+  color: #374151;
+}
     /* Stats bar */
     .stats {
       display: flex; justify-content: space-around;
@@ -96,6 +113,14 @@
       margin-bottom: 0.25rem; font-weight: bold; font-size: 1rem;
     }
     .testimonial p { font-style: italic; opacity: 0.85; }
+
+    .urgency {
+  text-align: center;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #dc2626; /* red for urgency */
+}
+
 
     /* Mobile tweaks */
     @media (max-width: 500px) {
@@ -142,10 +167,6 @@ src="https://www.facebook.com/tr?id=724691963481667&ev=PageView&noscript=1"
   <!-- Finder form -->
   <section class="finder">
     <h3>Find Your Unclaimed Money in 30 Seconds</h3>
-    <p class="finder-desc">
-      Enter your information below to search for unclaimed funds from forgotten bank accounts,
-      insurance policies, utility deposits, tax refunds, and more.
-    </p>
     <form id="finderForm">
       <!-- 1) merged name field -->
       <label for="fullName">Full Name</label>
@@ -178,6 +199,14 @@ src="https://www.facebook.com/tr?id=724691963481667&ev=PageView&noscript=1"
     </form>
   </section>
 
+  <section class="social-proof">
+  <div class="container">
+    <div class="live-feed">
+      Maria from FL just found $850 for groceries! • 2 min ago
+    </div>
+  </div>
+</section>
+
   <!-- Results -->
   <section class="results" id="results">
     <h3>We Found Potential Unclaimed Money For You!</h3>
@@ -195,6 +224,7 @@ src="https://www.facebook.com/tr?id=724691963481667&ev=PageView&noscript=1"
       onclick="fbq('track','CompleteRegistration')">
       Learn How To Claim
     </a>
+    <div class="urgency" id="urgency"></div>
   </section>
 
   <!-- Stats bar -->
@@ -219,6 +249,55 @@ src="https://www.facebook.com/tr?id=724691963481667&ev=PageView&noscript=1"
   </section>
 
   <script>
+    function updateUrgency() {
+    const now = new Date();
+    const deadline = new Date();
+    // Set deadline to 24h from page load, or change to a fixed time:
+    deadline.setHours(23,59,59,999);
+    const hoursLeft = Math.max(0,
+      Math.ceil((deadline - now) / (1000 * 60 * 60))
+    );
+    document.getElementById('urgency').textContent =
+      `Only ${hoursLeft} hours left to apply this week!`;
+  }
+  updateUrgency();
+  setInterval(updateUrgency, 60 * 60 * 1000);
+    
+    const feedMessages = [
+    "Maria from FL just found $850 for groceries!",
+    "Kevin from CO discovered $1,400 in combined benefits!",
+    "Jessica from CA discovered $600 utility help!",
+    "Mike from TX qualified for $1,200 rent assistance!",
+    "Thomas from MI unlocked $800 healthcare support!",
+    "Jennifer from TX qualified for $1,200 in food benefits!",
+    "Sarah from AZ discovered $850 housing support!",
+    "Mark from NC found $400 energy assistance!",
+    "Robert from CA discovered $600 SNAP assistance!",
+    "Amanda from GA unlocked $950 housing help!",
+    "Angela from VA found $650 medical assistance!",
+    "Lisa from NY unlocked $900 in monthly food help!",
+    "Carlos from FL found $1,100 rent relief!",
+    "Patricia from WA qualified for $525 utility relief!",
+    "David from OH found $750 grocery assistance!",
+    "Rachel from IL qualified for $1,050 total assistance!"
+];
+
+// Start from random index
+let currentIndex = Math.floor(Math.random() * feedMessages.length);
+const timeStamps = ["1 min ago", "2 min ago"];
+
+function updateFeed() {
+    const feed = document.querySelector('.live-feed');
+    if (feed) {
+        const message = feedMessages[currentIndex];
+        const randomTime = timeStamps[Math.floor(Math.random() * timeStamps.length)];
+        feed.innerHTML = `${message} • ${randomTime}`;
+       
+        // Move to next, cycle back to 0 after reaching end
+        currentIndex = (currentIndex + 1) % feedMessages.length;
+    }
+}
+    
     document.getElementById('finderForm')
       .addEventListener('submit', function(e) {
         e.preventDefault();
