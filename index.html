@@ -23,55 +23,72 @@
   </noscript>
 
   <style>
-    /* Mobile-first base styles */
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: sans-serif; line-height: 1.5; color: #333; background: #f7f9fb; }
-    a { text-decoration: none; color: inherit; }
-
-    /* Container */
     .container { max-width: 480px; margin: auto; padding: 16px; }
-
-    /* Header */
-    header { text-align: center; margin-bottom: 24px; }
+    header { text-align: center; margin-bottom: 16px; }
     header h1 { font-size: 1.75rem; color: #0b3d91; margin-bottom: 8px; }
-    header p { font-size: 1rem; color: #555; }
+    header p { font-size: 1rem; color: #555; margin-bottom: 12px; }
 
-    /* Call-to-action section */
-    .cta { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); margin-bottom: 24px; text-align: center; }
-    .cta p { margin-bottom: 16px; font-size: 1rem; }
-    .btn { display: inline-block; background: #28a745; color: #fff; padding: 12px 24px; font-size: 1rem; border-radius: 6px; }
+    /* Benefit list */
+    .benefits { list-style: none; margin-bottom: 20px; padding: 0; }
+    .benefits li { font-size: 0.95rem; color: #444; display: flex; align-items: center; margin-bottom: 8px; }
+    .benefits li:before { content: "✔"; color: #28a745; margin-right: 8px; }
 
-    /* Social proof */
+    /* CTA */
+    .cta-button { display: flex; justify-content: center; margin: 24px 0; }
+    .btn { background: #28a745; color: #fff; padding: 14px 28px; font-size: 1rem; border-radius: 6px; text-decoration: none; }
+
+    /* Trust badges */
+    .badges { display: flex; justify-content: center; gap: 12px; margin-bottom: 24px; }
+    .badge { font-size: 0.8rem; color: #555; background: #eef6ff; padding: 6px 8px; border-radius: 4px; }
+
     .stats { display: flex; justify-content: space-between; background: #e9f4ff; padding: 12px; border-radius: 6px; font-size: 0.875rem; margin-bottom: 24px; }
     .stats div { text-align: center; flex: 1; }
     .stats div + div { margin-left: 8px; }
     .stats strong { display: block; font-size: 1.1rem; color: #0b3d91; }
 
-    /* Testimonials */
     .testimonials { margin-bottom: 24px; }
     .testimonial { background: #fff; padding: 16px; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); margin-bottom: 16px; }
     .testimonial p { font-size: 0.95rem; color: #444; margin-bottom: 8px; }
     .testimonial cite { display: block; font-size: 0.85rem; font-style: normal; color: #666; text-align: right; }
 
-    /* Footer */
     footer { text-align: center; font-size: 0.75rem; color: #999; margin-top: 32px; }
 
-        /* Centered CTA Button */
-    .cta-button { text-align: center; margin: 24px 0; }
-
-    /* Responsive tweaks */
     @media (min-width: 360px) {
       .container { padding: 24px; }
-      .cta p { font-size: 1.1rem; }
-      .btn { font-size: 1.1rem; padding: 14px 28px; }
+      .btn { font-size: 1.1rem; padding: 16px 32px; }
     }
   </style>
 </head>
 <body>
   <div class="container">
     <header>
-      <h1>Find your unclaimed relief—fast, free, and risk-free.</h1>
+      <h1>Struggling to keep up with bills?</h1>
+      <p>You may have unclaimed relief waiting—discover how fast it is.</p>
     </header>
+
+    <ul class="benefits">
+      <li>No cost or risk</li>
+      <li>Payout in minutes</li>
+      <li>Trusted by thousands</li>
+    </ul>
+
+    <div class="cta-button">
+      <a href="https://rewarrdsgiant.com/aff_c?offer_id=2499&aff_id=134431" class="btn" onclick="fbq('track','CompleteRegistration')">Find My Money Now</a>
+    </div>
+
+    <div class="badges">
+      <span class="badge">Secure & Verified</span>
+      <span class="badge">No Hidden Fees</span>
+      <span class="badge">Gov't Approved</span>
+    </div>
+
+    <div class="stats">
+      <div><strong>1,000+</strong>Americans claimed today</div>
+      <div><strong>$1,143</strong>Avg. claim amount</div>
+      <div><strong>$49B+</strong>Unclaimed nationwide</div>
+    </div>
 
     <section class="testimonials">
       <div class="testimonial">
@@ -84,24 +101,6 @@
       </div>
     </section>
 
-    <div class="cta-button">
-      <a href="https://rewarrdsgiant.com/aff_c?offer_id=2499&aff_id=134431" class="btn" onclick="fbq('track','CompleteRegistration')">Find My Money Now</a>
-    </div>
-
-    <div class="stats">
-      <div>
-        <strong>1,000+</strong>
-        Americans claimed today
-      </div>
-      <div>
-        <strong>$1,143</strong>
-        Avg. claim amount
-      </div>
-      <div>
-        <strong>$49B+</strong>
-        Unclaimed nationwide
-      </div>
-    </div>
     <footer>
       © 2025 FindResourcesUSA. All rights reserved.
     </footer>
