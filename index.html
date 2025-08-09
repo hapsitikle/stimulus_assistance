@@ -111,6 +111,74 @@
             background-color: hsl(141, 69%, 42%);
             box-shadow: 0 10px 15px rgba(0,0,0,0.15);
         }
+
+        /* FAQ */
+.faq{
+  background: var(--background);
+  padding: 48px 0;
+  border-top: 1px solid var(--border);
+}
+.faq-title{
+  text-align: center;
+  color: var(--navy);
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+.faq-list{
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  gap: 12px;
+}
+.faq-item{
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Remove default marker */
+.faq-item summary::-webkit-details-marker{ display: none; }
+
+.faq-item summary{
+  cursor: pointer;
+  padding: 16px 20px;
+  font-weight: 600;
+  color: var(--navy);
+  list-style: none;
+  position: relative;
+}
+
+/* Plus/Minus icon */
+.faq-item summary::after{
+  content: '+';
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: 700;
+  color: var(--muted-foreground);
+}
+.faq-item[open] summary::after{
+  content: '–';
+  color: var(--offer-green);
+}
+
+.faq-item .answer{
+  padding: 0 20px 16px 20px;
+  color: var(--muted-foreground);
+  line-height: 1.55;
+}
+
+/* Mobile tweaks */
+@media (max-width: 768px){
+  .faq-title{ font-size: 1.6rem; }
+  .faq-item summary{ padding: 14px 18px; }
+  .faq-item .answer{ padding: 0 18px 14px 18px; }
+}
+
        
         /* Trust Badges */
         .trust-badges {
@@ -634,6 +702,20 @@
                 gap: 16px;
             }
         }
+        /* Micro note under CTA */
+.cta-subtext{
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: var(--muted-foreground);
+}
+.cta-subtext strong{ color: var(--navy); font-weight: 700; }
+.cta-subtext-meta{ display: block; margin-top: 2px; opacity: .85; }
+
+/* Tighter on small screens */
+@media (max-width: 768px){
+  .cta-subtext{ font-size: 0.8rem; line-height: 1.35; }
+}
+
     </style>
 
     <!-- Meta Pixel Code -->
@@ -659,13 +741,17 @@ src="https://www.facebook.com/tr?id=1080538913659633&ev=PageView&noscript=1"
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h2>Did You Know 1 in 3 Seniors Never Apply for This $2,000 Relief?</h2>
+            <h2>Check Eligibility for $2,000 Senior Relief</h2>
             <p>Find out in under 2 minutes if you qualify—no fees, no credit check.</p>
             <div class="urgency-banner">
     <p>🚨 <strong>Limited Availability:</strong> Many seniors are already claiming their stimulus—check your spot now!</p>
 </div>
             <a href="https://rewarduplevel.com/aff_c?offer_id=2343&aff_id=134431"
   class="cta-button" onclick="fbq('track', 'Lead');">Check My Eligibility</a>
+            <!-- Micro text under the primary CTA -->
+<div class="cta-subtext">
+  <strong>Next page:</strong> enter your ZIP, answer a few quick questions, then choose your benefit.
+</div>
         </div>
     </section>
 
@@ -714,51 +800,52 @@ src="https://www.facebook.com/tr?id=1080538913659633&ev=PageView&noscript=1"
             </div>
         </div>
     </section>
-   
-    <!-- Trust Badges -->
-    <section class="trust-badges">
-        <div class="container">
-            <div class="badges-grid">
-                <div class="badge">
-                    <div class="badge-icon">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
-                            <path d="m7 11V7a5 5 0 0 1 10 0v4"/>
-                        </svg>
-                    </div>
-                    <div class="badge-content">
-                        <h3>SSL Secured</h3>
-                        <p>Your information is protected</p>
-                    </div>
-                </div>
-                <div class="badge">
-                    <div class="badge-icon">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <line x1="12" x2="12" y1="2" y2="22"/>
-                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-                        </svg>
-                    </div>
-                    <div class="badge-content">
-                        <h3>No Fees</h3>
-                        <p>Completely free service</p>
-                    </div>
-                </div>
-                <div class="badge">
-                    <div class="badge-icon">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
-                        </svg>
-                    </div>
-                    <div class="badge-content">
-                        <h3>Privacy Protected</h3>
-                        <p>We never share your data</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-   
+    <section class="faq">
+  <div class="container">
+    <h2 class="faq-title">Frequently Asked Questions</h2>
+    <div class="faq-list">
+
+      <details class="faq-item">
+        <summary>Will this affect my Social Security or Medicare?</summary>
+        <div class="answer">
+          No. Checking eligibility does not affect your existing benefits.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>How long does the eligibility check take?</summary>
+        <div class="answer">
+          About two minutes. Most people finish on the next page without any paperwork.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Is there a fee or credit check?</summary>
+        <div class="answer">
+          No fees and no credit check. This is a free eligibility check.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What information do I need?</summary>
+        <div class="answer">
+          Your ZIP code and a few basic details to verify eligibility—no sensitive documents.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Is my information secure?</summary>
+        <div class="answer">
+          Yes. We use SSL and never share your data. See our Privacy Policy for details.
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+     
 
     <!-- Problem Solution Section -->
     <section class="problem-solution">
