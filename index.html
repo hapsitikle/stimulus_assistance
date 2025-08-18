@@ -771,7 +771,8 @@ src="https://www.facebook.com/tr?id=1080538913659633&ev=PageView&noscript=1"
                 <p>⚠️ Limited Availability: Eligibility changes daily—check now to secure your spot.</p>
             </div>
             <a href="https://track.aidfinderusa.com/click"
-  class="cta-button" onclick="fbq('track', 'Lead');">Start 2‑Minute Check →</a>
+   class="cta-button"
+   onclick="trackLeadOnce()">Start 2-Minute Check →</a>
             <!-- Micro text under the primary CTA -->
             <div class="cta-subtext">
               <strong>Step 1 of 3:</strong> Enter your ZIP → answer quick questions → select available benefits and claim
@@ -997,7 +998,9 @@ src="https://www.facebook.com/tr?id=1080538913659633&ev=PageView&noscript=1"
             <div class="cta-content">
                 <h2>Ready to Get Your $2,000 Stimulus?</h2>
                 <p>Don’t wait—see what you qualify for in about 2 minutes.</p>
-                <a href="https://track.aidfinderusa.com/click" class="cta-button" onclick="fbq('track', 'Lead');">Start Free Check →</a>
+                <a href="https://track.aidfinderusa.com/click"
+   class="cta-button"
+   onclick="trackLeadOnce()">Start Free Check →</a>
             </div>
         </div>
     </section>
@@ -1070,6 +1073,14 @@ src="https://www.facebook.com/tr?id=1080538913659633&ev=PageView&noscript=1"
     </footer>
 
     <script>
+        function trackLeadOnce() {
+  // check if event was already sent in this session
+  if (!sessionStorage.getItem("leadTracked")) {
+    fbq('track', 'Lead');
+    sessionStorage.setItem("leadTracked", "true");
+  }
+}
+        
         let currentTestimonial = 0;
         const totalTestimonials = 3;
 
