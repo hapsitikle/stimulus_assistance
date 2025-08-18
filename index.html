@@ -1073,13 +1073,30 @@ src="https://www.facebook.com/tr?id=1080538913659633&ev=PageView&noscript=1"
     </footer>
 
     <script>
-        function trackLeadOnce() {
-  // check if event was already sent in this session
-  if (!sessionStorage.getItem("leadTracked")) {
+        (function () {
+  const KEY = 'leadTracked';
+  const TS  = 'leadTrackedTs';
+  const DEBOUNCE_MS = 1200;        // ignore rapid double-clicks
+  let inPageFlag = false;
+
+  window.trackLeadOnce = function () {
+    const now = Date.now();
+    const last = +(sessionStorage.getItem(TS) || 0);
+
+    if (inPageFlag) return;                         // already sent this page
+    if (sessionStorage.getItem(KEY) === 'true' &&
+        now - last < 10 * 60 * 1000) return;        // already sent this session (10 min guard)
+
+    inPageFlag = true;
+    sessionStorage.setItem(KEY, 'true');
+    sessionStorage.setItem(TS, String(now));
+
+    // debounce safety against ultra-rapid repeats
+    setTimeout(() => { inPageFlag = false; }, DEBOUNCE_MS);
+
     fbq('track', 'Lead');
-    sessionStorage.setItem("leadTracked", "true");
-  }
-}
+  };
+})();
         
         let currentTestimonial = 0;
         const totalTestimonials = 3;
