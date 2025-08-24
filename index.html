@@ -776,7 +776,7 @@ src="https://www.facebook.com/tr?id=1072829781630422&ev=PageView&noscript=1"
             </div>
             <a href="https://track.aidfinderusa.com/click"
    class="cta-button"
-   onclick="trackLeadOnce()">Start 2-Minute Check →</a>
+   onclick="trackSubscribeOnce()">Start 2-Minute Check →</a>
             <div class="urgency-banner">
                 <p>John here—this quick check won’t affect your Social Security or Medicare. It’s free, safe and you don't need to buy an insurance.</p>
             </div>
@@ -1057,7 +1057,7 @@ src="https://www.facebook.com/tr?id=1072829781630422&ev=PageView&noscript=1"
                 <p>Don’t wait—see what you qualify for in about 2 minutes.</p>
                 <a href="https://track.aidfinderusa.com/click"
    class="cta-button"
-   onclick="trackLeadOnce()">Start Free Check →</a>
+   onclick="trackSubscribeOnce()">Start Free Check →</a>
             </div>
         </div>
     </section>
@@ -1079,12 +1079,12 @@ src="https://www.facebook.com/tr?id=1072829781630422&ev=PageView&noscript=1"
 
     <script>
         (function () {
-  const KEY = 'leadTracked';
-  const TS  = 'leadTrackedTs';
+  const KEY = 'SubscribeTracked';
+  const TS  = 'SubscribeTrackedTs';
   const DEBOUNCE_MS = 1200;        // ignore rapid double-clicks
   let inPageFlag = false;
 
-  window.trackLeadOnce = function () {
+  window.trackSubscribeOnce = function () {
     const now = Date.now();
     const last = +(sessionStorage.getItem(TS) || 0);
 
@@ -1099,7 +1099,7 @@ src="https://www.facebook.com/tr?id=1072829781630422&ev=PageView&noscript=1"
     // debounce safety against ultra-rapid repeats
     setTimeout(() => { inPageFlag = false; }, DEBOUNCE_MS);
 
-    fbq('track', 'Lead');
+    fbq('track', 'Subscribe');
   };
 })();
         
