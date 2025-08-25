@@ -1080,25 +1080,15 @@ src="https://www.facebook.com/tr?id=1072829781630422&ev=PageView&noscript=1"
     <script>
         (function () {
   const KEY = 'SubscribeTracked';
-  const TS  = 'SubscribeTrackedTs';
-  const DEBOUNCE_MS = 1200;        // ignore rapid double-clicks
-  let inPageFlag = false;
 
   window.trackSubscribeOnce = function () {
-    const now = Date.now();
-    const last = +(sessionStorage.getItem(TS) || 0);
+    // If already tracked in this session, do nothing
+    if (sessionStorage.getItem(KEY) === 'true') return;
 
-    if (inPageFlag) return;                         // already sent this page
-    if (sessionStorage.getItem(KEY) === 'true' &&
-        now - last < 10 * 60 * 1000) return;        // already sent this session (10 min guard)
-
-    inPageFlag = true;
+    // Mark as tracked
     sessionStorage.setItem(KEY, 'true');
-    sessionStorage.setItem(TS, String(now));
 
-    // debounce safety against ultra-rapid repeats
-    setTimeout(() => { inPageFlag = false; }, DEBOUNCE_MS);
-
+    // Fire FB Pixel event once
     fbq('track', 'Subscribe');
   };
 })();
