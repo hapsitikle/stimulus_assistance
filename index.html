@@ -14,7 +14,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
    
     <style>
-        /* CSS Variables - Exact same colors from your index.css */
         :root {
             --navy: hsl(213, 76%, 20%);
             --offer-green: hsl(141, 69%, 47%);
@@ -114,73 +113,119 @@
             box-shadow: 0 10px 15px rgba(0,0,0,0.15);
         }
 
+        /* Mini-steps */
+        .mini-steps {
+            margin: 20px auto;
+            max-width: 600px;
+            text-align: left;
+        }
+
+        .mini-steps h3 {
+            color: var(--navy);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        .mini-steps ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .mini-steps li {
+            color: var(--navy);
+            font-size: 1rem;
+            margin-bottom: 8px;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .mini-steps li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--offer-green);
+            font-weight: bold;
+        }
+
+        /* Proof image */
+        #proof-image {
+            margin: 20px auto;
+            display: block;
+            max-width: 400px;
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
         /* FAQ */
-.faq{
-  background: var(--background);
-  padding: 48px 0;
-  border-top: 1px solid var(--border);
-}
-.faq-title{
-  text-align: center;
-  color: var(--navy);
-  font-family: 'Playfair Display', serif;
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 24px;
-}
-.faq-list{
-  max-width: 900px;
-  margin: 0 auto;
-  display: grid;
-  gap: 12px;
-}
-.faq-item{
-  background: #fff;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  overflow: hidden;
-}
+        .faq{
+          background: var(--background);
+          padding: 48px 0;
+          border-top: 1px solid var(--border);
+        }
+        .faq-title{
+          text-align: center;
+          color: var(--navy);
+          font-family: 'Playfair Display', serif;
+          font-size: 2rem;
+          font-weight: 700;
+          margin-bottom: 24px;
+        }
+        .faq-list{
+          max-width: 900px;
+          margin: 0 auto;
+          display: grid;
+          gap: 12px;
+        }
+        .faq-item{
+          background: #fff;
+          border: 1px solid var(--border);
+          border-radius: 10px;
+          overflow: hidden;
+        }
 
-/* Remove default marker */
-.faq-item summary::-webkit-details-marker{ display: none; }
+        /* Remove default marker */
+        .faq-item summary::-webkit-details-marker{ display: none; }
 
-.faq-item summary{
-  cursor: pointer;
-  padding: 16px 20px;
-  font-weight: 600;
-  color: var(--navy);
-  list-style: none;
-  position: relative;
-}
+        .faq-item summary{
+          cursor: pointer;
+          padding: 16px 20px;
+          font-weight: 600;
+          color: var(--navy);
+          list-style: none;
+          position: relative;
+        }
 
-/* Plus/Minus icon */
-.faq-item summary::after{
-  content: '+';
-  position: absolute;
-  right: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-weight: 700;
-  color: var(--muted-foreground);
-}
-.faq-item[open] summary::after{
-  content: '–';
-  color: var(--offer-green);
-}
+        /* Plus/Minus icon */
+        .faq-item summary::after{
+          content: '+';
+          position: absolute;
+          right: 16px;
+          top: 50%;
+          transform: translateY(-50%);
+          font-weight: 700;
+          color: var(--muted-foreground);
+        }
+        .faq-item[open] summary::after{
+          content: '–';
+          color: var(--offer-green);
+        }
 
-.faq-item .answer{
-  padding: 0 20px 16px 20px;
-  color: var(--muted-foreground);
-  line-height: 1.55;
-}
+        .faq-item .answer{
+          padding: 0 20px 16px 20px;
+          color: var(--muted-foreground);
+          line-height: 1.55;
+        }
 
-/* Mobile tweaks */
-@media (max-width: 768px){
-  .faq-title{ font-size: 1.6rem; }
-  .faq-item summary{ padding: 14px 18px; }
-  .faq-item .answer{ padding: 0 18px 14px 18px; }
-}
-
+        /* Mobile tweaks */
+        @media (max-width: 768px){
+          .faq-title{ font-size: 1.6rem; }
+          .faq-item summary{ padding: 14px 18px; }
+          .faq-item .answer{ padding: 0 18px 14px 18px; }
+        }
        
         /* Trust Badges */
         .trust-badges {
@@ -331,150 +376,24 @@
         }
 
         .step-image {
-    margin-top: 10px;
-    width: 100%;
-    max-width: 220px; /* keeps it from getting too large on desktop */
-    height: auto;
-    border-radius: 6px;
-    border: 1px solid #ddd;
-}
+            margin-top: 10px;
+            width: 100%;
+            max-width: 220px;
+            height: auto;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+        }
 
-@media (max-width: 768px) {
-    .step-image {
-        max-width: 150px; /* smaller for mobile */
-    }
-}
+        @media (max-width: 768px) {
+            .step-image {
+                max-width: 150px;
+            }
+        }
 
-@media (max-width: 480px) {
-    .step-image {
-        max-width: 120px; /* extra small for very small devices */
-    }
-}
-
-       
-        /* Problem Solution Section */
-        .problem-solution {
-            background-color: hsl(210, 20%, 96%);
-            padding: 64px 0;
-        }
-       
-        .problem-solution-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 32px;
-            margin-bottom: 64px;
-        }
-       
-        .problem, .solution {
-            padding: 32px;
-            border-radius: 8px;
-            border-left: 4px solid;
-        }
-       
-        .problem {
-            background-color: white;
-            border-left-color: var(--trust-red);
-        }
-       
-        .solution {
-            background-color: white;
-            border-left-color: var(--offer-green);
-        }
-       
-        .section-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 16px;
-        }
-       
-        .section-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 16px;
-        }
-       
-        .problem .section-icon {
-            background-color: hsl(0, 100%, 90%);
-        }
-       
-        .problem .section-icon svg {
-            color: var(--trust-red);
-            width: 24px;
-            height: 24px;
-        }
-       
-        .solution .section-icon {
-            background-color: hsl(120, 100%, 90%);
-        }
-       
-        .solution .section-icon svg {
-            color: var(--offer-green);
-            width: 24px;
-            height: 24px;
-        }
-       
-        .section-header h3 {
-            color: var(--navy);
-            font-size: 1.5rem;
-            font-weight: 700;
-            font-family: 'Playfair Display', serif;
-        }
-       
-        .problem p, .solution p {
-            color: hsl(210, 11%, 30%);
-            line-height: 1.6;
-        }
-       
-        .why-choose-title {
-            text-align: center;
-            color: var(--navy);
-            font-size: 2.5rem;
-            font-weight: 700;
-            font-family: 'Playfair Display', serif;
-        }
-       
-        /* Benefits Section */
-        .benefits {
-            background-color: var(--background);
-            padding: 64px 0;
-        }
-       
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 24px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-       
-        .benefit {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-       
-        .benefit-icon {
-            width: 24px;
-            height: 24px;
-            background-color: var(--offer-green);
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            color: white;
-            font-weight: bold;
-            font-size: 14px;
-        }
-       
-        .benefit span {
-            color: var(--navy);
-            font-size: 1.125rem;
-            font-weight: 500;
+        @media (max-width: 480px) {
+            .step-image {
+                max-width: 120px;
+            }
         }
        
         /* Testimonials Section */
@@ -632,63 +551,62 @@
         }
 
         .urgency-banner {
-    background: linear-gradient(135deg, var(--turquoise) 0%, var(--background) 100%);
-    border: 2px solid var(--offer-green);
-    padding: 8px 12px;
-    border-radius: 6px;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    text-align: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    animation: pulse 2s infinite;
-}
+            background: linear-gradient(135deg, var(--turquoise) 0%, var(--background) 100%);
+            border: 2px solid var(--offer-green);
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            margin-top: 20px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            animation: pulse 2s infinite;
+        }
 
+        .urgency-banner p {
+            color: var(--navy);
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin: 0;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+            line-height: 1.2;
+        }
 
-.urgency-banner p {
-    color: var(--navy);
-    font-weight: 600;
-    font-size: 0.85rem;
-    margin: 0;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
-    line-height: 1.2;
-}
+        .urgency-banner strong {
+            color: #fff;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+        }
 
-.urgency-banner strong {
-    color: #fff;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.4);
-}
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.01); }
+            100% { transform: scale(1); }
+        }
 
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.01); }
-    100% { transform: scale(1); }
-}
+        /* Mobile responsive - much smaller overall */
+        @media (max-width: 768px) {
+            .urgency-banner {
+                padding: 6px 10px;
+                margin-bottom: 18px;
+                border-radius: 5px;
+            }
+           
+            .urgency-banner p {
+                font-size: 10px;
+                line-height: 1.1;
+            }
+        }
 
-/* Mobile responsive - much smaller overall */
-@media (max-width: 768px) {
-    .urgency-banner {
-        padding: 6px 10px;
-        margin-bottom: 18px;
-        border-radius: 5px;
-    }
-   
-    .urgency-banner p {
-        font-size: 10px;
-        line-height: 1.1;
-    }
-}
-
-/* Extra small screens */
-@media (max-width: 480px) {
-    .urgency-banner {
-        padding: 5px 8px;
-        margin-bottom: 15px;
-    }
-   
-    .urgency-banner p {
-        font-size: 0.40rem;
-    }
-}
+        /* Extra small screens */
+        @media (max-width: 480px) {
+            .urgency-banner {
+                padding: 5px 8px;
+                margin-bottom: 15px;
+            }
+           
+            .urgency-banner p {
+                font-size: 0.40rem;
+            }
+        }
        
         /* Responsive Design */
         @media (max-width: 768px) {
@@ -709,14 +627,6 @@
                 grid-template-columns: 1fr;
             }
            
-            .problem-solution-content {
-                grid-template-columns: 1fr;
-            }
-           
-            .benefits-grid {
-                grid-template-columns: 1fr;
-            }
-           
             .testimonial-footer {
                 flex-direction: column;
                 gap: 16px;
@@ -727,22 +637,27 @@
                 flex-direction: column;
                 gap: 16px;
             }
-        }
-        /* Micro note under CTA */
-/* Micro note under CTA */
-.cta-subtext{
-  margin-top: 12px;
-  margin-bottom: 12px;
-  font-size: 0.9rem;
-  color: var(--muted-foreground);
-}
-.cta-subtext strong{ color: var(--navy); font-weight: 700; }
-.cta-subtext-meta{ display: block; margin-top: 2px; opacity: .85; }
 
-/* Tighter on small screens */
-@media (max-width: 768px){
-  .cta-subtext{ font-size: 0.8rem; line-height: 1.35; }
-}
+            .mini-steps {
+                text-align: left;
+                max-width: 90%;
+            }
+        }
+
+        /* Micro note under CTA */
+        .cta-subtext{
+          margin-top: 12px;
+          margin-bottom: 12px;
+          font-size: 0.9rem;
+          color: var(--muted-foreground);
+        }
+        .cta-subtext strong{ color: var(--navy); font-weight: 700; }
+        .cta-subtext-meta{ display: block; margin-top: 2px; opacity: .85; }
+
+        /* Tighter on small screens */
+        @media (max-width: 768px){
+          .cta-subtext{ font-size: 0.8rem; line-height: 1.35; }
+        }
 
     </style>
 
@@ -765,64 +680,66 @@ src="https://www.facebook.com/tr?id=1072829781630422&ev=PageView&noscript=1"
 <!-- End Meta Pixel Code -->
 </head>
 <body>
-
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="hero">
         <div class="container">
-            <h2>See If You Qualify for up to $2,000 — Free 2-Minute Check</h2>
-            <!-- Micro text under the primary CTA -->
-            <div class="cta-subtext">
-              <strong>Step 1 of 3:</strong> Enter your ZIP → answer quick questions → select available benefits and claim
-            </div>
-            <a href="https://track.aidfinderusa.com/click"
-   class="cta-button"
-   onclick="trackSubscribeOnce()">Start 2-Minute Check →</a>
-            <div class="urgency-banner">
-                <p>This quick check won’t affect your Social Security or Medicare. It’s free, safe, and you don’t need to buy insurance.</p>
+            <h2>Over 10,000 Seniors Have Already Claimed Their Stimulus — You Could Be Next</h2>
+            
+            <div class="mini-steps" id="mini-steps">
+                <h3>Steps to check if you qualify:</h3>
+                <ul>
+                    <li>Enter your ZIP to see availability in your area</li>
+                    <li>Answer a few basic questions to confirm it's you — no sensitive documents</li>
+                    <li>See if you qualify and what help may be available</li>
+                </ul>
             </div>
             
+            <a href="https://track.aidfinderusa.com/click"
+               class="cta-button"
+               onclick="trackSubscribeOnce()">Check My Eligibility</a>
+            
+            <img id="proof-image" src="images/proof-placeholder.jpg" alt="Example confirmation email">
+            
+            <div class="urgency-banner">
+                <p>This quick check won't affect your Social Security or Medicare. It's free, safe, and you don't need to buy insurance.</p>
+            </div>
         </div>
     </section>
 
-       
-
-
-
-
     <!-- Testimonials Section  -->
-    <section class="testimonials">
+    <section class="testimonials" id="testimonials">
         <div class="container">
-            <h2 class="testimonials-title">What Seniors Are Saying</h2>
+            <h2 class="testimonials-title">Real Seniors, Real Experiences</h2>
             <div class="testimonial-container">
                 <div class="testimonial active">
                     <div class="quote-icon">"</div>
-                    <p class="testimonial-text">"I’m on Social Security and don’t have much extra. This gave me enough to cover my medicine. Glad I tried it."</p>
+                    <p class="testimonial-text">"I almost didn't try this, but it was quick and didn't affect my Social Security. Glad I checked — every little bit helps."</p>
                     <div class="testimonial-footer">
                         <div>
-                            <div class="testimonial-author">Shirley K., age 67</div>
+                            <div class="testimonial-author">Robert M., 66</div>
+                            <div class="testimonial-location">Tulsa, OK</div>
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="testimonial">
+                    <div class="quote-icon">"</div>
+                    <p class="testimonial-text">"Safe and simple. Just answered a few questions and that was it. Helped me with my utility bill."</p>
+                    <div class="testimonial-footer">
+                        <div>
+                            <div class="testimonial-author">Linda T., 69</div>
+                            <div class="testimonial-location">Mesa, AZ</div>
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="testimonial">
+                    <div class="quote-icon">"</div>
+                    <p class="testimonial-text">"Took me a couple of minutes and didn't ask for sensitive info. Worth seeing if you qualify."</p>
+                    <div class="testimonial-footer">
+                        <div>
+                            <div class="testimonial-author">Shirley K., 67</div>
                             <div class="testimonial-location">Dayton, OH</div>
-                        </div>
-                    </div>
-                </div>
-               
-                <div class="testimonial">
-                    <div class="quote-icon">"</div>
-                    <p class="testimonial-text">"It was easy, no tricks. Just answered some questions and that was it. I used the money to get my daughter and her husband a small gift for their anniversary."</p>
-                    <div class="testimonial-footer">
-                        <div>
-                            <div class="testimonial-author">Harold M., age 70</div>
-                            <div class="testimonial-location">Fresno, CA</div>
-                        </div>
-                    </div>
-                </div>
-               
-                <div class="testimonial">
-                    <div class="quote-icon">"</div>
-                    <p class="testimonial-text">"I was worried it might be a scam, but it was real. Only took a few minutes and I got approved. Helped me pay my electric bill this month."</p>
-                    <div class="testimonial-footer">
-                        <div>
-                            <div class="testimonial-author">Dorothy M., age 64</div>
-                            <div class="testimonial-location">Tampa, FL</div>
                         </div>
                     </div>
                 </div>
@@ -844,55 +761,55 @@ src="https://www.facebook.com/tr?id=1072829781630422&ev=PageView&noscript=1"
     </section>
 
     <!-- Steps Section -->
-<section class="steps-section">
-    <div class="container">
-        <h2 class="steps-title">Follow These 3 Steps To Claim Your Stimulus</h2>
-        <div class="steps">
-            <div class="step">
-                <div class="step-icon">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/>
-                        <circle cx="12" cy="10" r="3"/>
-                    </svg>
+    <section class="steps-section" id="walkthrough">
+        <div class="container">
+            <h2 class="steps-title">See Exactly How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                    </div>
+                    <div class="step-number">1</div>
+                    <h3>Enter ZIP Code</h3>
+                    <p>Tap "Check My Eligibility" and enter your ZIP to see availability.</p>
+                    <img src="images/zip.jpeg" alt="Step 1 Screenshot" class="step-image">
                 </div>
-                <div class="step-number">1</div>
-                <h3>Enter ZIP Code</h3>
-                <p>Tap “Start 2‑Minute Check” and enter your ZIP code to see availability</p>
-                <img src="images/zip.jpeg" alt="Step 1 Screenshot" class="step-image">
-            </div>
-            <div class="step">
-                <div class="step-icon">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
-                        <polyline points="14,2 14,8 20,8"/>
-                        <line x1="16" x2="8" y1="13" y2="13"/>
-                        <line x1="16" x2="8" y1="17" y2="17"/>
-                        <polyline points="10,9 9,9 8,9"/>
-                    </svg>
+                <div class="step">
+                    <div class="step-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                            <polyline points="14,2 14,8 20,8"/>
+                            <line x1="16" x2="8" y1="13" y2="13"/>
+                            <line x1="16" x2="8" y1="17" y2="17"/>
+                            <polyline points="10,9 9,9 8,9"/>
+                        </svg>
+                    </div>
+                    <div class="step-number">2</div>
+                    <h3>Answer Quick Questions</h3>
+                    <p>Just basic info to confirm it's really you — no sensitive documents.</p>
+                    <img src="images/main form.jpeg" alt="Step 2 Screenshot" class="step-image">
                 </div>
-                <div class="step-number">2</div>
-                <h3>Answer Quick Questions</h3>
-                <p>Just basic info to verify eligibility—no sensitive documents</p>
-                <img src="images/main form.jpeg" alt="Step 2 Screenshot" class="step-image">
-            </div>
-            <div class="step">
-                <div class="step-icon">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path d="m22 2-7 20-4-9-9-4Z"/>
-                        <path d="M22 2 11 13"/>
-                    </svg>
+                <div class="step">
+                    <div class="step-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path d="m22 2-7 20-4-9-9-4Z"/>
+                            <path d="M22 2 11 13"/>
+                        </svg>
+                    </div>
+                    <div class="step-number">3</div>
+                    <h3>Choose the Help You Need</h3>
+                    <p>Pick the support that fits you best and finish your check.</p>
+                    <img src="images/survey.jpeg" alt="Step 3 Screenshot" class="step-image">
                 </div>
-                <div class="step-number">3</div>
-                <h3>Choose Benefits & Claim</h3>
-                <p>Select what helps you most and finish your check</p>
-                <img src="images/survey.jpeg" alt="Step 3 Screenshot" class="step-image">
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- Trust Badges -->
-    <section class="trust-badges">
+    <section class="trust-badges" id="badges">
         <div class="container">
             <div class="badges-grid">
                 <div class="badge">
@@ -934,121 +851,44 @@ src="https://www.facebook.com/tr?id=1072829781630422&ev=PageView&noscript=1"
         </div>
     </section>
 
-    <section class="faq">
-  <div class="container">
-    <h2 class="faq-title">Frequently Asked Questions</h2>
-    <div class="faq-list">
-
-      <details class="faq-item">
-        <summary>Will this affect my Social Security or Medicare?</summary>
-        <div class="answer">
-          No. Checking eligibility does not affect your existing benefits.
-        </div>
-      </details>
-
-      <details class="faq-item">
-        <summary>How long does the eligibility check take?</summary>
-        <div class="answer">
-          About two minutes. Most folks finish on the next page without any paperwork.
-        </div>
-      </details>
-
-      <details class="faq-item">
-        <summary>Is there a fee or credit check?</summary>
-        <div class="answer">
-          No fees and no credit check. This is a free eligibility check.
-        </div>
-      </details>
-
-      <details class="faq-item">
-        <summary>What information do I need?</summary>
-        <div class="answer">
-          Your ZIP code and a few basic details to verify eligibility—no sensitive documents.
-        </div>
-      </details>
-
-      <details class="faq-item">
-        <summary>Is my information secure?</summary>
-        <div class="answer">
-          Yes. We use SSL and never share your data. See our Privacy Policy for details.
-        </div>
-      </details>
-
-    </div>
-  </div>
-</section>
-
-     
-
-    <!-- Problem Solution Section -->
-    <section class="problem-solution">
+    <section class="faq" id="faq">
         <div class="container">
-            <div class="problem-solution-content">
-                <div class="problem">
-                    <div class="section-header">
-                        <div class="section-icon">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path d="m22 2-7 20-4-9-9-4Z"/>
-                                <path d="M22 2 11 13"/>
-                            </svg>
-                        </div>
-                        <h3>The Problem</h3>
+            <h2 class="faq-title">Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary>Will this affect my Social Security or Medicare?</summary>
+                    <div class="answer">
+                        No. Checking eligibility does not affect your existing benefits.
                     </div>
-                    <p>Rising living costs, healthcare expenses, and inflation are making it harder for seniors to maintain their quality of life on fixed incomes. Essential needs are becoming increasingly expensive while retirement savings stretch thinner.</p>
-                </div>
-                <div class="solution">
-                    <div class="section-header">
-                        <div class="section-icon">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <line x1="12" x2="12" y1="2" y2="22"/>
-                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-                            </svg>
-                        </div>
-                        <h3>The Solution</h3>
-                    </div>
-                    <p>The $2,000 stimulus relief program helps bridge the gap between rising costs and fixed incomes. This financial assistance provides immediate support for essential expenses, giving seniors the breathing room they need.</p>
-                </div>
-            </div>
-            <h2 class="why-choose-title">Why Choose Our Stimulus Program?</h2>
-        </div>
-    </section>
+                </details>
 
-    <!-- Benefits Section -->
-    <section class="benefits">
-        <div class="container">
-            <div class="benefits-grid">
-                <div class="benefit">
-                    <div class="benefit-icon">✓</div>
-                    <span>Quick 2-minute eligibility check</span>
-                </div>
-                <div class="benefit">
-                    <div class="benefit-icon">✓</div>
-                    <span>100% free with no hidden fees</span>
-                </div>
-                <div class="benefit">
-                    <div class="benefit-icon">✓</div>
-                    <span>No credit check required</span>
-                </div>
-                <div class="benefit">
-                    <div class="benefit-icon">✓</div>
-                    <span>Private and secure—SSL encrypted</span>
-                </div>
-                <div class="benefit">
-                    <div class="benefit-icon">✓</div>
-                    <span>Secure application process</span>
-                </div>
-                <div class="benefit">
-                    <div class="benefit-icon">✓</div>
-                    <span>Dedicated senior support team</span>
-                </div>
-                <div class="benefit">
-                    <div class="benefit-icon">✓</div>
-                    <span>No impact on existing benefits</span>
-                </div>
-                <div class="benefit">
-                    <div class="benefit-icon">✓</div>
-                    <span>Completely risk-free application</span>
-                </div>
+                <details class="faq-item">
+                    <summary>How long does the eligibility check take?</summary>
+                    <div class="answer">
+                        About two minutes. Most folks finish on the next page without any paperwork.
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Is there a fee or credit check?</summary>
+                    <div class="answer">
+                        No fees and no credit check. This is a free eligibility check.
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>What information do I need?</summary>
+                    <div class="answer">
+                        Your ZIP code and a few basic details to verify eligibility—no sensitive documents.
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Is my information secure?</summary>
+                    <div class="answer">
+                        Yes. We use SSL and never share your data. See our Privacy Policy for details.
+                    </div>
+                </details>
             </div>
         </div>
     </section>
