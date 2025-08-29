@@ -397,120 +397,112 @@
         }
        
         /* Testimonials Section */
-        .testimonials {
-            background-color: hsl(210, 20%, 96%);
-            padding: 64px 0;
-        }
-       
-        .testimonials-title {
-            text-align: center;
-            color: var(--navy);
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 48px;
-            font-family: 'Playfair Display', serif;
-        }
-       
-        .testimonial-container {
-            position: relative;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-       
-        .testimonial {
-            background-color: var(--background);
-            padding: 48px;
-            border-radius: 12px;
-            border-left: 4px solid var(--offer-green);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            display: none;
-        }
-       
-        .testimonial.active {
-            display: block;
-        }
-       
-        .quote-icon {
-            font-size: 3rem;
-            color: hsla(199, 26%, 78%, 0.3);
-            margin-bottom: 24px;
-        }
-       
-        .testimonial-text {
-            font-size: 1.25rem;
-            font-style: italic;
-            color: var(--navy);
-            line-height: 1.6;
-            margin-bottom: 32px;
-        }
-       
-        .testimonial-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-       
-        .testimonial-author {
-            color: var(--navy);
-            font-size: 1.125rem;
-            font-weight: 600;
-        }
-       
-        .testimonial-location {
-            color: var(--muted-foreground);
-            font-size: 1rem;
-        }
-       
-        .testimonial-controls {
-            margin-top: 24px;
-            display: flex;
-            justify-content: center;
-        }
-       
-        .testimonial-nav {
-            display: flex;
-            gap: 8px;
-        }
-       
-        .nav-arrow {
-            background-color: var(--background);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 1.25rem;
-            color: var(--muted-foreground);
-            transition: all 0.2s ease;
-        }
-       
-        .nav-arrow:hover {
-            border-color: var(--offer-green);
-            color: var(--offer-green);
-        }
-       
-        .testimonial-dots {
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            margin-top: 24px;
-        }
-       
-        .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: hsl(210, 11%, 85%);
-            cursor: pointer;
-            transition: background-color 0.2s ease;
-        }
-       
-        .dot.active {
-            background-color: var(--offer-green);
-        }
+.testimonials {
+    background-color: hsl(210, 20%, 96%);
+    padding: 64px 0;
+}
+
+.testimonials-title {
+    text-align: center;
+    color: var(--navy);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 48px;
+    font-family: 'Playfair Display', serif;
+}
+
+.testimonials-list {
+    max-width: 800px;
+    margin: 0 auto;
+    display: grid;
+    gap: 32px;
+}
+
+.testimonial-item {
+    background-color: var(--background);
+    padding: 24px;
+    border-radius: 12px;
+    border-left: 4px solid var(--offer-green);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.testimonial-profile {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.profile-pic {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--offer-green);
+}
+
+.profile-info {
+    flex: 1;
+}
+
+.testimonial-author {
+    color: var(--navy);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.testimonial-location {
+    color: var(--muted-foreground);
+    font-size: 0.9rem;
+}
+
+.testimonial-quote {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--navy);
+    line-height: 1.6;
+    margin: 0;
+    position: relative;
+}
+
+.testimonial-quote::before {
+    content: '"';
+    font-size: 1.4em;
+    color: var(--offer-green);
+    font-weight: bold;
+}
+
+.testimonial-quote::after {
+    content: '"';
+    font-size: 1.4em;
+    color: var(--offer-green);
+    font-weight: bold;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .testimonials-title {
+        font-size: 2rem;
+    }
+    
+    .testimonial-item {
+        padding: 20px;
+    }
+    
+    .profile-pic {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .testimonial-author {
+        font-size: 1rem;
+    }
+    
+    .testimonial-quote {
+        font-size: 1rem;
+    }
+}
        
         /* Footer */
         .footer {
@@ -696,9 +688,9 @@ src="https://www.facebook.com/tr?id=1072829781630422&ev=PageView&noscript=1"
             
             <a href="https://track.aidfinderusa.com/click"
                class="cta-button"
-               onclick="trackSubscribeOnce()">Check My Eligibility</a>
+               onclick="trackSubscribeOnce()">Start 2-Minute Check</a>
             
-            <img id="proof-image" src="images/proof-placeholder.jpg" alt="Example confirmation email">
+            <img id="proof-image" src="images/email.png" alt="Example confirmation email">
             
             <div class="urgency-banner">
                 <p>This quick check won't affect your Social Security or Medicare. It's free, safe, and you don't need to buy insurance.</p>
@@ -707,58 +699,45 @@ src="https://www.facebook.com/tr?id=1072829781630422&ev=PageView&noscript=1"
     </section>
 
     <!-- Testimonials Section  -->
-    <section class="testimonials" id="testimonials">
-        <div class="container">
-            <h2 class="testimonials-title">Real Seniors, Real Experiences</h2>
-            <div class="testimonial-container">
-                <div class="testimonial active">
-                    <div class="quote-icon">"</div>
-                    <p class="testimonial-text">"I almost didn't try this, but it was quick and didn't affect my Social Security. Glad I checked — every little bit helps."</p>
-                    <div class="testimonial-footer">
-                        <div>
-                            <div class="testimonial-author">Robert M., 66</div>
-                            <div class="testimonial-location">Tulsa, OK</div>
-                        </div>
+<section class="testimonials" id="testimonials">
+    <div class="container">
+        <h2 class="testimonials-title">Real Seniors, Real Experiences</h2>
+        <div class="testimonials-list">
+            <div class="testimonial-item">
+                <div class="testimonial-profile">
+                    <img src="images/robert-m.jpg" alt="Robert M." class="profile-pic">
+                    <div class="profile-info">
+                        <div class="testimonial-author">Robert M., 66</div>
+                        <div class="testimonial-location">Tulsa, OK</div>
                     </div>
                 </div>
-               
-                <div class="testimonial">
-                    <div class="quote-icon">"</div>
-                    <p class="testimonial-text">"Safe and simple. Just answered a few questions and that was it. Helped me with my utility bill."</p>
-                    <div class="testimonial-footer">
-                        <div>
-                            <div class="testimonial-author">Linda T., 69</div>
-                            <div class="testimonial-location">Mesa, AZ</div>
-                        </div>
+                <p class="testimonial-quote">"I almost didn't try this, but it was quick and didn't affect my Social Security. Glad I checked — every little bit helps."</p>
+            </div>
+            
+            <div class="testimonial-item">
+                <div class="testimonial-profile">
+                    <img src="images/linda-t.jpg" alt="Linda T." class="profile-pic">
+                    <div class="profile-info">
+                        <div class="testimonial-author">Linda T., 69</div>
+                        <div class="testimonial-location">Mesa, AZ</div>
                     </div>
                 </div>
-               
-                <div class="testimonial">
-                    <div class="quote-icon">"</div>
-                    <p class="testimonial-text">"Took me a couple of minutes and didn't ask for sensitive info. Worth seeing if you qualify."</p>
-                    <div class="testimonial-footer">
-                        <div>
-                            <div class="testimonial-author">Shirley K., 67</div>
-                            <div class="testimonial-location">Dayton, OH</div>
-                        </div>
+                <p class="testimonial-quote">"Safe and simple. Just answered a few questions and that was it. Helped me with my utility bill."</p>
+            </div>
+            
+            <div class="testimonial-item">
+                <div class="testimonial-profile">
+                    <img src="images/shirley-k.jpg" alt="Shirley K." class="profile-pic">
+                    <div class="profile-info">
+                        <div class="testimonial-author">Shirley K., 67</div>
+                        <div class="testimonial-location">Dayton, OH</div>
                     </div>
                 </div>
-               
-                <div class="testimonial-controls">
-                    <div class="testimonial-nav">
-                        <div class="nav-arrow" id="prevBtn">‹</div>
-                        <div class="nav-arrow" id="nextBtn">›</div>
-                    </div>
-                </div>
-               
-                <div class="testimonial-dots">
-                    <span class="dot active" onclick="currentSlide(1)"></span>
-                    <span class="dot" onclick="currentSlide(2)"></span>
-                    <span class="dot" onclick="currentSlide(3)"></span>
-                </div>
+                <p class="testimonial-quote">"Took me a couple of minutes and didn't ask for sensitive info. Worth seeing if you qualify."</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Steps Section -->
     <section class="steps-section" id="walkthrough">
