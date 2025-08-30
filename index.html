@@ -14,153 +14,107 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
    
     <style>
+        /* CSS Variables - Exact same colors from your index.css */
         :root {
-    --navy: hsl(213, 76%, 20%);
-    --offer-green: hsl(141, 69%, 47%);
-    --turquoise: hsl(199, 26%, 78%);
-    --trust-red: hsl(0, 65%, 51%);
-    --background: hsl(0, 0%, 100%);
-    --muted-foreground: hsl(213, 40%, 40%);
-    --border: hsl(214.3, 31.8%, 91.4%);
-}
+            --navy: hsl(213, 76%, 20%);
+            --offer-green: hsl(141, 69%, 47%);
+            --turquoise: hsl(199, 26%, 78%);
+            --trust-red: hsl(0, 65%, 51%);
+            --background: hsl(0, 0%, 100%);
+            --muted-foreground: hsl(213, 40%, 40%);
+            --border: hsl(214.3, 31.8%, 91.4%);
+        }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+       
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            background-color: var(--background);
+            color: var(--navy);
+        }
+       
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+       
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+       
+        /* Header */
+        .header {
+            background-color: var(--background);
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border);
+        }
+       
+        .header h1 {
+            color: var(--navy);
+            font-size: 2rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+        }
+       
+        .header p {
+            color: var(--muted-foreground);
+            font-size: 0.875rem;
+            margin-top: 4px;
+        }
+       
+        /* Hero Section */
+        .hero {
+            background-color: var(--background);
+            padding: 40px 0;
+            text-align: center;
+        }
+       
+        .hero h2 {
+            color: var(--navy);
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.1;
+            font-family: 'Playfair Display', serif;
+        }
+       
+        .hero p {
+            color: var(--navy);
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+            line-height: 1.5;
+            max-width: 768px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+       
+        .cta-button {
+            background-color: var(--offer-green);
+            color: white;
+            padding: 24px 48px;
+            font-size: 1.25rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+       
+        .cta-button:hover {
+            background-color: hsl(141, 69%, 42%);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.15);
+        }
 
-body {
-    font-family: 'Inter', sans-serif;
-    line-height: 1.6;
-    background-color: var(--background);
-    color: var(--navy);
-}
-
-.font-serif {
-    font-family: 'Playfair Display', serif;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* Header */
-.header {
-    background-color: var(--background);
-    padding: 24px 0;
-    border-bottom: 1px solid var(--border);
-}
-
-.header h1 {
-    color: var(--navy);
-    font-size: 2rem;
-    font-weight: 700;
-    font-family: 'Playfair Display', serif;
-}
-
-.header p {
-    color: var(--muted-foreground);
-    font-size: 0.875rem;
-    margin-top: 4px;
-}
-
-/* Hero Section */
-.hero {
-    background-color: var(--background);
-    padding: 40px 0;
-    text-align: center;
-}
-
-.hero h2 {
-    color: var(--navy);
-    font-size: 4rem;
-    font-weight: 700;
-    margin-bottom: 16px;
-    line-height: 1.1;
-    font-family: 'Playfair Display', serif;
-}
-
-.hero p {
-    color: var(--navy);
-    font-size: 1.5rem;
-    margin-bottom: 16px;
-    line-height: 1.5;
-    max-width: 768px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.cta-button {
-    background-color: var(--offer-green);
-    color: white;
-    padding: 24px 48px;
-    font-size: 1.25rem;
-    font-weight: 600;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-    transition: all 0.2s ease;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-.cta-button:hover {
-    background-color: hsl(141, 69%, 42%);
-    box-shadow: 0 10px 15px rgba(0,0,0,0.15);
-}
-
-/* Mini-steps */
-.mini-steps {
-    margin: 20px auto;
-    max-width: 600px;
-    text-align: left;
-}
-
-.mini-steps h3 {
-    color: var(--navy);
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 12px;
-    text-align: center;
-}
-
-.mini-steps ul {
-    list-style: none;
-    padding: 0;
-}
-
-.mini-steps li {
-    color: var(--navy);
-    font-size: 1rem;
-    margin-bottom: 8px;
-    padding-left: 24px;
-    position: relative;
-}
-
-.mini-steps li::before {
-    content: "✓";
-    position: absolute;
-    left: 0;
-    color: var(--offer-green);
-    font-weight: bold;
-}
-
-/* Proof image */
-#proof-image {
-    margin: 20px auto;
-    display: block;
-    max-width: 200px;
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    border: 1px solid var(--border);
-}
-
-/* FAQ */
+        /* FAQ */
 .faq{
   background: var(--background);
   padding: 48px 0;
@@ -227,158 +181,159 @@ body {
   .faq-item .answer{ padding: 0 18px 14px 18px; }
 }
 
-/* Trust Badges */
-.trust-badges {
-    background-color: hsl(210, 20%, 96%);
-    padding: 48px 0;
-}
+       
+        /* Trust Badges */
+        .trust-badges {
+            background-color: hsl(210, 20%, 96%);
+            padding: 48px 0;
+        }
+       
+        .badges-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            align-items: center;
+        }
+       
+        .badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+        }
+       
+        .badge-icon {
+            width: 56px;
+            height: 56px;
+            background-color: hsla(199, 26%, 78%, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+       
+        .badge-icon svg {
+            width: 32px;
+            height: 32px;
+            color: var(--turquoise);
+        }
+       
+        .badge-content h3 {
+            color: var(--navy);
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+       
+        .badge-content p {
+            color: var(--muted-foreground);
+            font-size: 1rem;
+        }
 
-.badges-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 32px;
-    align-items: center;
-}
+        /* Second CTA Section */
+        .second-cta {
+            background-color: var(--navy);
+            padding: 64px 0;
+            text-align: center;
+        }
+       
+        .cta-content h2 {
+            color: white;
+            font-size: 2.5rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 16px;
+        }
+       
+        .cta-content p {
+            color: white;
+            font-size: 1.25rem;
+            margin-bottom: 32px;
+            opacity: 0.9;
+        }
+       
+        /* Steps Section */
+        .steps-section {
+            background-color: var(--background);
+            padding: 20px 0;
+        }
+       
+        .steps-title {
+            text-align: center;
+            color: var(--navy);
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 48px;
+            font-family: 'Playfair Display', serif;
+        }
+       
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+       
+        .step {
+            text-align: center;
+            padding: 32px 20px;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            background-color: var(--background);
+            transition: box-shadow 0.2s ease;
+        }
+       
+        .step:hover {
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+       
+        .step-icon {
+            width: 64px;
+            height: 64px;
+            background-color: hsla(199, 26%, 78%, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+        }
+       
+        .step-icon svg {
+            width: 32px;
+            height: 32px;
+            color: var(--turquoise);
+        }
+       
+        .step-number {
+            width: 32px;
+            height: 32px;
+            background-color: var(--offer-green);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem;
+            margin: 0 auto 16px;
+        }
+       
+        .step h3 {
+            color: var(--navy);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+       
+        .step p {
+            color: var(--muted-foreground);
+            line-height: 1.5;
+        }
 
-.badge {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-}
-
-.badge-icon {
-    width: 56px;
-    height: 56px;
-    background-color: hsla(199, 26%, 78%, 0.2);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-
-.badge-icon svg {
-    width: 32px;
-    height: 32px;
-    color: var(--turquoise);
-}
-
-.badge-content h3 {
-    color: var(--navy);
-    font-size: 1.125rem;
-    font-weight: 600;
-    margin-bottom: 4px;
-}
-
-.badge-content p {
-    color: var(--muted-foreground);
-    font-size: 1rem;
-}
-
-/* Second CTA Section */
-.second-cta {
-    background-color: var(--navy);
-    padding: 64px 0;
-    text-align: center;
-}
-
-.cta-content h2 {
-    color: white;
-    font-size: 2.5rem;
-    font-weight: 700;
-    font-family: 'Playfair Display', serif;
-    margin-bottom: 16px;
-}
-
-.cta-content p {
-    color: white;
-    font-size: 1.25rem;
-    margin-bottom: 32px;
-    opacity: 0.9;
-}
-
-/* Steps Section */
-.steps-section {
-    background-color: var(--background);
-    padding: 20px 0;
-}
-
-.steps-title {
-    text-align: center;
-    color: var(--navy);
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 48px;
-    font-family: 'Playfair Display', serif;
-}
-
-.steps {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 32px;
-}
-
-.step {
-    text-align: center;
-    padding: 32px 20px;
-    border: 2px solid var(--border);
-    border-radius: 12px;
-    background-color: var(--background);
-    transition: box-shadow 0.2s ease;
-}
-
-.step:hover {
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-.step-icon {
-    width: 64px;
-    height: 64px;
-    background-color: hsla(199, 26%, 78%, 0.1);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 16px;
-}
-
-.step-icon svg {
-    width: 32px;
-    height: 32px;
-    color: var(--turquoise);
-}
-
-.step-number {
-    width: 32px;
-    height: 32px;
-    background-color: var(--offer-green);
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 1rem;
-    margin: 0 auto 16px;
-}
-
-.step h3 {
-    color: var(--navy);
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-bottom: 16px;
-}
-
-.step p {
-    color: var(--muted-foreground);
-    line-height: 1.5;
-}
-
-.step-image {
+        .step-image {
     margin-top: 10px;
     width: 100%;
-    max-width: 220px;
+    max-width: 220px; /* keeps it from getting too large on desktop */
     height: auto;
     border-radius: 6px;
     border: 1px solid #ddd;
@@ -386,162 +341,297 @@ body {
 
 @media (max-width: 768px) {
     .step-image {
-        max-width: 150px;
+        max-width: 150px; /* smaller for mobile */
     }
 }
 
 @media (max-width: 480px) {
     .step-image {
-        max-width: 120px;
+        max-width: 120px; /* extra small for very small devices */
     }
 }
 
-/* Testimonials Section */
-.testimonials {
-    background-color: hsl(210, 20%, 96%);
-    padding: 64px 0;
-}
+       
+        /* Problem Solution Section */
+        .problem-solution {
+            background-color: hsl(210, 20%, 96%);
+            padding: 64px 0;
+        }
+       
+        .problem-solution-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 32px;
+            margin-bottom: 64px;
+        }
+       
+        .problem, .solution {
+            padding: 32px;
+            border-radius: 8px;
+            border-left: 4px solid;
+        }
+       
+        .problem {
+            background-color: white;
+            border-left-color: var(--trust-red);
+        }
+       
+        .solution {
+            background-color: white;
+            border-left-color: var(--offer-green);
+        }
+       
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+       
+        .section-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 16px;
+        }
+       
+        .problem .section-icon {
+            background-color: hsl(0, 100%, 90%);
+        }
+       
+        .problem .section-icon svg {
+            color: var(--trust-red);
+            width: 24px;
+            height: 24px;
+        }
+       
+        .solution .section-icon {
+            background-color: hsl(120, 100%, 90%);
+        }
+       
+        .solution .section-icon svg {
+            color: var(--offer-green);
+            width: 24px;
+            height: 24px;
+        }
+       
+        .section-header h3 {
+            color: var(--navy);
+            font-size: 1.5rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+        }
+       
+        .problem p, .solution p {
+            color: hsl(210, 11%, 30%);
+            line-height: 1.6;
+        }
+       
+        .why-choose-title {
+            text-align: center;
+            color: var(--navy);
+            font-size: 2.5rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+        }
+       
+        /* Benefits Section */
+        .benefits {
+            background-color: var(--background);
+            padding: 64px 0;
+        }
+       
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 24px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+       
+        .benefit {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+       
+        .benefit-icon {
+            width: 24px;
+            height: 24px;
+            background-color: var(--offer-green);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+        }
+       
+        .benefit span {
+            color: var(--navy);
+            font-size: 1.125rem;
+            font-weight: 500;
+        }
+       
+        /* Testimonials Section */
+        .testimonials {
+            background-color: hsl(210, 20%, 96%);
+            padding: 64px 0;
+        }
+       
+        .testimonials-title {
+            text-align: center;
+            color: var(--navy);
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 48px;
+            font-family: 'Playfair Display', serif;
+        }
+       
+        .testimonial-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+       
+        .testimonial {
+            background-color: var(--background);
+            padding: 48px;
+            border-radius: 12px;
+            border-left: 4px solid var(--offer-green);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: none;
+        }
+       
+        .testimonial.active {
+            display: block;
+        }
+       
+        .quote-icon {
+            font-size: 3rem;
+            color: hsla(199, 26%, 78%, 0.3);
+            margin-bottom: 24px;
+        }
+       
+        .testimonial-text {
+            font-size: 1.25rem;
+            font-style: italic;
+            color: var(--navy);
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+       
+        .testimonial-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+       
+        .testimonial-author {
+            color: var(--navy);
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+       
+        .testimonial-location {
+            color: var(--muted-foreground);
+            font-size: 1rem;
+        }
+       
+        .testimonial-controls {
+            margin-top: 24px;
+            display: flex;
+            justify-content: center;
+        }
+       
+        .testimonial-nav {
+            display: flex;
+            gap: 8px;
+        }
+       
+        .nav-arrow {
+            background-color: var(--background);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.25rem;
+            color: var(--muted-foreground);
+            transition: all 0.2s ease;
+        }
+       
+        .nav-arrow:hover {
+            border-color: var(--offer-green);
+            color: var(--offer-green);
+        }
+       
+        .testimonial-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 24px;
+        }
+       
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: hsl(210, 11%, 85%);
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+       
+        .dot.active {
+            background-color: var(--offer-green);
+        }
+       
+        /* Footer */
+        .footer {
+            background-color: var(--background);
+            padding: 48px 0;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+       
+        .footer p {
+            color: var(--muted-foreground);
+            margin-bottom: 24px;
+        }
+       
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+       
+        .footer-links a {
+            color: var(--navy);
+            text-decoration: none;
+            font-weight: 500;
+        }
+       
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+       
+        .disclaimer {
+            color: var(--muted-foreground);
+            font-size: 0.875rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
 
-.testimonials-title {
-    text-align: center;
-    color: var(--navy);
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 48px;
-    font-family: 'Playfair Display', serif;
-}
-
-.testimonials-list {
-    max-width: 800px;
-    margin: 0 auto;
-    display: grid;
-    gap: 32px;
-}
-
-.testimonial-item {
-    padding: 0;
-    background: none;
-    border: none;
-    box-shadow: none;
-}
-
-.testimonial-profile {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 16px;
-}
-
-.profile-pic {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid var(--offer-green);
-}
-
-.profile-info {
-    flex: 1;
-}
-
-.testimonial-author {
-    color: var(--navy);
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 2px;
-}
-
-.testimonial-location {
-    color: var(--muted-foreground);
-    font-size: 0.9rem;
-}
-
-.testimonial-quote {
-    font-size: 1.1rem;
-    font-style: italic;
-    color: var(--navy);
-    line-height: 1.6;
-    margin: 0;
-    position: relative;
-}
-
-.testimonial-quote::before {
-    content: '"';
-    font-size: 1.4em;
-    color: var(--offer-green);
-    font-weight: bold;
-}
-
-.testimonial-quote::after {
-    content: '"';
-    font-size: 1.4em;
-    color: var(--offer-green);
-    font-weight: bold;
-}
-
-/* Mobile responsive */
-@media (max-width: 768px) {
-    .testimonials-title {
-        font-size: 2rem;
-    }
-    
-    .testimonial-item {
-        padding: 0;
-    }
-    
-    .profile-pic {
-        width: 50px;
-        height: 50px;
-    }
-    
-    .testimonial-author {
-        font-size: 1rem;
-    }
-    
-    .testimonial-quote {
-        font-size: 1rem;
-    }
-}
-
-/* Footer */
-.footer {
-    background-color: var(--background);
-    padding: 48px 0;
-    text-align: center;
-    border-top: 1px solid var(--border);
-}
-
-.footer p {
-    color: var(--muted-foreground);
-    margin-bottom: 24px;
-}
-
-.footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 32px;
-    margin-bottom: 24px;
-    flex-wrap: wrap;
-}
-
-.footer-links a {
-    color: var(--navy);
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.footer-links a:hover {
-    text-decoration: underline;
-}
-
-.disclaimer {
-    color: var(--muted-foreground);
-    font-size: 0.875rem;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.urgency-banner {
+        .urgency-banner {
     background: linear-gradient(135deg, var(--turquoise) 0%, var(--background) 100%);
     border: 2px solid var(--offer-green);
     padding: 8px 12px;
@@ -552,6 +642,7 @@ body {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     animation: pulse 2s infinite;
 }
+
 
 .urgency-banner p {
     color: var(--navy);
@@ -573,128 +664,71 @@ body {
     100% { transform: scale(1); }
 }
 
-/* MOBILE OPTIMIZATIONS - Reduced vertical spacing */
+/* Mobile responsive - much smaller overall */
 @media (max-width: 768px) {
-    /* Hero section - much more compact */
-    .hero {
-        padding: 15px 0;
-    }
-    
-    .hero h2 {
-        font-size: 36px;
-        margin-bottom: 8px;
-        line-height: 1.2;
-    }
-    
-    /* Mini-steps - more compact */
-    .mini-steps {
-        margin: 12px auto;
-        max-width: 90%;
-    }
-    
-    .mini-steps h3 {
-        font-size: 0.95rem;
-        margin-bottom: 8px;
-    }
-    
-    .mini-steps li {
-        font-size: 0.85rem;
-        margin-bottom: 4px;
-        line-height: 1.3;
-    }
-    
-    /* CTA button - smaller */
-    .cta-button {
-        padding: 16px 32px;
-        font-size: 1.1rem;
-        margin: 12px 0;
-    }
-    
-    /* Proof image - smaller */
-    #proof-image {
-        margin: 12px auto;
-        max-width: 200px;
-    }
-    
-    /* Urgency banner - more compact */
     .urgency-banner {
         padding: 6px 10px;
-        margin: 12px 0;
+        margin-bottom: 18px;
         border-radius: 5px;
     }
-    
+   
     .urgency-banner p {
-        font-size: 0.7rem;
-        line-height: 1.15;
-    }
-    
-    /* Container padding - tighter */
-    .container {
-        padding: 0 15px;
-    }
-    
-    /* General mobile spacing reductions */
-    .badges-grid {
-        grid-template-columns: 1fr;
-        gap: 24px;
-    }
-    
-    .steps {
-        grid-template-columns: 1fr;
-    }
-    
-    .footer-links {
-        flex-direction: column;
-        gap: 16px;
-    }
-
-    .mini-steps {
-        text-align: left;
-        max-width: 90%;
+        font-size: 10px;
+        line-height: 1.1;
     }
 }
 
-/* Extra small screens - even more compact */
+/* Extra small screens */
 @media (max-width: 480px) {
-    .hero {
-        padding: 10px 0;
-    }
-    
-    .hero h2 {
-        font-size: 1.6rem;
-        margin-bottom: 6px;
-    }
-    
-    .mini-steps h3 {
-        font-size: 0.9rem;
-        margin-bottom: 6px;
-    }
-    
-    .mini-steps li {
-        font-size: 0.8rem;
-        margin-bottom: 3px;
-    }
-    
-    .cta-button {
-        padding: 14px 28px;
-        font-size: 1rem;
-    }
-    
-    #proof-image {
-        max-width: 180px;
-        margin: 10px auto;
-    }
-    
     .urgency-banner {
         padding: 5px 8px;
-        margin: 10px 0;
+        margin-bottom: 15px;
     }
-    
+   
     .urgency-banner p {
-        font-size: 0.65rem;
+        font-size: 0.40rem;
     }
 }
-
+       
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+           
+            .hero p {
+                font-size: 1.20rem;
+            }
+           
+            .badges-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+           
+            .steps {
+                grid-template-columns: 1fr;
+            }
+           
+            .problem-solution-content {
+                grid-template-columns: 1fr;
+            }
+           
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+           
+            .testimonial-footer {
+                flex-direction: column;
+                gap: 16px;
+                align-items: flex-start;
+            }
+           
+            .footer-links {
+                flex-direction: column;
+                gap: 16px;
+            }
+        }
+        /* Micro note under CTA */
 /* Micro note under CTA */
 .cta-subtext{
   margin-top: 12px;
@@ -731,123 +765,76 @@ src="https://www.facebook.com/tr?id=1072829781630422&ev=PageView&noscript=1"
 <!-- End Meta Pixel Code -->
 </head>
 <body>
+
     <!-- Hero Section -->
-    <section class="hero" id="hero">
+    <section class="hero">
         <div class="container">
-            <h2>Over 10,000 Seniors Have Already Claimed Their Stimulus — You Could Be Next</h2>
-            
-            <div class="mini-steps" id="mini-steps">
-                <h3>Steps to check if you qualify:</h3>
-                <ul>
-                    <li>Enter your ZIP to see availability in your area</li>
-                    <li>Answer a few basic questions to confirm it's you — no sensitive documents</li>
-                    <li>Select the benefit you need to see if you qualify</li>
-                </ul>
+            <h2>See If You Qualify for up to $2,000 — Free 2-Minute Check</h2>
+            <!-- Micro text under the primary CTA -->
+            <div class="cta-subtext">
+              <strong>Step 1 of 3:</strong> Enter your ZIP → answer quick questions → select available benefits and claim
             </div>
-            
             <a href="https://track.aidfinderusa.com/click"
-               class="cta-button"
-               onclick="trackSubscribeOnce()">Start 2-Minute Check</a>
-            
-            <img id="proof-image" src="images/email.png" alt="Example confirmation email">
-            
+   class="cta-button"
+   onclick="trackSubscribeOnce()">Start 2-Minute Check →</a>
             <div class="urgency-banner">
-                <p>This quick check won't affect your Social Security or Medicare. It's free, safe, and you don't need to buy insurance.</p>
+                <p>This quick check won’t affect your Social Security or Medicare. It’s free, safe, and you don’t need to buy insurance.</p>
             </div>
+           
         </div>
     </section>
 
-    <!-- Testimonials Section  -->
-<section class="testimonials" id="testimonials">
+
+    <!-- Steps Section -->
+<section class="steps-section">
     <div class="container">
-        <h2 class="testimonials-title">Real Seniors, Real Experiences</h2>
-        <div class="testimonials-list">
-            <div class="testimonial-item">
-                <div class="testimonial-profile">
-                    <img src="images/robert.jpg" alt="Robert M." class="profile-pic">
-                    <div class="profile-info">
-                        <div class="testimonial-author">Robert M., 66</div>
-                        <div class="testimonial-location">Dallas, TX</div>
-                    </div>
+        <h2 class="steps-title">Follow These 3 Steps To Claim Your Stimulus</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/>
+                        <circle cx="12" cy="10" r="3"/>
+                    </svg>
                 </div>
-                <p class="testimonial-quote">I almost didn't try this, but it was quick and didn't affect my Social Security. Glad I checked — every little bit helps.</p>
+                <div class="step-number">1</div>
+                <h3>Enter ZIP Code</h3>
+                <p>Tap “Start 2‑Minute Check” and enter your ZIP code to see availability</p>
+                <img src="images/zip.jpeg" alt="Step 1 Screenshot" class="step-image">
             </div>
-            
-            <div class="testimonial-item">
-                <div class="testimonial-profile">
-                    <img src="images/linda.jpg" alt="Linda T." class="profile-pic">
-                    <div class="profile-info">
-                        <div class="testimonial-author">Linda T., 69</div>
-                        <div class="testimonial-location">San Diego, CA</div>
-                    </div>
+            <div class="step">
+                <div class="step-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                        <polyline points="14,2 14,8 20,8"/>
+                        <line x1="16" x2="8" y1="13" y2="13"/>
+                        <line x1="16" x2="8" y1="17" y2="17"/>
+                        <polyline points="10,9 9,9 8,9"/>
+                    </svg>
                 </div>
-                <p class="testimonial-quote">Safe and simple. Just answered a few questions and that was it. Helped me with my utility bill.</p>
+                <div class="step-number">2</div>
+                <h3>Answer Quick Questions</h3>
+                <p>Just basic info to verify eligibility—no sensitive documents</p>
+                <img src="images/main form.jpeg" alt="Step 2 Screenshot" class="step-image">
             </div>
-            
-            <div class="testimonial-item">
-                <div class="testimonial-profile">
-                    <img src="images/shirley.jpg" alt="Shirley K." class="profile-pic">
-                    <div class="profile-info">
-                        <div class="testimonial-author">Shirley K., 67</div>
-                        <div class="testimonial-location">Buffalo, NY</div>
-                    </div>
+            <div class="step">
+                <div class="step-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="m22 2-7 20-4-9-9-4Z"/>
+                        <path d="M22 2 11 13"/>
+                    </svg>
                 </div>
-                <p class="testimonial-quote">Took me a couple of minutes and didn't ask for sensitive documents. Worth seeing if you qualify.</p>
+                <div class="step-number">3</div>
+                <h3>Choose Benefits & Claim</h3>
+                <p>Select what helps you most and finish your check</p>
+                <img src="images/survey.jpeg" alt="Step 3 Screenshot" class="step-image">
             </div>
         </div>
     </div>
 </section>
 
-    <!-- Steps Section -->
-    <section class="steps-section" id="walkthrough">
-        <div class="container">
-            <h2 class="steps-title">See Exactly How It Works</h2>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-icon">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/>
-                            <circle cx="12" cy="10" r="3"/>
-                        </svg>
-                    </div>
-                    <div class="step-number">1</div>
-                    <h3>Enter ZIP Code</h3>
-                    <p>Tap "Check My Eligibility" and enter your ZIP to see availability.</p>
-                    <img src="images/zip.jpeg" alt="Step 1 Screenshot" class="step-image">
-                </div>
-                <div class="step">
-                    <div class="step-icon">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
-                            <polyline points="14,2 14,8 20,8"/>
-                            <line x1="16" x2="8" y1="13" y2="13"/>
-                            <line x1="16" x2="8" y1="17" y2="17"/>
-                            <polyline points="10,9 9,9 8,9"/>
-                        </svg>
-                    </div>
-                    <div class="step-number">2</div>
-                    <h3>Answer Quick Questions</h3>
-                    <p>Just basic info to confirm it's really you — no sensitive documents.</p>
-                    <img src="images/main form.jpeg" alt="Step 2 Screenshot" class="step-image">
-                </div>
-                <div class="step">
-                    <div class="step-icon">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path d="m22 2-7 20-4-9-9-4Z"/>
-                            <path d="M22 2 11 13"/>
-                        </svg>
-                    </div>
-                    <div class="step-number">3</div>
-                    <h3>Choose the Help You Need</h3>
-                    <p>Pick the support that fits you best and finish your check.</p>
-                    <img src="images/survey.jpeg" alt="Step 3 Screenshot" class="step-image">
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Trust Badges -->
-    <section class="trust-badges" id="badges">
+    <section class="trust-badges">
         <div class="container">
             <div class="badges-grid">
                 <div class="badge">
@@ -889,49 +876,61 @@ src="https://www.facebook.com/tr?id=1072829781630422&ev=PageView&noscript=1"
         </div>
     </section>
 
-    <section class="faq" id="faq">
+    <!-- Testimonials Section  -->
+    <section class="testimonials">
         <div class="container">
-            <h2 class="faq-title">Frequently Asked Questions</h2>
-            <div class="faq-list">
-                <details class="faq-item">
-                    <summary>Will this affect my Social Security or Medicare?</summary>
-                    <div class="answer">
-                        No. Checking eligibility does not affect your existing benefits.
+            <h2 class="testimonials-title">What Seniors Are Saying</h2>
+            <div class="testimonial-container">
+                <div class="testimonial active">
+                    <div class="quote-icon">"</div>
+                    <p class="testimonial-text">"I’m on Social Security and don’t have much extra. This gave me enough to cover my medicine. Glad I tried it."</p>
+                    <div class="testimonial-footer">
+                        <div>
+                            <div class="testimonial-author">Shirley K., age 67</div>
+                            <div class="testimonial-location">Dayton, OH</div>
+                        </div>
                     </div>
-                </details>
-
-                <details class="faq-item">
-                    <summary>How long does the eligibility check take?</summary>
-                    <div class="answer">
-                        About two minutes. Most folks finish on the next page without any paperwork.
+                </div>
+               
+                <div class="testimonial">
+                    <div class="quote-icon">"</div>
+                    <p class="testimonial-text">"It was easy, no tricks. Just answered some questions and that was it. I used the money to get my daughter and her husband a small gift for their anniversary."</p>
+                    <div class="testimonial-footer">
+                        <div>
+                            <div class="testimonial-author">Harold M., age 70</div>
+                            <div class="testimonial-location">Fresno, CA</div>
+                        </div>
                     </div>
-                </details>
-
-                <details class="faq-item">
-                    <summary>Is there a fee or credit check?</summary>
-                    <div class="answer">
-                        No fees and no credit check. This is a free eligibility check.
+                </div>
+               
+                <div class="testimonial">
+                    <div class="quote-icon">"</div>
+                    <p class="testimonial-text">"I was worried it might be a scam, but it was real. Only took a few minutes and I got approved. Helped me pay my electric bill this month."</p>
+                    <div class="testimonial-footer">
+                        <div>
+                            <div class="testimonial-author">Dorothy M., age 64</div>
+                            <div class="testimonial-location">Tampa, FL</div>
+                        </div>
                     </div>
-                </details>
-
-                <details class="faq-item">
-                    <summary>What information do I need?</summary>
-                    <div class="answer">
-                        Your ZIP code and a few basic details to verify eligibility—no sensitive documents.
+                </div>
+               
+                <div class="testimonial-controls">
+                    <div class="testimonial-nav">
+                        <div class="nav-arrow" id="prevBtn">‹</div>
+                        <div class="nav-arrow" id="nextBtn">›</div>
                     </div>
-                </details>
-
-                <details class="faq-item">
-                    <summary>Is my information secure?</summary>
-                    <div class="answer">
-                        Yes. We use SSL and never share your data. See our Privacy Policy for details.
-                    </div>
-                </details>
+                </div>
+               
+                <div class="testimonial-dots">
+                    <span class="dot active" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Second CTA Section -->
+     <!-- Second CTA Section -->
     <section class="second-cta">
         <div class="container">
             <div class="cta-content">
@@ -943,8 +942,129 @@ src="https://www.facebook.com/tr?id=1072829781630422&ev=PageView&noscript=1"
             </div>
         </div>
     </section>
+
+    <section class="faq">
+  <div class="container">
+    <h2 class="faq-title">Frequently Asked Questions</h2>
+    <div class="faq-list">
+
+      <details class="faq-item">
+        <summary>Will this affect my Social Security or Medicare?</summary>
+        <div class="answer">
+          No. Checking eligibility does not affect your existing benefits.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>How long does the eligibility check take?</summary>
+        <div class="answer">
+          About two minutes. Most folks finish on the next page without any paperwork.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Is there a fee or credit check?</summary>
+        <div class="answer">
+          No fees and no credit check. This is a free eligibility check.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What information do I need?</summary>
+        <div class="answer">
+          Your ZIP code and a few basic details to verify eligibility—no sensitive documents.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Is my information secure?</summary>
+        <div class="answer">
+          Yes. We use SSL and never share your data. See our Privacy Policy for details.
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+     
+
+    <!-- Problem Solution Section 
+    <section class="problem-solution">
+        <div class="container">
+            <div class="problem-solution-content">
+                <div class="problem">
+                    <div class="section-header">
+                        <div class="section-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path d="m22 2-7 20-4-9-9-4Z"/>
+                                <path d="M22 2 11 13"/>
+                            </svg>
+                        </div>
+                        <h3>The Problem</h3>
+                    </div>
+                    <p>Rising living costs, healthcare expenses, and inflation are making it harder for seniors to maintain their quality of life on fixed incomes. Essential needs are becoming increasingly expensive while retirement savings stretch thinner.</p>
+                </div>
+                <div class="solution">
+                    <div class="section-header">
+                        <div class="section-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <line x1="12" x2="12" y1="2" y2="22"/>
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                            </svg>
+                        </div>
+                        <h3>The Solution</h3>
+                    </div>
+                    <p>The $2,000 stimulus relief program helps bridge the gap between rising costs and fixed incomes. This financial assistance provides immediate support for essential expenses, giving seniors the breathing room they need.</p>
+                </div>
+            </div>
+            <h2 class="why-choose-title">Why Choose Our Stimulus Program?</h2>
+        </div>
+    </section> -->
+
+    <!-- Benefits Section 
+    <section class="benefits">
+        <div class="container">
+            <div class="benefits-grid">
+                <div class="benefit">
+                    <div class="benefit-icon">✓</div>
+                    <span>Quick 2-minute eligibility check</span>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">✓</div>
+                    <span>100% free with no hidden fees</span>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">✓</div>
+                    <span>No credit check required</span>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">✓</div>
+                    <span>Private and secure—SSL encrypted</span>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">✓</div>
+                    <span>Secure application process</span>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">✓</div>
+                    <span>Dedicated senior support team</span>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">✓</div>
+                    <span>No impact on existing benefits</span>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">✓</div>
+                    <span>Completely risk-free application</span>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
    
-    
+   
+   
 
     <!-- Footer -->
     <footer class="footer">
@@ -974,7 +1094,7 @@ src="https://www.facebook.com/tr?id=1072829781630422&ev=PageView&noscript=1"
     fbq('track', 'Subscribe');
   };
 })();
-        
+       
         let currentTestimonial = 0;
         const totalTestimonials = 3;
 
