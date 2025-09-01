@@ -962,16 +962,47 @@ src="https://www.facebook.com/tr?id=1072829781630422&ev=PageView&noscript=1"
     <script>
         (function () {
   const KEY = 'SubscribeTracked';
+  let isTracking = false; // Prevent rapid consecutive clicks
 
   window.trackSubscribeOnce = function () {
-    // If already tracked in this session, do nothing
-    if (sessionStorage.getItem(KEY) === 'true') return;
+    // Prevent rapid consecutive clicks
+    if (isTracking) {
+      console.log('Already processing click, ignoring...');
+      return false;
+    }
 
-    // Mark as tracked
-    sessionStorage.setItem(KEY, 'true');
+    // Check if already tracked (using localStorage for persistence across sessions)
+    if (localStorage.getItem(KEY) === 'true') {
+      console.log('Subscribe already tracked in this browser, skipping...');
+      return false;
+    }
 
-    // Fire FB Pixel event once
-    fbq('track', 'Subscribe');
+    // Set tracking flag
+    isTracking = true;
+
+    try {
+      // Mark as tracked immediately
+      localStorage.setItem(KEY, 'true');
+      
+      // Wait for FB Pixel to be ready, then fire event
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'Subscribe');
+        console.log('Subscribe event fired successfully');
+      } else {
+        console.warn('Facebook Pixel not loaded');
+      }
+    } catch (error) {
+      console.error('Error tracking subscribe:', error);
+      // Remove the flag if there was an error
+      localStorage.removeItem(KEY);
+    } finally {
+      // Reset the tracking flag after a short delay
+      setTimeout(() => {
+        isTracking = false;
+      }, 1000);
+    }
+    
+    return true;
   };
 })();
         
